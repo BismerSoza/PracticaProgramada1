@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="API/API.csproj" />
+  <Project Path="PracticaProgramada1/PracticaProgramada1.csproj" />
+</Solution>
