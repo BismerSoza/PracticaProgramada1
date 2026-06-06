@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>@ViewData["Title"] &mdash; Stisla</title>
+
+  <!-- Archivos CSS Generales -->
+  <link rel="stylesheet" href="~/css/bootstrap.min.css">
+  <link rel="stylesheet" href="~/css/all.min.css">
+
+  <!-- Librerías CSS -->
+  <link rel="stylesheet" href="~/css/jqvmap.min.css">
+  <link rel="stylesheet" href="~/css/summernote-bs4.css">
+  <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="~/css/owl.theme.default.min.css">
+
+  <!-- CSS de la Plantilla -->
+  <link rel="stylesheet" href="~/css/style.css">
+  <link rel="stylesheet" href="~/css/components.css">
+
+  @RenderSection("HeadStyles", required: false)
+</head>
+
+<body>
+  <div id="app">
+    <div class="main-wrapper main-wrapper-1">
+      <div class="navbar-bg"></div>
+      <nav class="navbar navbar-expand-lg main-navbar">
+        <form class="form-inline mr-auto">
+          <ul class="navbar-nav mr-3">
+            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
+            <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li>
+          </ul>
+          <div class="search-element">
+            <input class="form-control" type="search" placeholder="Buscar" aria-label="Buscar" data-width="250">
+            <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+            <div class="search-backdrop"></div>
+            <div class="search-result">
+              <div class="search-header">Historial</div>
+              <div class="search-item">
+                <a href="#">Cómo hackear la NASA con CSS</a>
+                <a href="#" class="search-close"><i class="fas fa-times"></i></a>
+              </div>
+              <div class="search-item">
+                <a href="#">Kodinger.com</a>
+                <a href="#" class="search-close"><i class="fas fa-times"></i></a>
+              </div>
+              <div class="search-item">
+                <a href="#">#Stisla</a>
+                <a href="#" class="search-close"><i class="fas fa-times"></i></a>
+              </div>
+              <div class="search-header">Resultados</div>
+              <div class="search-item">
+                <a href="#">
+                  <img class="mr-3 rounded" width="30" src="~/img/products/product-3-50.png" alt="producto">
+                  oPhone S9 Edición Limitada
+                </a>
+              </div>
+              <div class="search-item">
+                <a href="#">
+                  <img class="mr-3 rounded" width="30" src="~/img/products/product-2-50.png" alt="producto">
+                  Drone X2 Nueva Gen-7
+                </a>
+              </div>
+              <div class="search-item">
+                <a href="#">
+                  <img class="mr-3 rounded" width="30" src="~/img/products/product-1-50.png" alt="producto">
+                  Auriculares Blitz
+                </a>
+              </div>
+              <div class="search-header">Proyectos</div>
+              <div class="search-item">
+                <a href="#">
+                  <div class="search-icon bg-danger text-white mr-3"><i class="fas fa-code"></i></div>
+                  Plantilla Admin Stisla
+                </a>
+              </div>
+              <div class="search-item">
+                <a href="#">
+                  <div class="search-icon bg-primary text-white mr-3"><i class="fas fa-laptop"></i></div>
+                  Crear nuevo diseño de página principal
+                </a>
+              </div>
+            </div>
+          </div>
+        </form>
+        <ul class="navbar-nav navbar-right">
+          <li class="dropdown dropdown-list-toggle">
+            <a href="#" data-toggle="dropdown" class="nav-link nav-link-lg message-toggle beep"><i class="far fa-envelope"></i></a>
+            <div class="dropdown-menu dropdown-list dropdown-menu-right">
+              <div class="dropdown-header">Mensajes
+                <div class="float-right"><a href="#">Marcar todo como leído</a></div>
+              </div>
+              <div class="dropdown-list-content dropdown-list-message">
+                <a href="#" class="dropdown-item dropdown-item-unread">
+                  <div class="dropdown-item-avatar">
+                    <img alt="imagen" src="~/img/avatar/avatar-1.png" class="rounded-circle">
+                    <div class="is-online"></div>
+                  </div>
+                  <div class="dropdown-item-desc">
+                    <b>Kusnaedi</b>
+                    <p>¡Hola, amigo!</p>
+                    <div class="time">Hace 10 horas</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item dropdown-item-unread">
+                  <div class="dropdown-item-avatar">
+                    <img alt="imagen" src="~/img/avatar/avatar-2.png" class="rounded-circle">
+                  </div>
+                  <div class="dropdown-item-desc">
+                    <b>Dedik Sugiharto</b>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                    <div class="time">Hace 12 horas</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item dropdown-item-unread">
+                  <div class="dropdown-item-avatar">
+                    <img alt="imagen" src="~/img/avatar/avatar-3.png" class="rounded-circle">
+                    <div class="is-online"></div>
+                  </div>
+                  <div class="dropdown-item-desc">
+                    <b>Agung Ardiansyah</b>
+                    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <div class="time">Hace 12 horas</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <div class="dropdown-item-avatar">
+                    <img alt="imagen" src="~/img/avatar/avatar-4.png" class="rounded-circle">
+                  </div>
+                  <div class="dropdown-item-desc">
+                    <b>Ardian Rahardiansyah</b>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit ess</p>
+                    <div class="time">Hace 16 horas</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <div class="dropdown-item-avatar">
+                    <img alt="imagen" src="~/img/avatar/avatar-5.png" class="rounded-circle">
+                  </div>
+                  <div class="dropdown-item-desc">
+                    <b>Alfa Zulkarnain</b>
+                    <p>Exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+                    <div class="time">Ayer</div>
+                  </div>
+                </a>
+              </div>
+              <div class="dropdown-footer text-center">
+                <a href="#">Ver todo <i class="fas fa-chevron-right"></i></a>
+              </div>
+            </div>
+          </li>
+          <li class="dropdown dropdown-list-toggle">
+            <a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i class="far fa-bell"></i></a>
+            <div class="dropdown-menu dropdown-list dropdown-menu-right">
+              <div class="dropdown-header">Notificaciones
+                <div class="float-right"><a href="#">Marcar todo como leído</a></div>
+              </div>
+              <div class="dropdown-list-content dropdown-list-icons">
+                <a href="#" class="dropdown-item dropdown-item-unread">
+                  <div class="dropdown-item-icon bg-primary text-white"><i class="fas fa-code"></i></div>
+                  <div class="dropdown-item-desc">
+                    ¡Actualización de plantilla disponible!
+                    <div class="time text-primary">Hace 2 minutos</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <div class="dropdown-item-icon bg-info text-white"><i class="far fa-user"></i></div>
+                  <div class="dropdown-item-desc">
+                    <b>Usted</b> y <b>Dedik Sugiharto</b> ahora son amigos
+                    <div class="time">Hace 10 horas</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <div class="dropdown-item-icon bg-success text-white"><i class="fas fa-check"></i></div>
+                  <div class="dropdown-item-desc">
+                    <b>Kusnaedi</b> movió la tarea <b>Corregir bug encabezado</b> a <b>Hecho</b>
+                    <div class="time">Hace 12 horas</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <div class="dropdown-item-icon bg-danger text-white"><i class="fas fa-exclamation-triangle"></i></div>
+                  <div class="dropdown-item-desc">
+                    Poco espacio en disco. ¡Libere espacio!
+                    <div class="time">Hace 17 horas</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <div class="dropdown-item-icon bg-info text-white"><i class="fas fa-bell"></i></div>
+                  <div class="dropdown-item-desc">
+                    ¡Bienvenido a la plantilla Stisla!
+                    <div class="time">Ayer</div>
+                  </div>
+                </a>
+              </div>
+              <div class="dropdown-footer text-center">
+                <a href="#">Ver todo <i class="fas fa-chevron-right"></i></a>
+              </div>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+              <img alt="imagen" src="~/img/avatar/avatar-1.png" class="rounded-circle mr-1">
+              <div class="d-sm-none d-lg-inline-block">Hola, Ujang Maman</div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <div class="dropdown-title">Conectado hace 5 minutos</div>
+              <a href="#" class="dropdown-item has-icon"><i class="far fa-user"></i> Perfil</a>
+              <a href="#" class="dropdown-item has-icon"><i class="fas fa-bolt"></i> Actividades</a>
+              <a href="#" class="dropdown-item has-icon"><i class="fas fa-cog"></i> Configuración</a>
+              <div class="dropdown-divider"></div>
+              <a asp-action="Index" asp-controller="Home" class="dropdown-item has-icon text-danger">
+                <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+              </a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="main-sidebar sidebar-style-2">
+        <aside id="sidebar-wrapper">
+          <div class="sidebar-brand">
+            <a asp-action="Dashboard" asp-controller="Home">Stisla</a>
+          </div>
+          <div class="sidebar-brand sidebar-brand-sm">
+            <a asp-action="Dashboard" asp-controller="Home">St</a>
+          </div>
+          <ul class="sidebar-menu">
+            <li class="menu-header">Panel</li>
+            <li class="dropdown active">
+              <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Panel de Control</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" asp-action="GeneralDashboard" asp-controller="Home">Panel General</a></li>
+                <li class="active"><a class="nav-link" asp-action="Dashboard" asp-controller="Home">Panel Ecommerce</a></li>
+              </ul>
+            </li>
+            <li class="menu-header">Inicio</li>
+            <li class="dropdown">
+              <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Diseño</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" asp-action="LayoutDefault" asp-controller="Home">Diseño Predeterminado</a></li>
+              </ul>
+            </li>
+            <li><a class="nav-link" href="#"><i class="far fa-square"></i> <span>Página en Blanco</span></a></li>
+            <li class="dropdown">
+              <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i> <span>Bootstrap</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="#">Alertas</a></li>
+                <li><a class="nav-link" href="#">Insignias</a></li>
+                <li><a class="nav-link" href="#">Migas de Pan</a></li>
+                <li><a class="nav-link" href="#">Botones</a></li>
+                <li><a class="nav-link" href="#">Tarjetas</a></li>
+                <li><a class="nav-link" href="#">Carrusel</a></li>
+                <li><a class="nav-link" href="#">Colapso</a></li>
+                <li><a class="nav-link" href="#">Desplegable</a></li>
+                <li><a class="nav-link" href="#">Formulario</a></li>
+                <li><a class="nav-link" href="#">Grupo de Lista</a></li>
+                <li><a class="nav-link" href="#">Objeto Multimedia</a></li>
+                <li><a class="nav-link" href="#">Modal</a></li>
+                <li><a class="nav-link" href="#">Nav</a></li>
+                <li><a class="nav-link" href="#">Barra de Nav</a></li>
+                <li><a class="nav-link" href="#">Paginación</a></li>
+                <li><a class="nav-link" href="#">Popover</a></li>
+                <li><a class="nav-link" href="#">Progreso</a></li>
+                <li><a class="nav-link" href="#">Tabla</a></li>
+                <li><a class="nav-link" href="#">Tooltip</a></li>
+                <li><a class="nav-link" href="#">Tipografía</a></li>
+              </ul>
+            </li>
+            <li class="menu-header">Stisla</li>
+            <li class="dropdown">
+              <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i> <span>Componentes</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="#">Artículo</a></li>
+                <li><a class="nav-link beep beep-sidebar" href="#">Avatar</a></li>
+                <li><a class="nav-link" href="#">Caja de Chat</a></li>
+                <li><a class="nav-link beep beep-sidebar" href="#">Estado Vacío</a></li>
+                <li><a class="nav-link" href="#">Galería</a></li>
+                <li><a class="nav-link beep beep-sidebar" href="#">Héroe</a></li>
+                <li><a class="nav-link" href="#">Carga Múltiple</a></li>
+                <li><a class="nav-link beep beep-sidebar" href="#">Precios</a></li>
+                <li><a class="nav-link" href="#">Estadística</a></li>
+                <li><a class="nav-link" href="#">Pestañas</a></li>
+                <li><a class="nav-link" href="#">Tabla</a></li>
+                <li><a class="nav-link" href="#">Usuario</a></li>
+                <li><a class="nav-link beep beep-sidebar" href="#">Asistente</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i> <span>Formularios</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="#">Formulario Avanzado</a></li>
+                <li><a class="nav-link" href="#">Editor</a></li>
+                <li><a class="nav-link" href="#">Validación</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="nav-link has-dropdown"><i class="fas fa-map-marker-alt"></i> <span>Google Maps</span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Ruta Avanzada</a></li>
+                <li><a href="#">Marcador Arrastrable</a></li>
+                <li><a href="#">Geocodificación</a></li>
+                <li><a href="#">Geolocalización</a></li>
+                <li><a href="#">Marcador</a></li>
+                <li><a href="#">Múltiples Marcadores</a></li>
+                <li><a href="#">Ruta</a></li>
+                <li><a href="#">Simple</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="nav-link has-dropdown"><i class="fas fa-plug"></i> <span>Módulos</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="#">Calendario</a></li>
+                <li><a class="nav-link" href="#">ChartJS</a></li>
+                <li><a class="nav-link" href="#">DataTables</a></li>
+                <li><a class="nav-link" href="#">Banderas</a></li>
+                <li><a class="nav-link" href="#">Font Awesome</a></li>
+                <li><a class="nav-link" href="#">Ion Icons</a></li>
+                <li><a class="nav-link" href="#">Owl Carousel</a></li>
+                <li><a class="nav-link" href="#">Sparkline</a></li>
+                <li><a class="nav-link" href="#">Sweet Alert</a></li>
+                <li><a class="nav-link" href="#">Toastr</a></li>
+                <li><a class="nav-link" href="#">Mapa Vectorial</a></li>
+                <li><a class="nav-link" href="#">Íconos de Clima</a></li>
+              </ul>
+            </li>
+            <li class="menu-header">Páginas</li>
+            <li class="dropdown">
+              <a href="#" class="nav-link has-dropdown"><i class="far fa-user"></i> <span>Autenticación</span></a>
+              <ul class="dropdown-menu">
+                <li><a asp-action="Index" asp-controller="Home">Iniciar Sesión</a></li>
+                <li><a asp-action="Registro" asp-controller="Home">Registrarse</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="nav-link has-dropdown"><i class="fas fa-exclamation"></i> <span>Errores</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="#">503</a></li>
+                <li><a class="nav-link" href="#">403</a></li>
+                <li><a class="nav-link" href="#">404</a></li>
+                <li><a class="nav-link" href="#">500</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="nav-link has-dropdown"><i class="fas fa-bicycle"></i> <span>Funciones</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="#">Actividades</a></li>
+                <li><a class="nav-link" href="#">Crear Publicación</a></li>
+                <li><a class="nav-link" href="#">Publicaciones</a></li>
+                <li><a class="nav-link" href="#">Perfil</a></li>
+                <li><a class="nav-link" href="#">Configuración</a></li>
+                <li><a class="nav-link" href="#">Detalle Configuración</a></li>
+                <li><a class="nav-link" href="#">Tickets</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="nav-link has-dropdown"><i class="fas fa-ellipsis-h"></i> <span>Utilidades</span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Contacto</a></li>
+                <li><a class="nav-link" href="#">Factura</a></li>
+                <li><a href="#">Suscribirse</a></li>
+              </ul>
+            </li>
+            <li><a class="nav-link" href="#"><i class="fas fa-pencil-ruler"></i> <span>Créditos</span></a></li>
+          </ul>
+
+          <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
+            <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
+              <i class="fas fa-rocket"></i> Documentación
+            </a>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Contenido Principal -->
+      <div class="main-content">
+        @RenderBody()
+      </div>
+      <footer class="main-footer">
+        <div class="footer-left">
+          Copyright &copy; @DateTime.Now.Year <div class="bullet"></div> Diseñado por <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
+        </div>
+        <div class="footer-right"></div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Scripts JS Generales -->
+  <script src="~/js/jquery.min.js"></script>
+  <script src="~/js/popper.js"></script>
+  <script src="~/js/tooltip.js"></script>
+  <script src="~/js/bootstrap.min.js"></script>
+  <script src="~/js/jquery.nicescroll.min.js"></script>
+  <script src="~/js/moment.min.js"></script>
+  <script src="~/js/stisla.js"></script>
+
+  <!-- Librerías JS -->
+  <script src="~/js/jquery.sparkline.min.js"></script>
+  <script src="~/js/chart.min.js"></script>
+  <script src="~/js/owl.carousel.min.js"></script>
+  <script src="~/js/summernote-bs4.js"></script>
+  <script src="~/js/jquery.chocolat.min.js"></script>
+
+  <!-- Scripts específicos de la página -->
+  @RenderSection("Scripts", required: false)
+
+  <!-- Scripts de la Plantilla -->
+  <script src="~/js/scripts.js"></script>
+  <script src="~/js/custom.js"></script>
+</body>
+</html>

@@ -11,6 +11,21 @@ namespace PracticaProgramada1.Controllers
             return View();
         }
 
+        public IActionResult Dashboard()
+        {
+            return View();
+        }
+
+        public IActionResult GeneralDashboard()
+        {
+            return View();
+        }
+
+        public IActionResult LayoutDefault()
+        {
+            return View();
+        }
+
         [HttpGet]
         public IActionResult Registro()
         {
