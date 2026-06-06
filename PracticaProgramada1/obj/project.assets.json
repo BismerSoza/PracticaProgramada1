@@ -8,23 +8,23 @@
     "net10.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Soza\\.nuget\\packages\\": {},
+    "C:\\Users\\ahernandez\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Soza\\source\\PracticaProgramada1\\PracticaProgramada1\\PracticaProgramada1.csproj",
+      "projectUniqueName": "C:\\Users\\ahernandez\\source\\repos\\PracticaProgramada1\\PracticaProgramada1\\PracticaProgramada1.csproj",
       "projectName": "PracticaProgramada1",
-      "projectPath": "C:\\Users\\Soza\\source\\PracticaProgramada1\\PracticaProgramada1\\PracticaProgramada1.csproj",
-      "packagesPath": "C:\\Users\\Soza\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Soza\\source\\PracticaProgramada1\\PracticaProgramada1\\obj\\",
+      "projectPath": "C:\\Users\\ahernandez\\source\\repos\\PracticaProgramada1\\PracticaProgramada1\\PracticaProgramada1.csproj",
+      "packagesPath": "C:\\Users\\ahernandez\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ahernandez\\source\\repos\\PracticaProgramada1\\PracticaProgramada1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Soza\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ahernandez\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -33,7 +33,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

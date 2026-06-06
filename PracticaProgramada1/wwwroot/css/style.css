@@ -269,7 +269,7 @@ select.form-control:not([size]):not([multiple]) {
   display: inline-flex; }
 
 .selectgroup-item {
-  -ms-flex-positive: 1;
+
   flex-grow: 1;
   position: relative; }
   .selectgroup-item + .selectgroup-item {
@@ -327,7 +327,7 @@ select.form-control:not([size]):not([multiple]) {
   align-items: flex-start; }
   .selectgroup-pills .selectgroup-item {
     margin-right: .5rem;
-    -ms-flex-positive: 0;
+
     flex-grow: 0; }
   .selectgroup-pills .selectgroup-button {
     border-radius: 50px !important; }
@@ -629,7 +629,7 @@ select.form-control:not([size]):not([multiple]) {
   .card .card-header {
     border-bottom-color: #f9f9f9;
     line-height: 30px;
-    -ms-grid-row-align: center;
+   
     align-self: center;
     width: 100%;
     min-height: 70px;
@@ -1929,7 +1929,7 @@ a.dropdown-item {
   font-weight: 700;
   src: url("../fonts/nunito-v9-latin-700.eot");
   /* IE9 Compat Modes */
-  src: local("Nunito Bold"), local("Nunito-Bold"), url("../fonts/nunito-v9-latin-700.eot?#iefix",url("../fonts/nunito-v9-latin-700.eot?#iefix" ,url("../fonts/nunito-v9-latin-700.eot?#iefix") format("embedded-opentype"), url("../fonts/nunito-v9-latin-700.woff2") format("woff2"), url("../fonts/nunito-v9-latin-700.woff") format("woff"), url("../fonts/nunito-v9-latin-700.ttf") format("truetype"), url("../fonts/nunito-v9-latin-700.svg#Nunito") format("svg");
+  src: local("Nunito Bold"), local("Nunito-Bold"), url("../fonts/nunito-v9-latin-700.eot?#iefix") format("embedded-opentype"), url("../fonts/nunito-v9-latin-700.woff2") format("woff2"), url("../fonts/nunito-v9-latin-700.woff") format("woff"), url("../fonts/nunito-v9-latin-700.ttf") format("truetype"), url("../fonts/nunito-v9-latin-700.svg#Nunito") format("svg");
   /* Legacy iOS */ }
 /* nunito-800 - latin */
 @font-face {
