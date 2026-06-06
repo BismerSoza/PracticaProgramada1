@@ -10,13 +10,15 @@
                             <span class="app-brand-logo demo">
                                 <!-- Aquí va tu SVG del logo -->
                             </span>
-                            <span class="app-brand-text demo text-body fw-bolder">Sneat</span>
+                            <a asp-action="Index" asp-controller="Home">
+                                <p class="mb-3"><img src="/img/stisla.svg" alt="logo" width="50" class="shadow-light rounded-circle"></p>
+                                </a>
                         </a>
                     </div>
                     <!-- /Logo -->
 
-                    <h4 class="mb-2">¿Olvidaste tu contraseña? 🔒</h4>
-                    <p class="mb-4">Ingresa tu correo electrónico y te enviaremos instrucciones para restablecer tu contraseña</p>
+                    <h4 class="mb-3">¿Olvidaste tu contraseña? 🔒</h4>
+                    <p class="mb-3">Ingresa tu correo electrónico y te enviaremos instrucciones para restablecer tu contraseña</p>
 
                     <form id="formAuthentication" class="mb-3" action="Index" method="POST">
                         <div class="mb-3">

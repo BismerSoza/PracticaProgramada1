@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "SJcdKQP3IQw=",
+  "dgSpecHash": "H01rKB4+/1o=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Soza\\source\\PracticaProgramada1\\API\\API.csproj",
+  "projectFilePath": "C:\\Universidad-Github\\Trabajos Grupales\\PracticaProgramada1\\API\\API.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Soza\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.8\\microsoft.aspnetcore.openapi.10.0.8.nupkg.sha512",
-    "C:\\Users\\Soza\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
+    "C:\\Users\\ahernandez\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.8\\microsoft.aspnetcore.openapi.10.0.8.nupkg.sha512",
+    "C:\\Users\\ahernandez\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
   ],
   "logs": []
 }

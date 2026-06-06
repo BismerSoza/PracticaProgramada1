@@ -1,41 +1,37 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Soza\\source\\PracticaProgramada1\\",
+  "WorkspaceRootPath": "C:\\Users\\ahernandez\\source\\repos\\PracticaProgramada1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{638CD9E5-0551-F8EE-86A4-A0F3652701B5}|PracticaProgramada1\\PracticaProgramada1.csproj|c:\\users\\soza\\source\\practicaprogramada1\\practicaprogramada1\\views\\home\\recuperar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{638CD9E5-0551-F8EE-86A4-A0F3652701B5}|PracticaProgramada1\\PracticaProgramada1.csproj|c:\\users\\ahernandez\\source\\repos\\practicaprogramada1\\practicaprogramada1\\views\\home\\recuperar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{638CD9E5-0551-F8EE-86A4-A0F3652701B5}|PracticaProgramada1\\PracticaProgramada1.csproj|solutionrelative:practicaprogramada1\\views\\home\\recuperar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{638CD9E5-0551-F8EE-86A4-A0F3652701B5}|PracticaProgramada1\\PracticaProgramada1.csproj|c:\\users\\soza\\source\\practicaprogramada1\\practicaprogramada1\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{638CD9E5-0551-F8EE-86A4-A0F3652701B5}|PracticaProgramada1\\PracticaProgramada1.csproj|c:\\users\\ahernandez\\source\\repos\\practicaprogramada1\\practicaprogramada1\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{638CD9E5-0551-F8EE-86A4-A0F3652701B5}|PracticaProgramada1\\PracticaProgramada1.csproj|solutionrelative:practicaprogramada1\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{638CD9E5-0551-F8EE-86A4-A0F3652701B5}|PracticaProgramada1\\PracticaProgramada1.csproj|c:\\users\\soza\\source\\practicaprogramada1\\practicaprogramada1\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{638CD9E5-0551-F8EE-86A4-A0F3652701B5}|PracticaProgramada1\\PracticaProgramada1.csproj|c:\\users\\ahernandez\\source\\repos\\practicaprogramada1\\practicaprogramada1\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{638CD9E5-0551-F8EE-86A4-A0F3652701B5}|PracticaProgramada1\\PracticaProgramada1.csproj|solutionrelative:practicaprogramada1\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{638CD9E5-0551-F8EE-86A4-A0F3652701B5}|PracticaProgramada1\\PracticaProgramada1.csproj|c:\\users\\soza\\source\\practicaprogramada1\\practicaprogramada1\\views\\home\\registro.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{638CD9E5-0551-F8EE-86A4-A0F3652701B5}|PracticaProgramada1\\PracticaProgramada1.csproj|c:\\users\\ahernandez\\source\\repos\\practicaprogramada1\\practicaprogramada1\\views\\home\\registro.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{638CD9E5-0551-F8EE-86A4-A0F3652701B5}|PracticaProgramada1\\PracticaProgramada1.csproj|solutionrelative:practicaprogramada1\\views\\home\\registro.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{638CD9E5-0551-F8EE-86A4-A0F3652701B5}|PracticaProgramada1\\PracticaProgramada1.csproj|c:\\users\\soza\\source\\practicaprogramada1\\practicaprogramada1\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{638CD9E5-0551-F8EE-86A4-A0F3652701B5}|PracticaProgramada1\\PracticaProgramada1.csproj|solutionrelative:practicaprogramada1\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{638CD9E5-0551-F8EE-86A4-A0F3652701B5}|PracticaProgramada1\\PracticaProgramada1.csproj|c:\\users\\soza\\source\\practicaprogramada1\\practicaprogramada1\\views\\shared\\_layoutdashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{638CD9E5-0551-F8EE-86A4-A0F3652701B5}|PracticaProgramada1\\PracticaProgramada1.csproj|c:\\users\\ahernandez\\source\\repos\\practicaprogramada1\\practicaprogramada1\\views\\shared\\_layoutdashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{638CD9E5-0551-F8EE-86A4-A0F3652701B5}|PracticaProgramada1\\PracticaProgramada1.csproj|solutionrelative:practicaprogramada1\\views\\shared\\_layoutdashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{638CD9E5-0551-F8EE-86A4-A0F3652701B5}|PracticaProgramada1\\PracticaProgramada1.csproj|c:\\users\\soza\\source\\practicaprogramada1\\practicaprogramada1\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "AbsoluteMoniker": "D:0:0:{638CD9E5-0551-F8EE-86A4-A0F3652701B5}|PracticaProgramada1\\PracticaProgramada1.csproj|c:\\users\\ahernandez\\source\\repos\\practicaprogramada1\\practicaprogramada1\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{638CD9E5-0551-F8EE-86A4-A0F3652701B5}|PracticaProgramada1\\PracticaProgramada1.csproj|solutionrelative:practicaprogramada1\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{638CD9E5-0551-F8EE-86A4-A0F3652701B5}|PracticaProgramada1\\PracticaProgramada1.csproj|c:\\users\\soza\\source\\practicaprogramada1\\practicaprogramada1\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{638CD9E5-0551-F8EE-86A4-A0F3652701B5}|PracticaProgramada1\\PracticaProgramada1.csproj|c:\\users\\ahernandez\\source\\repos\\practicaprogramada1\\practicaprogramada1\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{638CD9E5-0551-F8EE-86A4-A0F3652701B5}|PracticaProgramada1\\PracticaProgramada1.csproj|solutionrelative:practicaprogramada1\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{638CD9E5-0551-F8EE-86A4-A0F3652701B5}|PracticaProgramada1\\PracticaProgramada1.csproj|c:\\users\\soza\\source\\practicaprogramada1\\practicaprogramada1\\models\\usuariomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{638CD9E5-0551-F8EE-86A4-A0F3652701B5}|PracticaProgramada1\\PracticaProgramada1.csproj|c:\\users\\ahernandez\\source\\repos\\practicaprogramada1\\practicaprogramada1\\models\\usuariomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{638CD9E5-0551-F8EE-86A4-A0F3652701B5}|PracticaProgramada1\\PracticaProgramada1.csproj|solutionrelative:practicaprogramada1\\models\\usuariomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -46,29 +42,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Soza\\source\\PracticaProgramada1\\PracticaProgramada1\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "PracticaProgramada1\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\Soza\\source\\PracticaProgramada1\\PracticaProgramada1\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "PracticaProgramada1\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-06T00:33:51.7Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Recuperar.cshtml",
-              "DocumentMoniker": "C:\\Users\\Soza\\source\\PracticaProgramada1\\PracticaProgramada1\\Views\\Home\\Recuperar.cshtml",
+              "DocumentMoniker": "C:\\Users\\ahernandez\\source\\repos\\PracticaProgramada1\\PracticaProgramada1\\Views\\Home\\Recuperar.cshtml",
               "RelativeDocumentMoniker": "PracticaProgramada1\\Views\\Home\\Recuperar.cshtml",
-              "ToolTip": "C:\\Users\\Soza\\source\\PracticaProgramada1\\PracticaProgramada1\\Views\\Home\\Recuperar.cshtml",
+              "ToolTip": "C:\\Users\\ahernandez\\source\\repos\\PracticaProgramada1\\PracticaProgramada1\\Views\\Home\\Recuperar.cshtml",
               "RelativeToolTip": "PracticaProgramada1\\Views\\Home\\Recuperar.cshtml",
               "ViewState": "AgIAACgAAAAAAAAAAAAAAC0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -77,11 +59,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "UsuarioModel.cs",
-              "DocumentMoniker": "C:\\Users\\Soza\\source\\PracticaProgramada1\\PracticaProgramada1\\Models\\UsuarioModel.cs",
+              "DocumentMoniker": "C:\\Users\\ahernandez\\source\\repos\\PracticaProgramada1\\PracticaProgramada1\\Models\\UsuarioModel.cs",
               "RelativeDocumentMoniker": "PracticaProgramada1\\Models\\UsuarioModel.cs",
-              "ToolTip": "C:\\Users\\Soza\\source\\PracticaProgramada1\\PracticaProgramada1\\Models\\UsuarioModel.cs",
+              "ToolTip": "C:\\Users\\ahernandez\\source\\repos\\PracticaProgramada1\\PracticaProgramada1\\Models\\UsuarioModel.cs",
               "RelativeToolTip": "PracticaProgramada1\\Models\\UsuarioModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -89,11 +71,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "_ViewStart.cshtml",
-              "DocumentMoniker": "C:\\Users\\Soza\\source\\PracticaProgramada1\\PracticaProgramada1\\Views\\_ViewStart.cshtml",
+              "DocumentMoniker": "C:\\Users\\ahernandez\\source\\repos\\PracticaProgramada1\\PracticaProgramada1\\Views\\_ViewStart.cshtml",
               "RelativeDocumentMoniker": "PracticaProgramada1\\Views\\_ViewStart.cshtml",
-              "ToolTip": "C:\\Users\\Soza\\source\\PracticaProgramada1\\PracticaProgramada1\\Views\\_ViewStart.cshtml",
+              "ToolTip": "C:\\Users\\ahernandez\\source\\repos\\PracticaProgramada1\\PracticaProgramada1\\Views\\_ViewStart.cshtml",
               "RelativeToolTip": "PracticaProgramada1\\Views\\_ViewStart.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -103,63 +85,59 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Registro.cshtml",
-              "DocumentMoniker": "C:\\Users\\Soza\\source\\PracticaProgramada1\\PracticaProgramada1\\Views\\Home\\Registro.cshtml",
+              "DocumentMoniker": "C:\\Users\\ahernandez\\source\\repos\\PracticaProgramada1\\PracticaProgramada1\\Views\\Home\\Registro.cshtml",
               "RelativeDocumentMoniker": "PracticaProgramada1\\Views\\Home\\Registro.cshtml",
-              "ToolTip": "C:\\Users\\Soza\\source\\PracticaProgramada1\\PracticaProgramada1\\Views\\Home\\Registro.cshtml",
+              "ToolTip": "C:\\Users\\ahernandez\\source\\repos\\PracticaProgramada1\\PracticaProgramada1\\Views\\Home\\Registro.cshtml",
               "RelativeToolTip": "PracticaProgramada1\\Views\\Home\\Registro.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-05T23:45:10.057Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-05T23:45:10.057Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Soza\\source\\PracticaProgramada1\\PracticaProgramada1\\Views\\Home\\Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ahernandez\\source\\repos\\PracticaProgramada1\\PracticaProgramada1\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "PracticaProgramada1\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Soza\\source\\PracticaProgramada1\\PracticaProgramada1\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ahernandez\\source\\repos\\PracticaProgramada1\\PracticaProgramada1\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "PracticaProgramada1\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAABgAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAIBJwBgAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-04T22:16:42.378Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-04T22:16:42.378Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\Soza\\source\\PracticaProgramada1\\PracticaProgramada1\\Controllers\\HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\ahernandez\\source\\repos\\PracticaProgramada1\\PracticaProgramada1\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "PracticaProgramada1\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\Soza\\source\\PracticaProgramada1\\PracticaProgramada1\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\ahernandez\\source\\repos\\PracticaProgramada1\\PracticaProgramada1\\Controllers\\HomeController.cs",
               "RelativeToolTip": "PracticaProgramada1\\Controllers\\HomeController.cs",
               "ViewState": "AgIAABkAAAAAAAAAAAAcwC0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-05T23:39:25.883Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-05T23:39:25.883Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_LayoutDashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\ahernandez\\source\\repos\\PracticaProgramada1\\PracticaProgramada1\\Views\\Shared\\_LayoutDashboard.cshtml",
+              "RelativeDocumentMoniker": "PracticaProgramada1\\Views\\Shared\\_LayoutDashboard.cshtml",
+              "ToolTip": "C:\\Users\\ahernandez\\source\\repos\\PracticaProgramada1\\PracticaProgramada1\\Views\\Shared\\_LayoutDashboard.cshtml",
+              "RelativeToolTip": "PracticaProgramada1\\Views\\Shared\\_LayoutDashboard.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-06T05:44:35.258Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "_LayoutDashboard.cshtml",
-              "DocumentMoniker": "C:\\Users\\Soza\\source\\PracticaProgramada1\\PracticaProgramada1\\Views\\Shared\\_LayoutDashboard.cshtml",
-              "RelativeDocumentMoniker": "PracticaProgramada1\\Views\\Shared\\_LayoutDashboard.cshtml",
-              "ToolTip": "C:\\Users\\Soza\\source\\PracticaProgramada1\\PracticaProgramada1\\Views\\Shared\\_LayoutDashboard.cshtml",
-              "RelativeToolTip": "PracticaProgramada1\\Views\\Shared\\_LayoutDashboard.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-06T05:44:35.258Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "style.css",
-              "DocumentMoniker": "C:\\Users\\Soza\\source\\PracticaProgramada1\\PracticaProgramada1\\wwwroot\\css\\style.css",
+              "DocumentMoniker": "C:\\Users\\ahernandez\\source\\repos\\PracticaProgramada1\\PracticaProgramada1\\wwwroot\\css\\style.css",
               "RelativeDocumentMoniker": "PracticaProgramada1\\wwwroot\\css\\style.css",
-              "ToolTip": "C:\\Users\\Soza\\source\\PracticaProgramada1\\PracticaProgramada1\\wwwroot\\css\\style.css",
+              "ToolTip": "C:\\Users\\ahernandez\\source\\repos\\PracticaProgramada1\\PracticaProgramada1\\wwwroot\\css\\style.css",
               "RelativeToolTip": "PracticaProgramada1\\wwwroot\\css\\style.css",
-              "ViewState": "AgIAAJUBAAAAAAAAAAAAAMoBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAJIBAAAAAAAAAIBJwMoBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2026-06-06T01:17:08.777Z"
             }
