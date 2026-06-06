@@ -38,5 +38,11 @@ namespace PracticaProgramada1.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult Recuperar()
+        {
+            return View();
+        }
+
     }
 }

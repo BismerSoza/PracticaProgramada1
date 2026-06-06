@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JeffryCH\\Documents\\VS\\SabadoClase\\PracticaProgramada1\\API\\API.csproj": {}
+    "C:\\Users\\Soza\\source\\PracticaProgramada1\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JeffryCH\\Documents\\VS\\SabadoClase\\PracticaProgramada1\\API\\API.csproj": {
+    "C:\\Users\\Soza\\source\\PracticaProgramada1\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JeffryCH\\Documents\\VS\\SabadoClase\\PracticaProgramada1\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\Soza\\source\\PracticaProgramada1\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\JeffryCH\\Documents\\VS\\SabadoClase\\PracticaProgramada1\\API\\API.csproj",
-        "packagesPath": "C:\\Users\\JeffryCH\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JeffryCH\\Documents\\VS\\SabadoClase\\PracticaProgramada1\\API\\obj\\",
+        "projectPath": "C:\\Users\\Soza\\source\\PracticaProgramada1\\API\\API.csproj",
+        "packagesPath": "C:\\Users\\Soza\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Soza\\source\\PracticaProgramada1\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\JeffryCH\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Soza\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

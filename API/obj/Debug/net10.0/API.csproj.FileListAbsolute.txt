@@ -102,3 +102,4 @@ C:\Users\JeffryCH\Documents\VS\SabadoClase\PracticaProgramada1\API\obj\Debug\net
 C:\Users\JeffryCH\Documents\VS\SabadoClase\PracticaProgramada1\API\obj\Debug\net10.0\API.genruntimeconfig.cache
 C:\Users\JeffryCH\Documents\VS\SabadoClase\PracticaProgramada1\API\obj\Debug\net10.0\ref\API.dll
 C:\Users\JeffryCH\Documents\VS\SabadoClase\PracticaProgramada1\API\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Users\Soza\source\PracticaProgramada1\API\obj\Debug\net10.0\API.sourcelink.json
