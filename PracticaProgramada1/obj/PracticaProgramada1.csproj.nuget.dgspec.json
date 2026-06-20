@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Universidad-Github\\Trabajos Grupales\\PracticaProgramada1\\PracticaProgramada1\\PracticaProgramada1.csproj": {}
+    "C:\\Users\\Soza\\source\\PracticaProgramada1\\PracticaProgramada1\\PracticaProgramada1.csproj": {}
   },
   "projects": {
-    "C:\\Universidad-Github\\Trabajos Grupales\\PracticaProgramada1\\PracticaProgramada1\\PracticaProgramada1.csproj": {
+    "C:\\Users\\Soza\\source\\PracticaProgramada1\\PracticaProgramada1\\PracticaProgramada1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Universidad-Github\\Trabajos Grupales\\PracticaProgramada1\\PracticaProgramada1\\PracticaProgramada1.csproj",
+        "projectUniqueName": "C:\\Users\\Soza\\source\\PracticaProgramada1\\PracticaProgramada1\\PracticaProgramada1.csproj",
         "projectName": "PracticaProgramada1",
-        "projectPath": "C:\\Universidad-Github\\Trabajos Grupales\\PracticaProgramada1\\PracticaProgramada1\\PracticaProgramada1.csproj",
-        "packagesPath": "C:\\Users\\ahernandez\\.nuget\\packages\\",
-        "outputPath": "C:\\Universidad-Github\\Trabajos Grupales\\PracticaProgramada1\\PracticaProgramada1\\obj\\",
+        "projectPath": "C:\\Users\\Soza\\source\\PracticaProgramada1\\PracticaProgramada1\\PracticaProgramada1.csproj",
+        "packagesPath": "C:\\Users\\Soza\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Soza\\source\\PracticaProgramada1\\PracticaProgramada1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ahernandez\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Soza\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -76,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
