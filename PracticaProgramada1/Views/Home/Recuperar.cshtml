@@ -1,0 +1,47 @@
+<div class="container-xxl">
+    <div class="authentication-wrapper authentication-basic container-p-y">
+        <div class="authentication-inner py-4">
+            <!-- Recuperar Contraseña -->
+            <div class="card">
+                <div class="card-body">
+                    <!-- Logo -->
+                    <div class="app-brand justify-content-center">
+                        <a href="Index" class="app-brand-link gap-2">
+                            <span class="app-brand-logo demo">
+                                <!-- Aquí va tu SVG del logo -->
+                            </span>
+                            <a asp-action="Index" asp-controller="Home">
+                                <p class="mb-3"><img src="/img/stisla.png" alt="logo" width="50" class="shadow-light rounded-circle"></p>
+                                </a>
+                        </a>
+                    </div>
+                    <!-- /Logo -->
+
+                    <h4 class="mb-3">¿Olvidaste tu contraseña? 🔒</h4>
+                    <p class="mb-3">Ingresa tu correo electrónico y te enviaremos instrucciones para restablecer tu contraseña</p>
+
+                    <form id="formAuthentication" class="mb-3" action="Index" method="POST">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correo electrónico</label>
+                            <input type="text"
+                                   class="form-control"
+                                   id="email"
+                                   name="email"
+                                   placeholder="Ingresa tu correo electrónico"
+                                   autofocus />
+                        </div>
+                        <button class="btn btn-primary d-grid w-100">Enviar enlace de recuperación</button>
+                    </form>
+
+                    <div class="text-center">
+                        <a href="Index" class="d-flex align-items-center justify-content-center">
+                            <i class="bx bx-chevron-left scaleX-n1-rtl bx-sm"></i>
+                            Volver al inicio de sesión
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- /Recuperar Contraseña -->
+        </div>
+    </div>
+</div>

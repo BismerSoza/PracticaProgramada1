@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JeffryCH\\Documents\\VS\\SabadoClase\\PracticaProgramada1\\API\\API.csproj": {}
+    "C:\\Users\\Soza\\source\\PracticaProgramada1\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JeffryCH\\Documents\\VS\\SabadoClase\\PracticaProgramada1\\API\\API.csproj": {
+    "C:\\Users\\Soza\\source\\PracticaProgramada1\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JeffryCH\\Documents\\VS\\SabadoClase\\PracticaProgramada1\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\Soza\\source\\PracticaProgramada1\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\JeffryCH\\Documents\\VS\\SabadoClase\\PracticaProgramada1\\API\\API.csproj",
-        "packagesPath": "C:\\Users\\JeffryCH\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JeffryCH\\Documents\\VS\\SabadoClase\\PracticaProgramada1\\API\\obj\\",
+        "projectPath": "C:\\Users\\Soza\\source\\PracticaProgramada1\\API\\API.csproj",
+        "packagesPath": "C:\\Users\\Soza\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Soza\\source\\PracticaProgramada1\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\JeffryCH\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Soza\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -53,9 +53,17 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.1.79, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[10.0.8, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[7.0.1, )"
             }
           },
           "imports": [
@@ -77,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
