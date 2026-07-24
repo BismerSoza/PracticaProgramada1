@@ -57,23 +57,21 @@ namespace PracticaProgramada1.Controllers
                 }
                 else if (response.StatusCode == HttpStatusCode.Unauthorized)
                 {
-                    var error = await response.Content.ReadAsStringAsync();
                     ViewBag.Error = "Credenciales incorrectas o usuario inactivo";
                     return View(model);
                 }
                 else
                 {
-                    var error = await response.Content.ReadAsStringAsync();
-                    ViewBag.Error = "Error al conectar con el servidor: " + error;
+                    ViewBag.Error = "Error al conectar con el servidor";
                     return View(model);
                 }
 
                 ViewBag.Error = "Error al iniciar sesión";
                 return View(model);
             }
-            catch (System.Exception ex)
+            catch (Exception)
             {
-                ViewBag.Error = "Error de conexión: " + ex.Message;
+                ViewBag.Error = "Error de conexión";
                 return View(model);
             }
         }

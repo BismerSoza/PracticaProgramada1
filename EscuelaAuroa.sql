@@ -101,33 +101,15 @@ INSERT INTO Roles (nomb_rol, estado) VALUES ('Usuario', 1);
 INSERT INTO Roles (nomb_rol, estado) VALUES ('Profesor', 1);
 INSERT INTO Roles (nomb_rol, estado) VALUES ('Estudiante', 1);
 GO
-
 -- ============================================
 -- INSERTAR USUARIO ADMIN (contraseña: 123456)
 -- ============================================
 INSERT INTO Usuarios (id_rol, correo, contraseña, estado)
-VALUES (1, 'admin@escuela.com', '$2a$11$TpEvbCK8sV/HYp6l7Fqk/uR2ZNWlB3qMWsTrXOk7pFpSgUqXL5cTq', 1);
-GO
-
-INSERT INTO Estudiantes (
-    id_usuario, 
-    nomb, 
-    primer_apellido, 
-    segundo_apellido, 
-    identificacion, 
-    correo, 
-    telefono, 
-    direccion
-)
 VALUES (
-    SCOPE_IDENTITY(), 
-    'Admin', 
-    'Sistema', 
-    'Escuela', 
-    'ADMIN001', 
-    'admin@escuela.com', 
-    '8888-8888', 
-    'San José'
+    1,
+    'admin@escuela.com',
+    '$2a$11$/8ADBEy/QZIt6aeySKBylOpNiI1DmD3Z/7O76na/ADNER97/5e4cC',
+    1
 );
 GO
 
@@ -135,7 +117,12 @@ GO
 -- INSERTAR USUARIO TEST (contraseña: 123456)
 -- ============================================
 INSERT INTO Usuarios (id_rol, correo, contraseña, estado)
-VALUES (4, 'test@escuela.com', '$2a$11$TpEvbCK8sV/HYp6l7Fqk/uR2ZNWlB3qMWsTrXOk7pFpSgUqXL5cTq', 1);
+VALUES (
+    4,
+    'test@escuela.com',
+    '$2a$11$/8ADBEy/QZIt6aeySKBylOpNiI1DmD3Z/7O76na/ADNER97/5e4cC',
+    1
+);
 GO
 
 INSERT INTO Estudiantes (
@@ -258,51 +245,4 @@ BEGIN
         SELECT -1 AS IdEstudiante;
     END
 END
-GO
-
--- ============================================
--- VERIFICAR DATOS (SIN ALIAS VACIOS)
--- ============================================
-PRINT '=== USUARIOS ===';
-SELECT id_usuario, id_rol, correo, estado FROM Usuarios;
-GO
-
-PRINT '=== ESTUDIANTES ===';
-SELECT id_estudiante, id_usuario, nomb, primer_apellido, correo FROM Estudiantes;
-GO
-
-PRINT '=== PROBAR SP ===';
-EXEC spIniciarSesionUsuario 'admin@escuela.com';
-GO
-
-USE EscuelaAurora;
-GO
-
--- Actualizar admin con el hash CORRECTO
-UPDATE Usuarios 
-SET contraseña = '$2a$11$dUmKzo753u0eXVTsXhJx.ee7VSPco6n.EPyEtKtuxig6.ayZwknzK'
-WHERE correo = 'admin@escuela.com';
-GO
-
--- Actualizar test con el hash CORRECTO
-UPDATE Usuarios 
-SET contraseña = '$2a$11$dUmKzo753u0eXVTsXhJx.ee7VSPco6n.EPyEtKtuxig6.ayZwknzK'
-WHERE correo = 'test@escuela.com';
-GO
-
--- Verificar que la longitud sea 60
-SELECT correo, LEN(contraseña) AS LongitudHash FROM Usuarios;
-GO
-
--- Probar el SP
-EXEC spIniciarSesionUsuario 'admin@escuela.com';
-GO
-
-USE EscuelaAurora;
-GO
-
--- Ver el hash actual
-SELECT correo, contraseña, LEN(contraseña) AS Longitud 
-FROM Usuarios 
-WHERE correo = 'admin@escuela.com';
 GO
