@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using PracticaProgramada1.Models;
-using System.Net.Http;
-using System.Net.Http.Json;
+using PracticaProgramada1.Filters;
+using System.Net;
+using System.Text.Json;
 
 namespace PracticaProgramada1.Controllers
 {
@@ -25,56 +26,91 @@ namespace PracticaProgramada1.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(UsuarioModel model)
         {
-            using var client = _http.CreateClient();
-            var urlApi = _config["Valores:UrlApi"] + "Login/login"; // 🔑 api/Login/login
-
-            var response = await client.PostAsJsonAsync(urlApi, model);
-
-            if (response.IsSuccessStatusCode)
+            try
             {
-                var usuario = await response.Content.ReadFromJsonAsync<UsuarioModel>();
-                return RedirectToAction("Dashboard", "Home");
-            }
-            else if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
-            {
-                ViewBag.Error = "Credenciales incorrectas o usuario inactivo";
+                using var client = _http.CreateClient();
+                var urlApi = _config["Valores:UrlApi"] + "Login/login";
+
+                var response = await client.PostAsJsonAsync(urlApi, model);
+
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    var jsonResponse = await response.Content.ReadAsStringAsync();
+                    var datos = JsonSerializer.Deserialize<UsuarioModel>(jsonResponse, new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
+
+                    if (datos != null)
+                    {
+                        HttpContext.Session.SetString("Autenticado", "1");
+                        HttpContext.Session.SetString("Nombre", datos.Nombre ?? "Usuario");
+                        HttpContext.Session.SetString("PrimerApellido", datos.PrimerApellido ?? "");
+                        HttpContext.Session.SetInt32("IdUsuario", datos.IdUsuario);
+                        HttpContext.Session.SetString("Token", datos.Token ?? "");
+                        HttpContext.Session.SetInt32("IdRol", datos.IdRol);
+                        HttpContext.Session.SetString("NombreRol", datos.NombreRol ?? "Usuario");
+                        HttpContext.Session.SetString("TipoUsuario", datos.TipoUsuario ?? "Usuario");
+
+                        return RedirectToAction("Dashboard", "Home");
+                    }
+                }
+                else if (response.StatusCode == HttpStatusCode.Unauthorized)
+                {
+                    var error = await response.Content.ReadAsStringAsync();
+                    ViewBag.Error = "Credenciales incorrectas o usuario inactivo";
+                    return View(model);
+                }
+                else
+                {
+                    var error = await response.Content.ReadAsStringAsync();
+                    ViewBag.Error = "Error al conectar con el servidor: " + error;
+                    return View(model);
+                }
+
+                ViewBag.Error = "Error al iniciar sesión";
                 return View(model);
             }
-            else
+            catch (System.Exception ex)
             {
-                ViewBag.Error = "Error al conectar con el servidor";
+                ViewBag.Error = "Error de conexión: " + ex.Message;
                 return View(model);
             }
         }
 
-        public IActionResult Dashboard() => View();
-        public IActionResult GeneralDashboard() => View();
-        public IActionResult LayoutDefault() => View();
-
-        [HttpGet]
-        public IActionResult Registro() => View();
-
-        [HttpPost]
-        public async Task<IActionResult> Registro(UsuarioModel model)
+        [SessionAuthorize]
+        public IActionResult Dashboard()
         {
-            using var client = _http.CreateClient();
-            var urlApi = _config["Valores:UrlApi"] + "Registro/crear";
-
-            var response = await client.PostAsJsonAsync(urlApi, model);
-
-            if (response.IsSuccessStatusCode)
-            {
-                ViewBag.Mensaje = "Usuario registrado correctamente";
-                return RedirectToAction("Index", "Home");
-            }
-            else
-            {
-                ViewBag.Error = "Error al registrar usuario";
-                return View(model);
-            }
+            return View();
         }
 
         [HttpGet]
-        public IActionResult Recuperar() => View();
+        public IActionResult Registro()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Recuperar()
+        {
+            return View();
+        }
+
+        [SessionAuthorize]
+        public IActionResult Salir()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult GeneralDashboard()
+        {
+            return View();
+        }
+
+        public IActionResult LayoutDefault()
+        {
+            return View();
+        }
     }
 }

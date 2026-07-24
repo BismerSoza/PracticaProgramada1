@@ -1,6 +1,6 @@
-﻿namespace PracticaProgramada1.Models
+﻿namespace API.Models
 {
-    public class UsuarioModel
+    public class DatosUsuarioResponseModel
     {
         public int IdUsuario { get; set; }
         public string Correo { get; set; } = string.Empty;

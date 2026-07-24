@@ -1,38 +1,61 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PracticaProgramada1API.Models;
+using API.Models;
 using Dapper;
 using Microsoft.Data.SqlClient;
 using System.Data;
+using API.Services;
 
-namespace PracticaProgramada1API.Controllers
+namespace API.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")] 
+    [Route("api/[controller]")]
     public class LoginController : ControllerBase
     {
         private readonly IConfiguration _config;
+        private readonly IUtilesService _utiles;
 
-        public LoginController(IConfiguration config)
+        public LoginController(IConfiguration config, IUtilesService utiles)
         {
             _config = config;
+            _utiles = utiles;
         }
 
-        [HttpPost("login")] 
-        public async Task<IActionResult> Login([FromBody] UsuarioModel model)
+        [HttpPost("login")]
+        public IActionResult Login([FromBody] InicioSesionRequestModel model)
         {
-            using var connection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
-            await connection.OpenAsync(); // útil para ver errores de conexión
+            try
+            {
+                using var connection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
+                connection.Open();
 
-            var usuario = await connection.QueryFirstOrDefaultAsync<UsuarioModel>(
-                "spIniciarSesionUsuario",
-                new { Correo = model.Correo, Contrasenna = model.Contrasenna },
-                commandType: CommandType.StoredProcedure
-            );
+                var parameters = new DynamicParameters();
+                parameters.Add("@correo", model.Correo);
 
-            if (usuario != null)
-                return Ok(usuario);
-            else
-                return Unauthorized("Credenciales inválidas o usuario inactivo");
+                var usuario = connection.QueryFirstOrDefault<DatosUsuarioResponseModel>(
+                    "spIniciarSesionUsuario",
+                    parameters,
+                    commandType: CommandType.StoredProcedure
+                );
+
+                if (usuario == null)
+                {
+                    return Unauthorized("Usuario no encontrado o inactivo");
+                }
+
+                bool passwordValid = BCrypt.Net.BCrypt.Verify(model.Contrasenna, usuario.Contrasenna);
+
+                if (passwordValid)
+                {
+                    usuario.Token = _utiles.GenerarToken(usuario.IdUsuario);
+                    return Ok(usuario);
+                }
+
+                return Unauthorized("Contraseña incorrecta");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error interno: {ex.Message}");
+            }
         }
     }
 }

@@ -2135,3 +2135,4 @@ C:\Users\Soza\source\PracticaProgramada1\PracticaProgramada1\obj\Debug\net10.0\r
 C:\Users\Soza\source\PracticaProgramada1\PracticaProgramada1\obj\Debug\net10.0\PracticaProgramada1.pdb
 C:\Users\Soza\source\PracticaProgramada1\PracticaProgramada1\obj\Debug\net10.0\PracticaProgramada1.genruntimeconfig.cache
 C:\Users\Soza\source\PracticaProgramada1\PracticaProgramada1\obj\Debug\net10.0\ref\PracticaProgramada1.dll
+C:\Users\Soza\source\PracticaProgramada1\PracticaProgramada1\bin\Debug\net10.0\BCrypt-Net-Next.dll

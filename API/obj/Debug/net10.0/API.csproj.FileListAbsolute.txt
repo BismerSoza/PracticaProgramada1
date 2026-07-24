@@ -136,3 +136,5 @@ C:\Users\Soza\source\PracticaProgramada1\API\obj\Debug\net10.0\refint\API.dll
 C:\Users\Soza\source\PracticaProgramada1\API\obj\Debug\net10.0\API.pdb
 C:\Users\Soza\source\PracticaProgramada1\API\obj\Debug\net10.0\API.genruntimeconfig.cache
 C:\Users\Soza\source\PracticaProgramada1\API\obj\Debug\net10.0\ref\API.dll
+C:\Users\Soza\source\PracticaProgramada1\API\bin\Debug\net10.0\BCrypt-Net-Next.dll
+C:\Users\Soza\source\PracticaProgramada1\API\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

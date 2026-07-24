@@ -4,472 +4,473 @@
 }
 
 <section class="section">
-  <div class="row">
-    <div class="col-lg-4 col-md-4 col-sm-12">
-      <div class="card card-statistic-2">
-        <div class="card-stats">
-          <div class="card-stats-title">Estadísticas de Pedidos -
-            <div class="dropdown d-inline">
-              <a class="font-weight-600 dropdown-toggle" data-toggle="dropdown" href="#" id="orders-month">Agosto</a>
-              <ul class="dropdown-menu dropdown-menu-sm">
-                <li class="dropdown-title">Seleccionar Mes</li>
-                <li><a href="#" class="dropdown-item">Enero</a></li>
-                <li><a href="#" class="dropdown-item">Febrero</a></li>
-                <li><a href="#" class="dropdown-item">Marzo</a></li>
-                <li><a href="#" class="dropdown-item">Abril</a></li>
-                <li><a href="#" class="dropdown-item">Mayo</a></li>
-                <li><a href="#" class="dropdown-item">Junio</a></li>
-                <li><a href="#" class="dropdown-item">Julio</a></li>
-                <li><a href="#" class="dropdown-item active">Agosto</a></li>
-                <li><a href="#" class="dropdown-item">Septiembre</a></li>
-                <li><a href="#" class="dropdown-item">Octubre</a></li>
-                <li><a href="#" class="dropdown-item">Noviembre</a></li>
-                <li><a href="#" class="dropdown-item">Diciembre</a></li>
-              </ul>
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="card card-statistic-2">
+                <div class="card-stats">
+                    <div class="card-stats-title">
+                        Estadísticas de Pedidos -
+                        <div class="dropdown d-inline">
+                            <a class="font-weight-600 dropdown-toggle" data-toggle="dropdown" href="#" id="orders-month">Agosto</a>
+                            <ul class="dropdown-menu dropdown-menu-sm">
+                                <li class="dropdown-title">Seleccionar Mes</li>
+                                <li><a href="#" class="dropdown-item">Enero</a></li>
+                                <li><a href="#" class="dropdown-item">Febrero</a></li>
+                                <li><a href="#" class="dropdown-item">Marzo</a></li>
+                                <li><a href="#" class="dropdown-item">Abril</a></li>
+                                <li><a href="#" class="dropdown-item">Mayo</a></li>
+                                <li><a href="#" class="dropdown-item">Junio</a></li>
+                                <li><a href="#" class="dropdown-item">Julio</a></li>
+                                <li><a href="#" class="dropdown-item active">Agosto</a></li>
+                                <li><a href="#" class="dropdown-item">Septiembre</a></li>
+                                <li><a href="#" class="dropdown-item">Octubre</a></li>
+                                <li><a href="#" class="dropdown-item">Noviembre</a></li>
+                                <li><a href="#" class="dropdown-item">Diciembre</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-stats-items">
+                        <div class="card-stats-item">
+                            <div class="card-stats-item-count">24</div>
+                            <div class="card-stats-item-label">Pendiente</div>
+                        </div>
+                        <div class="card-stats-item">
+                            <div class="card-stats-item-count">12</div>
+                            <div class="card-stats-item-label">En Envío</div>
+                        </div>
+                        <div class="card-stats-item">
+                            <div class="card-stats-item-count">23</div>
+                            <div class="card-stats-item-label">Completado</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-icon shadow-primary bg-primary">
+                    <i class="fas fa-archive"></i>
+                </div>
+                <div class="card-wrap">
+                    <div class="card-header">
+                        <h4>Total de Pedidos</h4>
+                    </div>
+                    <div class="card-body">
+                        59
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="card-stats-items">
-            <div class="card-stats-item">
-              <div class="card-stats-item-count">24</div>
-              <div class="card-stats-item-label">Pendiente</div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="card card-statistic-2">
+                <div class="card-chart">
+                    <canvas id="balance-chart" height="80"></canvas>
+                </div>
+                <div class="card-icon shadow-primary bg-primary">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+                <div class="card-wrap">
+                    <div class="card-header">
+                        <h4>Balance</h4>
+                    </div>
+                    <div class="card-body">
+                        ₡187.130
+                    </div>
+                </div>
             </div>
-            <div class="card-stats-item">
-              <div class="card-stats-item-count">12</div>
-              <div class="card-stats-item-label">En Envío</div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="card card-statistic-2">
+                <div class="card-chart">
+                    <canvas id="sales-chart" height="80"></canvas>
+                </div>
+                <div class="card-icon shadow-primary bg-primary">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+                <div class="card-wrap">
+                    <div class="card-header">
+                        <h4>Ventas</h4>
+                    </div>
+                    <div class="card-body">
+                        4.732
+                    </div>
+                </div>
             </div>
-            <div class="card-stats-item">
-              <div class="card-stats-item-count">23</div>
-              <div class="card-stats-item-label">Completado</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Presupuesto vs Ventas</h4>
+                </div>
+                <div class="card-body">
+                    <canvas id="myChart" height="158"></canvas>
+                </div>
             </div>
-          </div>
         </div>
-        <div class="card-icon shadow-primary bg-primary">
-          <i class="fas fa-archive"></i>
-        </div>
-        <div class="card-wrap">
-          <div class="card-header">
-            <h4>Total de Pedidos</h4>
-          </div>
-          <div class="card-body">
-            59
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-4 col-sm-12">
-      <div class="card card-statistic-2">
-        <div class="card-chart">
-          <canvas id="balance-chart" height="80"></canvas>
-        </div>
-        <div class="card-icon shadow-primary bg-primary">
-          <i class="fas fa-dollar-sign"></i>
-        </div>
-        <div class="card-wrap">
-          <div class="card-header">
-            <h4>Balance</h4>
-          </div>
-          <div class="card-body">
-            ₡187.130
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-4 col-sm-12">
-      <div class="card card-statistic-2">
-        <div class="card-chart">
-          <canvas id="sales-chart" height="80"></canvas>
-        </div>
-        <div class="card-icon shadow-primary bg-primary">
-          <i class="fas fa-shopping-bag"></i>
-        </div>
-        <div class="card-wrap">
-          <div class="card-header">
-            <h4>Ventas</h4>
-          </div>
-          <div class="card-body">
-            4.732
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-8">
-      <div class="card">
-        <div class="card-header">
-          <h4>Presupuesto vs Ventas</h4>
-        </div>
-        <div class="card-body">
-          <canvas id="myChart" height="158"></canvas>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4">
-      <div class="card gradient-bottom">
-        <div class="card-header">
-          <h4>Top 5 Productos</h4>
-          <div class="card-header-action dropdown">
-            <a href="#" data-toggle="dropdown" class="btn btn-danger dropdown-toggle">Mes</a>
-            <ul class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
-              <li class="dropdown-title">Seleccionar Período</li>
-              <li><a href="#" class="dropdown-item">Hoy</a></li>
-              <li><a href="#" class="dropdown-item">Semana</a></li>
-              <li><a href="#" class="dropdown-item active">Mes</a></li>
-              <li><a href="#" class="dropdown-item">Este Año</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="card-body" id="top-5-scroll">
-          <ul class="list-unstyled list-unstyled-border">
-            <li class="media">
-              <img class="mr-3 rounded" width="55" src="~/img/products/product-3-50.png" alt="producto">
-              <div class="media-body">
-                <div class="float-right"><div class="font-weight-600 text-muted text-small">86 Ventas</div></div>
-                <div class="media-title">oPhone S9 Limited</div>
-                <div class="mt-1">
-                  <div class="budget-price">
-                    <div class="budget-price-square bg-primary" data-width="64%"></div>
-                    <div class="budget-price-label">₡68.714</div>
-                  </div>
-                  <div class="budget-price">
-                    <div class="budget-price-square bg-danger" data-width="43%"></div>
-                    <div class="budget-price-label">₡38.700</div>
-                  </div>
+        <div class="col-lg-4">
+            <div class="card gradient-bottom">
+                <div class="card-header">
+                    <h4>Top 5 Productos</h4>
+                    <div class="card-header-action dropdown">
+                        <a href="#" data-toggle="dropdown" class="btn btn-danger dropdown-toggle">Mes</a>
+                        <ul class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                            <li class="dropdown-title">Seleccionar Período</li>
+                            <li><a href="#" class="dropdown-item">Hoy</a></li>
+                            <li><a href="#" class="dropdown-item">Semana</a></li>
+                            <li><a href="#" class="dropdown-item active">Mes</a></li>
+                            <li><a href="#" class="dropdown-item">Este Año</a></li>
+                        </ul>
+                    </div>
                 </div>
-              </div>
-            </li>
-            <li class="media">
-              <img class="mr-3 rounded" width="55" src="~/img/products/product-4-50.png" alt="producto">
-              <div class="media-body">
-                <div class="float-right"><div class="font-weight-600 text-muted text-small">67 Ventas</div></div>
-                <div class="media-title">iBook Pro 2018</div>
-                <div class="mt-1">
-                  <div class="budget-price">
-                    <div class="budget-price-square bg-primary" data-width="84%"></div>
-                    <div class="budget-price-label">₡107.133</div>
-                  </div>
-                  <div class="budget-price">
-                    <div class="budget-price-square bg-danger" data-width="60%"></div>
-                    <div class="budget-price-label">₡91.455</div>
-                  </div>
+                <div class="card-body" id="top-5-scroll">
+                    <ul class="list-unstyled list-unstyled-border">
+                        <li class="media">
+                            <img class="mr-3 rounded" width="55" src="~/img/products/product-3-50.png" alt="producto">
+                            <div class="media-body">
+                                <div class="float-right"><div class="font-weight-600 text-muted text-small">86 Ventas</div></div>
+                                <div class="media-title">oPhone S9 Limited</div>
+                                <div class="mt-1">
+                                    <div class="budget-price">
+                                        <div class="budget-price-square bg-primary" data-width="64%"></div>
+                                        <div class="budget-price-label">₡68.714</div>
+                                    </div>
+                                    <div class="budget-price">
+                                        <div class="budget-price-square bg-danger" data-width="43%"></div>
+                                        <div class="budget-price-label">₡38.700</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <img class="mr-3 rounded" width="55" src="~/img/products/product-4-50.png" alt="producto">
+                            <div class="media-body">
+                                <div class="float-right"><div class="font-weight-600 text-muted text-small">67 Ventas</div></div>
+                                <div class="media-title">iBook Pro 2018</div>
+                                <div class="mt-1">
+                                    <div class="budget-price">
+                                        <div class="budget-price-square bg-primary" data-width="84%"></div>
+                                        <div class="budget-price-label">₡107.133</div>
+                                    </div>
+                                    <div class="budget-price">
+                                        <div class="budget-price-square bg-danger" data-width="60%"></div>
+                                        <div class="budget-price-label">₡91.455</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <img class="mr-3 rounded" width="55" src="~/img/products/product-1-50.png" alt="producto">
+                            <div class="media-body">
+                                <div class="float-right"><div class="font-weight-600 text-muted text-small">63 Ventas</div></div>
+                                <div class="media-title">Auriculares Blitz</div>
+                                <div class="mt-1">
+                                    <div class="budget-price">
+                                        <div class="budget-price-square bg-primary" data-width="34%"></div>
+                                        <div class="budget-price-label">₡3.717</div>
+                                    </div>
+                                    <div class="budget-price">
+                                        <div class="budget-price-square bg-danger" data-width="28%"></div>
+                                        <div class="budget-price-label">₡2.835</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <img class="mr-3 rounded" width="55" src="~/img/products/product-3-50.png" alt="producto">
+                            <div class="media-body">
+                                <div class="float-right"><div class="font-weight-600 text-muted text-small">28 Ventas</div></div>
+                                <div class="media-title">oPhone X Lite</div>
+                                <div class="mt-1">
+                                    <div class="budget-price">
+                                        <div class="budget-price-square bg-primary" data-width="45%"></div>
+                                        <div class="budget-price-label">₡13.972</div>
+                                    </div>
+                                    <div class="budget-price">
+                                        <div class="budget-price-square bg-danger" data-width="30%"></div>
+                                        <div class="budget-price-label">₡9.660</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <img class="mr-3 rounded" width="55" src="~/img/products/product-5-50.png" alt="producto">
+                            <div class="media-body">
+                                <div class="float-right"><div class="font-weight-600 text-muted text-small">19 Ventas</div></div>
+                                <div class="media-title">Cámara Vintage</div>
+                                <div class="mt-1">
+                                    <div class="budget-price">
+                                        <div class="budget-price-square bg-primary" data-width="35%"></div>
+                                        <div class="budget-price-label">₡7.391</div>
+                                    </div>
+                                    <div class="budget-price">
+                                        <div class="budget-price-square bg-danger" data-width="28%"></div>
+                                        <div class="budget-price-label">₡5.472</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-              </div>
-            </li>
-            <li class="media">
-              <img class="mr-3 rounded" width="55" src="~/img/products/product-1-50.png" alt="producto">
-              <div class="media-body">
-                <div class="float-right"><div class="font-weight-600 text-muted text-small">63 Ventas</div></div>
-                <div class="media-title">Auriculares Blitz</div>
-                <div class="mt-1">
-                  <div class="budget-price">
-                    <div class="budget-price-square bg-primary" data-width="34%"></div>
-                    <div class="budget-price-label">₡3.717</div>
-                  </div>
-                  <div class="budget-price">
-                    <div class="budget-price-square bg-danger" data-width="28%"></div>
-                    <div class="budget-price-label">₡2.835</div>
-                  </div>
+                <div class="card-footer pt-3 d-flex justify-content-center">
+                    <div class="budget-price justify-content-center">
+                        <div class="budget-price-square bg-primary" data-width="20"></div>
+                        <div class="budget-price-label">Precio de Venta</div>
+                    </div>
+                    <div class="budget-price justify-content-center">
+                        <div class="budget-price-square bg-danger" data-width="20"></div>
+                        <div class="budget-price-label">Precio Presupuesto</div>
+                    </div>
                 </div>
-              </div>
-            </li>
-            <li class="media">
-              <img class="mr-3 rounded" width="55" src="~/img/products/product-3-50.png" alt="producto">
-              <div class="media-body">
-                <div class="float-right"><div class="font-weight-600 text-muted text-small">28 Ventas</div></div>
-                <div class="media-title">oPhone X Lite</div>
-                <div class="mt-1">
-                  <div class="budget-price">
-                    <div class="budget-price-square bg-primary" data-width="45%"></div>
-                    <div class="budget-price-label">₡13.972</div>
-                  </div>
-                  <div class="budget-price">
-                    <div class="budget-price-square bg-danger" data-width="30%"></div>
-                    <div class="budget-price-label">₡9.660</div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="media">
-              <img class="mr-3 rounded" width="55" src="~/img/products/product-5-50.png" alt="producto">
-              <div class="media-body">
-                <div class="float-right"><div class="font-weight-600 text-muted text-small">19 Ventas</div></div>
-                <div class="media-title">Cámara Vintage</div>
-                <div class="mt-1">
-                  <div class="budget-price">
-                    <div class="budget-price-square bg-primary" data-width="35%"></div>
-                    <div class="budget-price-label">₡7.391</div>
-                  </div>
-                  <div class="budget-price">
-                    <div class="budget-price-square bg-danger" data-width="28%"></div>
-                    <div class="budget-price-label">₡5.472</div>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="card-footer pt-3 d-flex justify-content-center">
-          <div class="budget-price justify-content-center">
-            <div class="budget-price-square bg-primary" data-width="20"></div>
-            <div class="budget-price-label">Precio de Venta</div>
-          </div>
-          <div class="budget-price justify-content-center">
-            <div class="budget-price-square bg-danger" data-width="20"></div>
-            <div class="budget-price-label">Precio Presupuesto</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-header">
-          <h4>Mejores Productos</h4>
-        </div>
-        <div class="card-body">
-          <div class="owl-carousel owl-theme" id="products-carousel">
-            <div>
-              <div class="product-item pb-3">
-                <div class="product-image">
-                  <img alt="imagen" src="~/img/products/product-4-50.png" class="img-fluid">
-                </div>
-                <div class="product-details">
-                  <div class="product-name">iBook Pro 2018</div>
-                  <div class="product-review">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="text-muted text-small">67 Ventas</div>
-                  <div class="product-cta">
-                    <a href="#" class="btn btn-primary">Detalle</a>
-                  </div>
-                </div>
-              </div>
             </div>
-            <div>
-              <div class="product-item">
-                <div class="product-image">
-                  <img alt="imagen" src="~/img/products/product-3-50.png" class="img-fluid">
-                </div>
-                <div class="product-details">
-                  <div class="product-name">oPhone S9 Limited</div>
-                  <div class="product-review">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half"></i>
-                  </div>
-                  <div class="text-muted text-small">86 Ventas</div>
-                  <div class="product-cta">
-                    <a href="#" class="btn btn-primary">Detalle</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div class="product-item">
-                <div class="product-image">
-                  <img alt="imagen" src="~/img/products/product-1-50.png" class="img-fluid">
-                </div>
-                <div class="product-details">
-                  <div class="product-name">Auriculares Blitz</div>
-                  <div class="product-review">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                  </div>
-                  <div class="text-muted text-small">63 Ventas</div>
-                  <div class="product-cta">
-                    <a href="#" class="btn btn-primary">Detalle</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-header">
-          <h4>Países Principales</h4>
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="text-title mb-2">Julio</div>
-              <ul class="list-unstyled list-unstyled-border list-unstyled-noborder mb-0">
-                <li class="media">
-                  <img class="img-fluid mt-1 img-shadow" src="~/modules/flag-icon-css/flags/4x3/id.svg" alt="imagen" width="40">
-                  <div class="media-body ml-3">
-                    <div class="media-title">Indonesia</div>
-                    <div class="text-small text-muted">3.282 <i class="fas fa-caret-down text-danger"></i></div>
-                  </div>
-                </li>
-                <li class="media">
-                  <img class="img-fluid mt-1 img-shadow" src="~/modules/flag-icon-css/flags/4x3/my.svg" alt="imagen" width="40">
-                  <div class="media-body ml-3">
-                    <div class="media-title">Malasia</div>
-                    <div class="text-small text-muted">2.976 <i class="fas fa-caret-down text-danger"></i></div>
-                  </div>
-                </li>
-                <li class="media">
-                  <img class="img-fluid mt-1 img-shadow" src="~/modules/flag-icon-css/flags/4x3/us.svg" alt="imagen" width="40">
-                  <div class="media-body ml-3">
-                    <div class="media-title">Estados Unidos</div>
-                    <div class="text-small text-muted">1.576 <i class="fas fa-caret-up text-success"></i></div>
-                  </div>
-                </li>
-              </ul>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Mejores Productos</h4>
+                </div>
+                <div class="card-body">
+                    <div class="owl-carousel owl-theme" id="products-carousel">
+                        <div>
+                            <div class="product-item pb-3">
+                                <div class="product-image">
+                                    <img alt="imagen" src="~/img/products/product-4-50.png" class="img-fluid">
+                                </div>
+                                <div class="product-details">
+                                    <div class="product-name">iBook Pro 2018</div>
+                                    <div class="product-review">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <div class="text-muted text-small">67 Ventas</div>
+                                    <div class="product-cta">
+                                        <a href="#" class="btn btn-primary">Detalle</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="product-item">
+                                <div class="product-image">
+                                    <img alt="imagen" src="~/img/products/product-3-50.png" class="img-fluid">
+                                </div>
+                                <div class="product-details">
+                                    <div class="product-name">oPhone S9 Limited</div>
+                                    <div class="product-review">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half"></i>
+                                    </div>
+                                    <div class="text-muted text-small">86 Ventas</div>
+                                    <div class="product-cta">
+                                        <a href="#" class="btn btn-primary">Detalle</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="product-item">
+                                <div class="product-image">
+                                    <img alt="imagen" src="~/img/products/product-1-50.png" class="img-fluid">
+                                </div>
+                                <div class="product-details">
+                                    <div class="product-name">Auriculares Blitz</div>
+                                    <div class="product-review">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <div class="text-muted text-small">63 Ventas</div>
+                                    <div class="product-cta">
+                                        <a href="#" class="btn btn-primary">Detalle</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-sm-6 mt-sm-0 mt-4">
-              <div class="text-title mb-2">Agosto</div>
-              <ul class="list-unstyled list-unstyled-border list-unstyled-noborder mb-0">
-                <li class="media">
-                  <img class="img-fluid mt-1 img-shadow" src="~/modules/flag-icon-css/flags/4x3/id.svg" alt="imagen" width="40">
-                  <div class="media-body ml-3">
-                    <div class="media-title">Indonesia</div>
-                    <div class="text-small text-muted">3.486 <i class="fas fa-caret-up text-success"></i></div>
-                  </div>
-                </li>
-                <li class="media">
-                  <img class="img-fluid mt-1 img-shadow" src="~/modules/flag-icon-css/flags/4x3/ps.svg" alt="imagen" width="40">
-                  <div class="media-body ml-3">
-                    <div class="media-title">Palestina</div>
-                    <div class="text-small text-muted">3.182 <i class="fas fa-caret-up text-success"></i></div>
-                  </div>
-                </li>
-                <li class="media">
-                  <img class="img-fluid mt-1 img-shadow" src="~/modules/flag-icon-css/flags/4x3/de.svg" alt="imagen" width="40">
-                  <div class="media-body ml-3">
-                    <div class="media-title">Alemania</div>
-                    <div class="text-small text-muted">2.317 <i class="fas fa-caret-down text-danger"></i></div>
-                  </div>
-                </li>
-              </ul>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Países Principales</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="text-title mb-2">Julio</div>
+                            <ul class="list-unstyled list-unstyled-border list-unstyled-noborder mb-0">
+                                <li class="media">
+                                    <img class="img-fluid mt-1 img-shadow" src="~/modules/flag-icon-css/flags/4x3/id.svg" alt="imagen" width="40">
+                                    <div class="media-body ml-3">
+                                        <div class="media-title">Indonesia</div>
+                                        <div class="text-small text-muted">3.282 <i class="fas fa-caret-down text-danger"></i></div>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <img class="img-fluid mt-1 img-shadow" src="~/modules/flag-icon-css/flags/4x3/my.svg" alt="imagen" width="40">
+                                    <div class="media-body ml-3">
+                                        <div class="media-title">Malasia</div>
+                                        <div class="text-small text-muted">2.976 <i class="fas fa-caret-down text-danger"></i></div>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <img class="img-fluid mt-1 img-shadow" src="~/modules/flag-icon-css/flags/4x3/us.svg" alt="imagen" width="40">
+                                    <div class="media-body ml-3">
+                                        <div class="media-title">Estados Unidos</div>
+                                        <div class="text-small text-muted">1.576 <i class="fas fa-caret-up text-success"></i></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6 mt-sm-0 mt-4">
+                            <div class="text-title mb-2">Agosto</div>
+                            <ul class="list-unstyled list-unstyled-border list-unstyled-noborder mb-0">
+                                <li class="media">
+                                    <img class="img-fluid mt-1 img-shadow" src="~/modules/flag-icon-css/flags/4x3/id.svg" alt="imagen" width="40">
+                                    <div class="media-body ml-3">
+                                        <div class="media-title">Indonesia</div>
+                                        <div class="text-small text-muted">3.486 <i class="fas fa-caret-up text-success"></i></div>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <img class="img-fluid mt-1 img-shadow" src="~/modules/flag-icon-css/flags/4x3/ps.svg" alt="imagen" width="40">
+                                    <div class="media-body ml-3">
+                                        <div class="media-title">Palestina</div>
+                                        <div class="text-small text-muted">3.182 <i class="fas fa-caret-up text-success"></i></div>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <img class="img-fluid mt-1 img-shadow" src="~/modules/flag-icon-css/flags/4x3/de.svg" alt="imagen" width="40">
+                                    <div class="media-body ml-3">
+                                        <div class="media-title">Alemania</div>
+                                        <div class="text-small text-muted">2.317 <i class="fas fa-caret-down text-danger"></i></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-8">
-      <div class="card">
-        <div class="card-header">
-          <h4>Facturas</h4>
-          <div class="card-header-action">
-            <a href="#" class="btn btn-danger">Ver Más <i class="fas fa-chevron-right"></i></a>
-          </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Facturas</h4>
+                    <div class="card-header-action">
+                        <a href="#" class="btn btn-danger">Ver Más <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive table-invoice">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>N° Factura</th>
+                                <th>Cliente</th>
+                                <th>Estado</th>
+                                <th>Fecha de Vencimiento</th>
+                                <th>Acción</th>
+                            </tr>
+                            <tr>
+                                <td><a href="#">INV-87239</a></td>
+                                <td class="font-weight-600">Kusnadi</td>
+                                <td><div class="badge badge-warning">Sin Pagar</div></td>
+                                <td>19 de julio de 2018</td>
+                                <td><a href="#" class="btn btn-primary">Detalle</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#">INV-48574</a></td>
+                                <td class="font-weight-600">Hasan Basri</td>
+                                <td><div class="badge badge-success">Pagado</div></td>
+                                <td>21 de julio de 2018</td>
+                                <td><a href="#" class="btn btn-primary">Detalle</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#">INV-76824</a></td>
+                                <td class="font-weight-600">Muhamad Nuruzzaki</td>
+                                <td><div class="badge badge-warning">Sin Pagar</div></td>
+                                <td>22 de julio de 2018</td>
+                                <td><a href="#" class="btn btn-primary">Detalle</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#">INV-84990</a></td>
+                                <td class="font-weight-600">Agung Ardiansyah</td>
+                                <td><div class="badge badge-warning">Sin Pagar</div></td>
+                                <td>22 de julio de 2018</td>
+                                <td><a href="#" class="btn btn-primary">Detalle</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#">INV-87320</a></td>
+                                <td class="font-weight-600">Ardian Rahardiansyah</td>
+                                <td><div class="badge badge-success">Pagado</div></td>
+                                <td>28 de julio de 2018</td>
+                                <td><a href="#" class="btn btn-primary">Detalle</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="card-body p-0">
-          <div class="table-responsive table-invoice">
-            <table class="table table-striped">
-              <tr>
-                <th>N° Factura</th>
-                <th>Cliente</th>
-                <th>Estado</th>
-                <th>Fecha de Vencimiento</th>
-                <th>Acción</th>
-              </tr>
-              <tr>
-                <td><a href="#">INV-87239</a></td>
-                <td class="font-weight-600">Kusnadi</td>
-                <td><div class="badge badge-warning">Sin Pagar</div></td>
-                <td>19 de julio de 2018</td>
-                <td><a href="#" class="btn btn-primary">Detalle</a></td>
-              </tr>
-              <tr>
-                <td><a href="#">INV-48574</a></td>
-                <td class="font-weight-600">Hasan Basri</td>
-                <td><div class="badge badge-success">Pagado</div></td>
-                <td>21 de julio de 2018</td>
-                <td><a href="#" class="btn btn-primary">Detalle</a></td>
-              </tr>
-              <tr>
-                <td><a href="#">INV-76824</a></td>
-                <td class="font-weight-600">Muhamad Nuruzzaki</td>
-                <td><div class="badge badge-warning">Sin Pagar</div></td>
-                <td>22 de julio de 2018</td>
-                <td><a href="#" class="btn btn-primary">Detalle</a></td>
-              </tr>
-              <tr>
-                <td><a href="#">INV-84990</a></td>
-                <td class="font-weight-600">Agung Ardiansyah</td>
-                <td><div class="badge badge-warning">Sin Pagar</div></td>
-                <td>22 de julio de 2018</td>
-                <td><a href="#" class="btn btn-primary">Detalle</a></td>
-              </tr>
-              <tr>
-                <td><a href="#">INV-87320</a></td>
-                <td class="font-weight-600">Ardian Rahardiansyah</td>
-                <td><div class="badge badge-success">Pagado</div></td>
-                <td>28 de julio de 2018</td>
-                <td><a href="#" class="btn btn-primary">Detalle</a></td>
-              </tr>
-            </table>
-          </div>
+        <div class="col-md-4">
+            <div class="card card-hero">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="far fa-question-circle"></i>
+                    </div>
+                    <h4>14</h4>
+                    <div class="card-description">Clientes necesitan ayuda</div>
+                </div>
+                <div class="card-body p-0">
+                    <div class="tickets-list">
+                        <a href="#" class="ticket-item">
+                            <div class="ticket-title">
+                                <h4>Mi pedido aún no ha llegado</h4>
+                            </div>
+                            <div class="ticket-info">
+                                <div>Laila Tazkiah</div>
+                                <div class="bullet"></div>
+                                <div class="text-primary">Hace 1 minuto</div>
+                            </div>
+                        </a>
+                        <a href="#" class="ticket-item">
+                            <div class="ticket-title">
+                                <h4>Por favor cancele mi pedido</h4>
+                            </div>
+                            <div class="ticket-info">
+                                <div>Rizal Fakhri</div>
+                                <div class="bullet"></div>
+                                <div>Hace 2 horas</div>
+                            </div>
+                        </a>
+                        <a href="#" class="ticket-item">
+                            <div class="ticket-title">
+                                <h4>¿Han visto a mi madre?</h4>
+                            </div>
+                            <div class="ticket-info">
+                                <div>Syahdan Ubaidillah</div>
+                                <div class="bullet"></div>
+                                <div>Hace 6 horas</div>
+                            </div>
+                        </a>
+                        <a href="#" class="ticket-item ticket-more">
+                            Ver Todo <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-    <div class="col-md-4">
-      <div class="card card-hero">
-        <div class="card-header">
-          <div class="card-icon">
-            <i class="far fa-question-circle"></i>
-          </div>
-          <h4>14</h4>
-          <div class="card-description">Clientes necesitan ayuda</div>
-        </div>
-        <div class="card-body p-0">
-          <div class="tickets-list">
-            <a href="#" class="ticket-item">
-              <div class="ticket-title">
-                <h4>Mi pedido aún no ha llegado</h4>
-              </div>
-              <div class="ticket-info">
-                <div>Laila Tazkiah</div>
-                <div class="bullet"></div>
-                <div class="text-primary">Hace 1 minuto</div>
-              </div>
-            </a>
-            <a href="#" class="ticket-item">
-              <div class="ticket-title">
-                <h4>Por favor cancele mi pedido</h4>
-              </div>
-              <div class="ticket-info">
-                <div>Rizal Fakhri</div>
-                <div class="bullet"></div>
-                <div>Hace 2 horas</div>
-              </div>
-            </a>
-            <a href="#" class="ticket-item">
-              <div class="ticket-title">
-                <h4>¿Han visto a mi madre?</h4>
-              </div>
-              <div class="ticket-info">
-                <div>Syahdan Ubaidillah</div>
-                <div class="bullet"></div>
-                <div>Hace 6 horas</div>
-              </div>
-            </a>
-            <a href="#" class="ticket-item ticket-more">
-              Ver Todo <i class="fas fa-chevron-right"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
 
 @section Scripts {
-  <script src="~/js/page/index.js"></script>
+    <script src="~/js/page/index.js"></script>
 }
