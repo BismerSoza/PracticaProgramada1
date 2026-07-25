@@ -1,0 +1,128 @@
+﻿@model PracticaProgramada1.Models.AsistenciaModel
+
+@{
+    ViewData["Title"] = "Detalle de Asistencia";
+}
+
+<div class="container mt-4">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">
+                Detalle de Asistencia
+            </h3>
+        </div>
+
+        <div class="card-body">
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    ID
+                </div>
+
+                <div class="col-md-8">
+                    @Model.IdAsistencia
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Estudiante
+                </div>
+
+                <div class="col-md-8">
+                    @if (!string.IsNullOrWhiteSpace(Model.Estudiante))
+                    {
+                        @Model.Estudiante
+                    }
+                    else
+                    {
+                        <span>
+                            Matrícula #@Model.IdMatricula
+                        </span>
+                    }
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Curso
+                </div>
+
+                <div class="col-md-8">
+                    @if (!string.IsNullOrWhiteSpace(Model.NombreCurso))
+                    {
+                        @Model.NombreCurso
+                    }
+                    else
+                    {
+                        <span>Sin información</span>
+                    }
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Fecha
+                </div>
+
+                <div class="col-md-8">
+                    @Model.Fecha.ToString("dd/MM/yyyy HH:mm")
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Estado
+                </div>
+
+                <div class="col-md-8">
+                    @Model.Estado
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Fecha de registro
+                </div>
+
+                <div class="col-md-8">
+                    @Model.FechaRegistro.ToString("dd/MM/yyyy HH:mm")
+                </div>
+            </div>
+
+            @if (Model.FechaModificacion.HasValue)
+            {
+                <div class="row mb-3">
+                    <div class="col-md-4 fw-bold">
+                        Fecha de modificación
+                    </div>
+
+                    <div class="col-md-8">
+                        @Model.FechaModificacion.Value
+                        .ToString("dd/MM/yyyy HH:mm")
+                    </div>
+                </div>
+            }
+
+        </div>
+
+        <div class="card-footer">
+
+            <a asp-action="Editar"
+               asp-route-id="@Model.IdAsistencia"
+               class="btn btn-warning">
+                Editar
+            </a>
+
+            <a asp-action="Index"
+               class="btn btn-secondary">
+                Volver
+            </a>
+
+        </div>
+
+    </div>
+
+</div>

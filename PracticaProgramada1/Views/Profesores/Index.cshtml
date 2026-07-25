@@ -1,0 +1,107 @@
+﻿@model IEnumerable<PracticaProgramada1.Models.ProfesorModel>
+
+@{
+    ViewData["Title"] = "Profesores";
+}
+
+<div class="section-header">
+    <h1>Profesores</h1>
+</div>
+
+<div class="section-body">
+
+    <div class="card">
+
+        <div class="card-header">
+            <h4>Listado de Profesores</h4>
+        </div>
+
+        <div class="card-body">
+
+            <table class="table table-striped">
+
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Identificación</th>
+                        <th>Correo</th>
+                        <th>Especialidad</th>
+                        <th>Estado</th>
+                        <th width="220">Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                @item.Nombre @item.PrimerApellido
+                            </td>
+
+                            <td>
+                                @item.Identificacion
+                            </td>
+
+                            <td>
+                                @item.Correo
+                            </td>
+
+                            <td>
+                                @item.Especialidad
+                            </td>
+
+                            <td>
+
+                                @if (item.Estado)
+                                {
+                                    <span class="badge badge-success">
+                                        Activo
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-danger">
+                                        Inactivo
+                                    </span>
+                                }
+
+                            </td>
+
+                            <td>
+
+                                <a asp-action="Detalle"
+                                   asp-route-id="@item.IdProfesor"
+                                   class="btn btn-info btn-sm">
+                                    Ver
+                                </a>
+
+                                <a asp-action="Editar"
+                                   asp-route-id="@item.IdProfesor"
+                                   class="btn btn-warning btn-sm">
+                                    Editar
+                                </a>
+
+                                <a asp-action="Desactivar"
+                                   asp-route-id="@item.IdProfesor"
+                                   class="btn btn-danger btn-sm"
+                                   onclick="return confirm('¿Desea desactivar este profesor?');">
+                                    Desactivar
+                                </a>
+
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>

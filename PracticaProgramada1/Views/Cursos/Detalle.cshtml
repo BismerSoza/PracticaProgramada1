@@ -1,0 +1,101 @@
+﻿@model PracticaProgramada1.Models.CursoModel
+
+@{
+    ViewData["Title"] = "Detalle del Curso";
+}
+
+<div class="container mt-4">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-primary text-white">
+            <h3>Detalle del Curso</h3>
+        </div>
+
+        <div class="card-body">
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    ID
+                </div>
+
+                <div class="col-md-8">
+                    @Model.IdCurso
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Profesor
+                </div>
+
+                <div class="col-md-8">
+                    @Model.Profesor
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Nombre del curso
+                </div>
+
+                <div class="col-md-8">
+                    @Model.NombreCurso
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Descripción
+                </div>
+
+                <div class="col-md-8">
+                    @Model.Descripcion
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Estado
+                </div>
+
+                <div class="col-md-8">
+                    @if (Model.Estado)
+                    {
+                        <span class="badge bg-success">Activo</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">Inactivo</span>
+                    }
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Fecha de registro
+                </div>
+
+                <div class="col-md-8">
+                    @Model.FechaRegistro.ToString("dd/MM/yyyy")
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card-footer">
+            <a asp-action="Editar"
+               asp-route-id="@Model.IdCurso"
+               class="btn btn-warning">
+                Editar
+            </a>
+
+            <a asp-action="Index"
+               class="btn btn-secondary">
+                Volver
+            </a>
+        </div>
+
+    </div>
+
+</div>

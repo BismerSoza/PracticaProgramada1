@@ -1,0 +1,128 @@
+﻿@model PracticaProgramada1.Models.NotificacionModel
+
+@{
+    ViewData["Title"] = "Detalle de Notificación";
+}
+
+<div class="container mt-4">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-primary text-white">
+            <h3>Detalle de Notificación</h3>
+        </div>
+
+        <div class="card-body">
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    ID
+                </div>
+
+                <div class="col-md-8">
+                    @Model.IdNotificacion
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Usuario
+                </div>
+
+                <div class="col-md-8">
+                    @Model.IdUsuario
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Correo
+                </div>
+
+                <div class="col-md-8">
+                    @Model.Correo
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Asunto
+                </div>
+
+                <div class="col-md-8">
+                    @Model.Asunto
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Mensaje
+                </div>
+
+                <div class="col-md-8">
+                    @Model.Mensaje
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Estado
+                </div>
+
+                <div class="col-md-8">
+                    @if (Model.Leida)
+                    {
+                        <span class="badge bg-success">
+                            Leída
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-warning text-dark">
+                            Pendiente
+                        </span>
+                    }
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Fecha de envío
+                </div>
+
+                <div class="col-md-8">
+                    @Model.FechaEnvio.ToString("dd/MM/yyyy HH:mm")
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Fecha de lectura
+                </div>
+
+                <div class="col-md-8">
+                    @if (Model.FechaLectura.HasValue)
+                    {
+                        @Model.FechaLectura.Value.ToString("dd/MM/yyyy HH:mm")
+                    }
+                    else
+                    {
+                        <span>No se ha leído</span>
+                    }
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card-footer">
+
+            <a asp-action="Index"
+               class="btn btn-secondary">
+                Volver
+            </a>
+
+        </div>
+
+    </div>
+
+</div>

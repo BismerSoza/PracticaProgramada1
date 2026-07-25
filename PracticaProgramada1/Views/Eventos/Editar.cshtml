@@ -1,0 +1,167 @@
+﻿@model PracticaProgramada1.Models.EventoModel
+
+@{
+    ViewData["Title"] = "Editar Evento";
+}
+
+<div class="container mt-4">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-warning">
+            <h3 class="mb-0">
+                Editar Evento
+            </h3>
+        </div>
+
+        <div class="card-body">
+
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger">
+                    @ViewBag.Error
+                </div>
+            }
+
+            <form asp-action="Editar"
+                  method="post">
+
+                <input asp-for="IdEvento"
+                       type="hidden" />
+
+                <input asp-for="FechaRegistro"
+                       type="hidden" />
+
+                <div asp-validation-summary="ModelOnly"
+                     class="text-danger mb-3">
+                </div>
+
+                <div class="mb-3">
+
+                    <label asp-for="IdCurso"
+                           class="form-label">
+                        Curso
+                    </label>
+
+                    <select asp-for="IdCurso"
+                            asp-items="ViewBag.Cursos"
+                            class="form-select">
+
+                        <option value="">
+                            Seleccione un curso
+                        </option>
+
+                    </select>
+
+                    <span asp-validation-for="IdCurso"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label asp-for="Titulo"
+                           class="form-label">
+                        Título
+                    </label>
+
+                    <input asp-for="Titulo"
+                           class="form-control"
+                           maxlength="150" />
+
+                    <span asp-validation-for="Titulo"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label asp-for="Descripcion"
+                           class="form-label">
+                        Descripción
+                    </label>
+
+                    <textarea asp-for="Descripcion"
+                              class="form-control"
+                              rows="4"
+                              maxlength="500"></textarea>
+
+                    <span asp-validation-for="Descripcion"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label asp-for="FechaEvento"
+                           class="form-label">
+                        Fecha y hora
+                    </label>
+
+                    <input asp-for="FechaEvento"
+                           type="datetime-local"
+                           class="form-control" />
+
+                    <span asp-validation-for="FechaEvento"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label asp-for="Lugar"
+                           class="form-label">
+                        Lugar
+                    </label>
+
+                    <input asp-for="Lugar"
+                           class="form-control"
+                           maxlength="200" />
+
+                    <span asp-validation-for="Lugar"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <div class="form-check mb-3">
+
+                    <input asp-for="Estado"
+                           class="form-check-input" />
+
+                    <label asp-for="Estado"
+                           class="form-check-label">
+                        Evento activo
+                    </label>
+
+                </div>
+
+                <button type="submit"
+                        class="btn btn-primary">
+                    Guardar cambios
+                </button>
+
+                <a asp-action="Index"
+                   class="btn btn-secondary">
+                    Cancelar
+                </a>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync(
+            "_ValidationScriptsPartial");
+    }
+}

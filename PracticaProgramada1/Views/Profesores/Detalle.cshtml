@@ -1,0 +1,50 @@
+﻿@model PracticaProgramada1.Models.ProfesorModel
+
+<div class="section-header">
+    <h1>Detalle Profesor</h1>
+</div>
+
+<div class="card">
+
+    <div class="card-body">
+
+        <p><b>Nombre:</b> @Model.Nombre @Model.PrimerApellido @Model.SegundoApellido</p>
+
+        <p><b>Identificación:</b> @Model.Identificacion</p>
+
+        <p><b>Correo:</b> @Model.Correo</p>
+
+        <p><b>Teléfono:</b> @Model.Telefono</p>
+
+        <p><b>Especialidad:</b> @Model.Especialidad</p>
+
+        <p>
+            <b>Estado:</b>
+
+            @if (Model.Estado)
+            {
+                <span class="badge badge-success">Activo</span>
+            }
+            else
+            {
+                <span class="badge badge-danger">Inactivo</span>
+            }
+
+        </p>
+
+        <p><b>Fecha Registro:</b> @Model.FechaRegistro.ToString("dd/MM/yyyy")</p>
+
+        <a asp-action="Editar"
+           asp-route-id="@Model.IdProfesor"
+           class="btn btn-warning">
+            Editar
+        </a>
+
+        <a asp-action="Index"
+           class="btn btn-secondary">
+            Regresar
+        </a>
+
+    </div>
+
+</div>

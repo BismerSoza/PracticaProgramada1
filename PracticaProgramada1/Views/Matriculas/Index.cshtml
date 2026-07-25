@@ -1,0 +1,153 @@
+﻿@model List<PracticaProgramada1.Models.MatriculaModel>
+
+@{
+    ViewData["Title"] = "Matrículas";
+}
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+
+        <h2>Lista de Matrículas</h2>
+
+        <a asp-action="Registrar"
+           class="btn btn-success">
+            Nueva Matrícula
+        </a>
+
+    </div>
+
+    @if (TempData["Mensaje"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["Mensaje"]
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["Error"]
+        </div>
+    }
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">
+            @ViewBag.Error
+        </div>
+    }
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-info">
+            No hay matrículas registradas.
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+
+            <table class="table table-bordered table-hover">
+
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Estudiante</th>
+                        <th>Curso</th>
+                        <th>Fecha</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>@item.IdMatricula</td>
+
+                            <td>
+                                @if (!string.IsNullOrWhiteSpace(item.Estudiante))
+                                {
+                                    @item.Estudiante
+                                }
+                                else
+                                {
+                                    <span class="text-muted">
+                                        Estudiante #@item.IdEstudiante
+                                    </span>
+                                }
+                            </td>
+
+                            <td>
+                                @if (!string.IsNullOrWhiteSpace(item.NombreCurso))
+                                {
+                                    @item.NombreCurso
+                                }
+                                else
+                                {
+                                    <span class="text-muted">
+                                        Curso #@item.IdCurso
+                                    </span>
+                                }
+                            </td>
+
+                            <td>
+                                @item.FechaMatricula.ToString("dd/MM/yyyy")
+                            </td>
+
+                            <td>
+                                @if (item.Estado)
+                                {
+                                    <span class="badge bg-success">
+                                        Activa
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger">
+                                        Inactiva
+                                    </span>
+                                }
+                            </td>
+
+                            <td>
+
+                                <a asp-action="Detalle"
+                                   asp-route-id="@item.IdMatricula"
+                                   class="btn btn-info btn-sm">
+                                    Detalle
+                                </a>
+
+                                <a asp-action="Editar"
+                                   asp-route-id="@item.IdMatricula"
+                                   class="btn btn-warning btn-sm">
+                                    Editar
+                                </a>
+
+                                @if (item.Estado)
+                                {
+                                    <a asp-action="Desactivar"
+                                       asp-route-id="@item.IdMatricula"
+                                       class="btn btn-danger btn-sm"
+                                       onclick="return confirm('¿Desea desactivar esta matrícula?');">
+                                        Desactivar
+                                    </a>
+                                }
+
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+    }
+
+</div>

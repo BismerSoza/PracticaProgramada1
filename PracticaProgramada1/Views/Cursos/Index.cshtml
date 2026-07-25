@@ -1,0 +1,134 @@
+﻿@model IEnumerable<PracticaProgramada1.Models.CursoModel>
+
+@{
+    ViewData["Title"] = "Cursos";
+}
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+
+        <h2>Lista de Cursos</h2>
+
+        <a asp-action="Registrar"
+           class="btn btn-success">
+            Nuevo Curso
+        </a>
+
+    </div>
+
+    @if (TempData["Mensaje"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["Mensaje"]
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["Error"]
+        </div>
+    }
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">
+            @ViewBag.Error
+        </div>
+    }
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-info">
+            No hay cursos registrados.
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+
+            <table class="table table-bordered table-hover">
+
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Curso</th>
+                        <th>Profesor</th>
+                        <th>Descripción</th>
+                        <th>Estado</th>
+                        <th>Fecha de registro</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>@item.IdCurso</td>
+
+                            <td>@item.NombreCurso</td>
+
+                            <td>@item.Profesor</td>
+
+                            <td>@item.Descripcion</td>
+
+                            <td>
+                                @if (item.Estado)
+                                {
+                                    <span class="badge bg-success">
+                                        Activo
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger">
+                                        Inactivo
+                                    </span>
+                                }
+                            </td>
+
+                            <td>
+                                @item.FechaRegistro.ToString("dd/MM/yyyy")
+                            </td>
+
+                            <td>
+
+                                <a asp-action="Detalle"
+                                   asp-route-id="@item.IdCurso"
+                                   class="btn btn-info btn-sm">
+                                    Detalle
+                                </a>
+
+                                <a asp-action="Editar"
+                                   asp-route-id="@item.IdCurso"
+                                   class="btn btn-warning btn-sm">
+                                    Editar
+                                </a>
+
+                                @if (item.Estado)
+                                {
+                                    <a asp-action="Desactivar"
+                                       asp-route-id="@item.IdCurso"
+                                       class="btn btn-danger btn-sm"
+                                       onclick="return confirm('¿Desea desactivar este curso?');">
+                                        Desactivar
+                                    </a>
+                                }
+
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+    }
+
+</div>

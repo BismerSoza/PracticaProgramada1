@@ -1,0 +1,116 @@
+﻿@model PracticaProgramada1.Models.EventoModel
+
+@{
+    ViewData["Title"] = "Detalle del Evento";
+}
+
+<div class="container mt-4">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">
+                Detalle del Evento
+            </h3>
+        </div>
+
+        <div class="card-body">
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Curso
+                </div>
+
+                <div class="col-md-8">
+                    @if (!string.IsNullOrWhiteSpace(Model.NombreCurso))
+                    {
+                        @Model.NombreCurso
+                    }
+                    else
+                    {
+                        <span>Curso #@Model.IdCurso</span>
+                    }
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Título
+                </div>
+
+                <div class="col-md-8">
+                    @Model.Titulo
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Descripción
+                </div>
+
+                <div class="col-md-8">
+                    @Model.Descripcion
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Fecha del evento
+                </div>
+
+                <div class="col-md-8">
+                    @Model.FechaEvento.ToString("dd/MM/yyyy HH:mm")
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Lugar
+                </div>
+
+                <div class="col-md-8">
+                    @Model.Lugar
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Estado
+                </div>
+
+                <div class="col-md-8">
+                    @if (Model.Estado)
+                    {
+                        <span class="badge bg-success">
+                            Activo
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">
+                            Inactivo
+                        </span>
+                    }
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card-footer">
+
+            <a asp-action="Editar"
+               asp-route-id="@Model.IdEvento"
+               class="btn btn-warning">
+                Editar
+            </a>
+
+            <a asp-action="Index"
+               class="btn btn-secondary">
+                Volver
+            </a>
+
+        </div>
+
+    </div>
+
+</div>

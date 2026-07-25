@@ -3,6 +3,7 @@ using PracticaProgramada1.Models;
 using PracticaProgramada1.Filters;
 using System.Net;
 using System.Text.Json;
+using System.Net.Http.Json;
 
 namespace PracticaProgramada1.Controllers
 {
@@ -36,10 +37,13 @@ namespace PracticaProgramada1.Controllers
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
                     var jsonResponse = await response.Content.ReadAsStringAsync();
-                    var datos = JsonSerializer.Deserialize<UsuarioModel>(jsonResponse, new JsonSerializerOptions
-                    {
-                        PropertyNameCaseInsensitive = true
-                    });
+
+                    var datos = JsonSerializer.Deserialize<UsuarioModel>(
+                        jsonResponse,
+                        new JsonSerializerOptions
+                        {
+                            PropertyNameCaseInsensitive = true
+                        });
 
                     if (datos != null)
                     {
@@ -86,6 +90,41 @@ namespace PracticaProgramada1.Controllers
         public IActionResult Registro()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Registro(RegistroEstudianteModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            try
+            {
+                using var client = _http.CreateClient();
+
+                var urlApi = _config["Valores:UrlApi"] + "Login/registro-estudiante";
+
+                var response = await client.PostAsJsonAsync(urlApi, model);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    TempData["Success"] = "Usuario registrado correctamente.";
+
+                    return RedirectToAction("Index");
+                }
+
+                var mensaje = await response.Content.ReadAsStringAsync();
+
+                ViewBag.Error = mensaje;
+
+                return View(model);
+            }
+            catch (Exception)
+            {
+                ViewBag.Error = "Ocurrió un error al conectar con el servidor.";
+
+                return View(model);
+            }
         }
 
         [HttpGet]

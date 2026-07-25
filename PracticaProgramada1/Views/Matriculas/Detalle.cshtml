@@ -1,0 +1,117 @@
+﻿@model PracticaProgramada1.Models.MatriculaModel
+
+@{
+    ViewData["Title"] = "Detalle de Matrícula";
+}
+
+<div class="container mt-4">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">
+                Detalle de Matrícula
+            </h3>
+        </div>
+
+        <div class="card-body">
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    ID
+                </div>
+
+                <div class="col-md-8">
+                    @Model.IdMatricula
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Estudiante
+                </div>
+
+                <div class="col-md-8">
+                    @if (!string.IsNullOrWhiteSpace(Model.Estudiante))
+                    {
+                        @Model.Estudiante
+                    }
+                    else
+                    {
+                        <span>
+                            Estudiante #@Model.IdEstudiante
+                        </span>
+                    }
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Curso
+                </div>
+
+                <div class="col-md-8">
+                    @if (!string.IsNullOrWhiteSpace(Model.NombreCurso))
+                    {
+                        @Model.NombreCurso
+                    }
+                    else
+                    {
+                        <span>
+                            Curso #@Model.IdCurso
+                        </span>
+                    }
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Fecha de matrícula
+                </div>
+
+                <div class="col-md-8">
+                    @Model.FechaMatricula.ToString("dd/MM/yyyy")
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Estado
+                </div>
+
+                <div class="col-md-8">
+                    @if (Model.Estado)
+                    {
+                        <span class="badge bg-success">
+                            Activa
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">
+                            Inactiva
+                        </span>
+                    }
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card-footer">
+
+            <a asp-action="Editar"
+               asp-route-id="@Model.IdMatricula"
+               class="btn btn-warning">
+                Editar
+            </a>
+
+            <a asp-action="Index"
+               class="btn btn-secondary">
+                Volver
+            </a>
+
+        </div>
+
+    </div>
+
+</div>

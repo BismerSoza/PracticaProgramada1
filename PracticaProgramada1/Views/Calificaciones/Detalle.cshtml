@@ -1,0 +1,96 @@
+﻿@model PracticaProgramada1.Models.CalificacionModel
+
+@{
+    ViewData["Title"] = "Detalle de Calificación";
+}
+
+<div class="container mt-4">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-primary text-white">
+            <h3>Detalle de Calificación</h3>
+        </div>
+
+        <div class="card-body">
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    ID
+                </div>
+
+                <div class="col-md-8">
+                    @Model.IdCalificacion
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Matrícula
+                </div>
+
+                <div class="col-md-8">
+                    @Model.IdMatricula
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Estudiante
+                </div>
+
+                <div class="col-md-8">
+                    @Model.Estudiante
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Curso
+                </div>
+
+                <div class="col-md-8">
+                    @Model.NombreCurso
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Nota
+                </div>
+
+                <div class="col-md-8">
+                    @Model.Nota
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">
+                    Fecha de Registro
+                </div>
+
+                <div class="col-md-8">
+                    @Model.FechaRegistro.ToString("dd/MM/yyyy")
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card-footer">
+
+            <a asp-action="Editar"
+               asp-route-id="@Model.IdCalificacion"
+               class="btn btn-warning">
+                Editar
+            </a>
+
+            <a asp-action="Index"
+               class="btn btn-secondary">
+                Volver
+            </a>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,104 @@
+﻿@model PracticaProgramada1.Models.CalificacionModel
+
+@{
+    ViewData["Title"] = "Registrar Calificación";
+}
+
+<div class="container mt-4">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-success text-white">
+            <h3 class="mb-0">
+                Registrar Calificación
+            </h3>
+        </div>
+
+        <div class="card-body">
+
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger">
+                    @ViewBag.Error
+                </div>
+            }
+
+            <form asp-action="Registrar"
+                  method="post">
+
+                <div asp-validation-summary="ModelOnly"
+                     class="text-danger mb-3">
+                </div>
+
+                <div class="mb-3">
+
+                    <label asp-for="IdMatricula"
+                           class="form-label">
+                        Estudiante y curso
+                    </label>
+
+                    <select asp-for="IdMatricula"
+                            asp-items="ViewBag.Matriculas"
+                            class="form-select">
+
+                        <option value="">
+                            Seleccione una matrícula
+                        </option>
+
+                    </select>
+
+                    <span asp-validation-for="IdMatricula"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label asp-for="Nota"
+                           class="form-label">
+                        Nota
+                    </label>
+
+                    <input asp-for="Nota"
+                           type="number"
+                           min="0"
+                           max="100"
+                           step="0.01"
+                           class="form-control"
+                           placeholder="Ingrese una nota entre 0 y 100" />
+
+                    <span asp-validation-for="Nota"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <input asp-for="FechaRegistro"
+                       type="hidden" />
+
+                <button type="submit"
+                        class="btn btn-success">
+                    Guardar
+                </button>
+
+                <a asp-action="Index"
+                   class="btn btn-secondary">
+                    Cancelar
+                </a>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync(
+            "_ValidationScriptsPartial");
+    }
+}

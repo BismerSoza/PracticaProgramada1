@@ -1,0 +1,135 @@
+﻿@model PracticaProgramada1.Models.AsistenciaModel
+
+@{
+    ViewData["Title"] = "Registrar Asistencia";
+}
+
+<div class="container mt-4">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-success text-white">
+            <h3 class="mb-0">
+                Registrar Asistencia
+            </h3>
+        </div>
+
+        <div class="card-body">
+
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger">
+                    @ViewBag.Error
+                </div>
+            }
+
+            <form asp-action="Registrar"
+                  method="post">
+
+                <div asp-validation-summary="ModelOnly"
+                     class="text-danger mb-3">
+                </div>
+
+                <div class="mb-3">
+
+                    <label asp-for="IdMatricula"
+                           class="form-label">
+                        Estudiante y curso
+                    </label>
+
+                    <select asp-for="IdMatricula"
+                            asp-items="ViewBag.Matriculas"
+                            class="form-select">
+
+                        <option value="">
+                            Seleccione una matrícula
+                        </option>
+
+                    </select>
+
+                    <span asp-validation-for="IdMatricula"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label asp-for="Fecha"
+                           class="form-label">
+                        Fecha
+                    </label>
+
+                    <input asp-for="Fecha"
+                           type="datetime-local"
+                           class="form-control" />
+
+                    <span asp-validation-for="Fecha"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label asp-for="Estado"
+                           class="form-label">
+                        Estado de asistencia
+                    </label>
+
+                    <select asp-for="Estado"
+                            class="form-select">
+
+                        <option value="">
+                            Seleccione el estado
+                        </option>
+
+                        <option value="Presente">
+                            Presente
+                        </option>
+
+                        <option value="Ausente">
+                            Ausente
+                        </option>
+
+                        <option value="Tardía">
+                            Tardía
+                        </option>
+
+                        <option value="Justificada">
+                            Justificada
+                        </option>
+
+                    </select>
+
+                    <span asp-validation-for="Estado"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <button type="submit"
+                        class="btn btn-success">
+                    Guardar
+                </button>
+
+                <a asp-action="Index"
+                   class="btn btn-secondary">
+                    Cancelar
+                </a>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync(
+            "_ValidationScriptsPartial");
+    }
+}

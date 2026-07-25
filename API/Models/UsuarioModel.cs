@@ -1,4 +1,4 @@
-﻿namespace PracticaProgramada1API.Models
+﻿namespace API.Models
 {
     public class UsuarioModel
     {

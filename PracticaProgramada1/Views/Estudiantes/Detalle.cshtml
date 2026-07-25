@@ -1,0 +1,115 @@
+﻿@model PracticaProgramada1.Models.EstudianteModel
+
+@{
+    ViewData["Title"] = "Detalle del Estudiante";
+}
+
+<div class="section-header">
+    <h1>Detalle del Estudiante</h1>
+</div>
+
+<div class="section-body">
+
+    <div class="card">
+
+        <div class="card-header">
+            <h4>Información General</h4>
+        </div>
+
+        <div class="card-body">
+
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <strong>Nombre</strong>
+                    <br />
+                    @Model.Nombre
+                </div>
+
+                <div class="col-md-4">
+                    <strong>Primer Apellido</strong>
+                    <br />
+                    @Model.PrimerApellido
+                </div>
+
+                <div class="col-md-4">
+                    <strong>Segundo Apellido</strong>
+                    <br />
+                    @Model.SegundoApellido
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <strong>Identificación</strong>
+                    <br />
+                    @Model.Identificacion
+                </div>
+
+                <div class="col-md-4">
+                    <strong>Correo</strong>
+                    <br />
+                    @Model.Correo
+                </div>
+
+                <div class="col-md-4">
+                    <strong>Teléfono</strong>
+                    <br />
+                    @Model.Telefono
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <strong>Dirección</strong>
+                    <br />
+                    @Model.Direccion
+                </div>
+
+                <div class="col-md-3">
+                    <strong>Estado</strong>
+                    <br />
+
+                    @if (Model.Estado)
+                    {
+                        <span class="badge badge-success">
+                            Activo
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-danger">
+                            Inactivo
+                        </span>
+                    }
+
+                </div>
+
+                <div class="col-md-3">
+                    <strong>Fecha Registro</strong>
+                    <br />
+                    @Model.FechaRegistro.ToString("dd/MM/yyyy")
+                </div>
+            </div>
+
+            <hr />
+
+            <a asp-action="Editar"
+               asp-route-id="@Model.IdEstudiante"
+               class="btn btn-warning">
+
+                Editar
+
+            </a>
+
+            <a asp-action="Index"
+               class="btn btn-secondary">
+
+                Regresar
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>

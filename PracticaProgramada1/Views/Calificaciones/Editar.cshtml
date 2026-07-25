@@ -1,0 +1,106 @@
+﻿@model PracticaProgramada1.Models.CalificacionModel
+
+@{
+    ViewData["Title"] = "Editar Calificación";
+}
+
+<div class="container mt-4">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-warning">
+            <h3 class="mb-0">
+                Editar Calificación
+            </h3>
+        </div>
+
+        <div class="card-body">
+
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger">
+                    @ViewBag.Error
+                </div>
+            }
+
+            <form asp-action="Editar"
+                  method="post">
+
+                <input asp-for="IdCalificacion"
+                       type="hidden" />
+
+                <input asp-for="FechaRegistro"
+                       type="hidden" />
+
+                <div asp-validation-summary="ModelOnly"
+                     class="text-danger mb-3">
+                </div>
+
+                <div class="mb-3">
+
+                    <label asp-for="IdMatricula"
+                           class="form-label">
+                        Estudiante y curso
+                    </label>
+
+                    <select asp-for="IdMatricula"
+                            asp-items="ViewBag.Matriculas"
+                            class="form-select">
+
+                        <option value="">
+                            Seleccione una matrícula
+                        </option>
+
+                    </select>
+
+                    <span asp-validation-for="IdMatricula"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label asp-for="Nota"
+                           class="form-label">
+                        Nota
+                    </label>
+
+                    <input asp-for="Nota"
+                           type="number"
+                           min="0"
+                           max="100"
+                           step="0.01"
+                           class="form-control" />
+
+                    <span asp-validation-for="Nota"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <button type="submit"
+                        class="btn btn-primary">
+                    Guardar cambios
+                </button>
+
+                <a asp-action="Index"
+                   class="btn btn-secondary">
+                    Cancelar
+                </a>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync(
+            "_ValidationScriptsPartial");
+    }
+}
