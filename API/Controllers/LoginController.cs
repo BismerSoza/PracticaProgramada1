@@ -34,10 +34,30 @@ namespace API.Controllers
                 commandType: CommandType.StoredProcedure
             );
 
-            if (usuario != null && BCrypt.Net.BCrypt.Verify(model.Contrasenna, usuario.Contrasenna))
+            if (usuario != null && !string.IsNullOrEmpty(usuario.Contrasenna))
             {
-                usuario.Token = _utiles.GenerarToken(usuario.IdUsuario);
-                return Ok(usuario);
+                bool isValidBCryptFormat = usuario.Contrasenna.StartsWith("$2");
+
+                if (!isValidBCryptFormat)
+                {
+                    return StatusCode(500, "Error de configuración de seguridad. Las credenciales deben ser actualizadas por un administrador.");
+                }
+
+                try
+                {
+                    if (BCrypt.Net.BCrypt.Verify(model.Contrasenna, usuario.Contrasenna))
+                    {
+                        usuario.Token = _utiles.GenerarToken(usuario.IdUsuario);
+         
+                        usuario.Contrasenna = string.Empty;
+                        return Ok(usuario);
+                    }
+                }
+                catch (BCrypt.Net.SaltParseException)
+                {
+       
+                    return StatusCode(500, "Error al procesar las credenciales. Contacte al administrador.");
+                }
             }
 
             return Unauthorized("Credenciales inválidas o usuario inactivo");

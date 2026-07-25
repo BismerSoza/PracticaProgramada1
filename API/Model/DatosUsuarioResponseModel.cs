@@ -4,6 +4,8 @@
     {
         public int IdUsuario { get; set; }
         public string Correo { get; set; } = string.Empty;
+
+        [System.Text.Json.Serialization.JsonIgnore]
         public string Contrasenna { get; set; } = string.Empty;
         public bool Estado { get; set; }
         public int IdRol { get; set; }

@@ -38,3 +38,4 @@ packages/
 
 # Archivos de publicación
 publish/
+Database/ScriptSeguridad_BCrypt.sql
