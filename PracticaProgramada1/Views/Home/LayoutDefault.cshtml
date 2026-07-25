@@ -1,36 +1,435 @@
 @{
-    ViewData["Title"] = "Diseño Predeterminado";
     Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+    ViewData["Title"] = "Escuela Aurora - Portal Educativo";
 }
 
-<section class="section">
-  <div class="section-header">
-    <h1>Diseño Predeterminado</h1>
-    <div class="section-header-breadcrumb">
-      <div class="breadcrumb-item active"><a href="#">Panel</a></div>
-      <div class="breadcrumb-item"><a href="#">Diseño</a></div>
-      <div class="breadcrumb-item">Diseño Predeterminado</div>
-    </div>
-  </div>
+<!-- Contenedor Principal con Diseño Personalizado -->
+<div class="main-content-wrapper">
 
-  <div class="section-body">
-    <h2 class="section-title">Página de Ejemplo</h2>
-    <p class="section-lead">Esta página es un ejemplo para que pueda crear sus propias páginas.</p>
-    <div class="card">
-      <div class="card-header">
-        <h4>Tarjeta de Ejemplo</h4>
-      </div>
-      <div class="card-body">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </div>
-      <div class="card-footer bg-whitesmoke">
-        Pie de tarjeta
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- Hero Section - Banner de Bienvenida -->
+    <section class="hero-section mb-4">
+        <div class="card border-0 shadow-lg overflow-hidden">
+            <div class="hero-gradient">
+                <div class="card-body p-5 text-white">
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <h1 class="display-4 font-weight-bold mb-3">
+                                <i class="fas fa-school"></i> Escuela Aurora
+                            </h1>
+                            <p class="lead mb-4">
+                                Sistema Integrado de Gestión Educativa
+                            </p>
+                            <p class="mb-4">
+                                Bienvenido al portal educativo más completo. 
+                                Aquí encontrarás todas las herramientas necesarias para tu desarrollo académico.
+                            </p>
+                            <div class="hero-stats mt-4">
+                                <div class="row text-center">
+                                    <div class="col-md-3 col-6 mb-3">
+                                        <div class="stat-item">
+                                            <h3 class="mb-0">500+</h3>
+                                            <small>Estudiantes</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6 mb-3">
+                                        <div class="stat-item">
+                                            <h3 class="mb-0">45+</h3>
+                                            <small>Profesores</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6 mb-3">
+                                        <div class="stat-item">
+                                            <h3 class="mb-0">30+</h3>
+                                            <small>Cursos</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6 mb-3">
+                                        <div class="stat-item">
+                                            <h3 class="mb-0">28</h3>
+                                            <small>Años</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 text-center d-none d-lg-block">
+                            <i class="fas fa-graduation-cap hero-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios Principales -->
+    <section class="services-section mb-4">
+        <div class="row">
+            <div class="col-12 mb-3">
+                <h2 class="section-title">
+                    <i class="fas fa-star text-warning"></i> Servicios Destacados
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="service-card card h-100 border-0 shadow-hover">
+                    <div class="card-body text-center">
+                        <div class="service-icon bg-primary mb-3">
+                            <i class="fas fa-user-graduate fa-2x"></i>
+                        </div>
+                        <h5 class="card-title">Portal Estudiantil</h5>
+                        <p class="card-text text-muted">
+                            Accede a tus calificaciones, horarios y material académico en un solo lugar.
+                        </p>
+                        <a href="/Estudiante/Dashboard" class="btn btn-outline-primary btn-sm">Ir al Portal</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="service-card card h-100 border-0 shadow-hover">
+                    <div class="card-body text-center">
+                        <div class="service-icon bg-success mb-3">
+                            <i class="fas fa-chalkboard-teacher fa-2x"></i>
+                        </div>
+                        <h5 class="card-title">Portal Docente</h5>
+                        <p class="card-text text-muted">
+                            Herramientas para gestión de cursos, asistencia y evaluaciones.
+                        </p>
+                        <a href="/Profesor/Dashboard" class="btn btn-outline-success btn-sm">Ir al Portal</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="service-card card h-100 border-0 shadow-hover">
+                    <div class="card-body text-center">
+                        <div class="service-icon bg-info mb-3">
+                            <i class="fas fa-book fa-2x"></i>
+                        </div>
+                        <h5 class="card-title">Biblioteca Virtual</h5>
+                        <p class="card-text text-muted">
+                            Miles de recursos educativos digitales disponibles 24/7.
+                        </p>
+                        <a href="/Biblioteca" class="btn btn-outline-info btn-sm">Explorar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="service-card card h-100 border-0 shadow-hover">
+                    <div class="card-body text-center">
+                        <div class="service-icon bg-warning mb-3">
+                            <i class="fas fa-calendar-alt fa-2x"></i>
+                        </div>
+                        <h5 class="card-title">Calendario Académico</h5>
+                        <p class="card-text text-muted">
+                            Mantente al día con eventos, exámenes y actividades escolares.
+                        </p>
+                        <a href="/Calendario" class="btn btn-outline-warning btn-sm">Ver Calendario</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Anuncios Importantes -->
+    <section class="announcements-section mb-4">
+        <div class="row">
+            <div class="col-lg-8 mb-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-white border-0">
+                        <h4 class="mb-0">
+                            <i class="fas fa-bullhorn text-danger"></i> Anuncios Importantes
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="announcement-item mb-3 p-3 bg-light rounded">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <span class="badge badge-danger mb-2">Urgente</span>
+                                    <h5 class="mb-2">Matrícula 2024 - Últimos Días</h5>
+                                    <p class="text-muted mb-2">
+                                        Recordamos a todos los padres de familia que el proceso de matrícula 
+                                        finaliza el próximo 25 de enero. No olvide completar todos los documentos requeridos.
+                                    </p>
+                                    <small class="text-muted">
+                                        <i class="fas fa-calendar"></i> Publicado: 15 de Enero, 2024
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="announcement-item mb-3 p-3 bg-light rounded">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <span class="badge badge-warning mb-2">Importante</span>
+                                    <h5 class="mb-2">Reunión de Padres de Familia</h5>
+                                    <p class="text-muted mb-2">
+                                        Se convoca a reunión general de padres de familia para el día viernes 19 de enero 
+                                        a las 6:00 PM en el auditorio principal.
+                                    </p>
+                                    <small class="text-muted">
+                                        <i class="fas fa-calendar"></i> Publicado: 10 de Enero, 2024
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="announcement-item p-3 bg-light rounded">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <span class="badge badge-info mb-2">Información</span>
+                                    <h5 class="mb-2">Nueva Plataforma Virtual</h5>
+                                    <p class="text-muted mb-2">
+                                        Estamos estrenando nuestra nueva plataforma de gestión educativa. 
+                                        Conoce todas las nuevas funcionalidades disponibles.
+                                    </p>
+                                    <small class="text-muted">
+                                        <i class="fas fa-calendar"></i> Publicado: 5 de Enero, 2024
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 mb-4">
+                <!-- Próximos Eventos -->
+                <div class="card border-0 shadow-sm mb-3">
+                    <div class="card-header bg-white border-0">
+                        <h5 class="mb-0">
+                            <i class="fas fa-calendar-check text-success"></i> Próximos Eventos
+                        </h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div class="d-flex">
+                                    <div class="event-date text-center mr-3">
+                                        <div class="date-day">22</div>
+                                        <div class="date-month">ENE</div>
+                                    </div>
+                                    <div>
+                                        <strong>Inicio de Clases</strong>
+                                        <br><small class="text-muted">Todos los niveles</small>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="d-flex">
+                                    <div class="event-date text-center mr-3">
+                                        <div class="date-day">15</div>
+                                        <div class="date-month">FEB</div>
+                                    </div>
+                                    <div>
+                                        <strong>Feria de Ciencias</strong>
+                                        <br><small class="text-muted">Secundaria</small>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="d-flex">
+                                    <div class="event-date text-center mr-3">
+                                        <div class="date-day">01</div>
+                                        <div class="date-month">MAR</div>
+                                    </div>
+                                    <div>
+                                        <strong>Exámenes Parciales</strong>
+                                        <br><small class="text-muted">Todos los grados</small>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contacto Rápido -->
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-white border-0">
+                        <h5 class="mb-0">
+                            <i class="fas fa-phone text-primary"></i> Contacto Rápido
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="mb-2">
+                            <i class="fas fa-phone-alt text-primary"></i>
+                            <strong>Tel:</strong> +506 2234-5678
+                        </p>
+                        <p class="mb-2">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <strong>Email:</strong> info@escuelaaurora.ed.cr
+                        </p>
+                        <p class="mb-0">
+                            <i class="fas fa-clock text-primary"></i>
+                            <strong>Horario:</strong> Lun-Vie 7AM-5PM
+                        </p>
+                        <hr>
+                        <a href="/Contacto" class="btn btn-primary btn-block">
+                            <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Final -->
+    <section class="cta-section">
+        <div class="card bg-gradient-aurora text-white border-0 shadow-lg">
+            <div class="card-body text-center p-5">
+                <h2 class="mb-3">¿Listo para Comenzar?</h2>
+                <p class="lead mb-4">
+                    Únete a nuestra comunidad educativa y descubre todo lo que Escuela Aurora tiene para ofrecer.
+                </p>
+                <div class="btn-group" role="group">
+                    <a href="/Registro" class="btn btn-light btn-lg mr-2">
+                        <i class="fas fa-user-plus"></i> Registrarse
+                    </a>
+                    <a href="/Nosotros" class="btn btn-outline-light btn-lg">
+                        <i class="fas fa-info-circle"></i> Conocer Más
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+@section Styles {
+    <style>
+        /* Hero Section */
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+        }
+
+        .hero-icon {
+            font-size: 180px;
+            opacity: 0.3;
+        }
+
+        .hero-stats .stat-item {
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-stats h3 {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        /* Service Cards */
+        .service-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .shadow-hover {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .shadow-hover:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+
+        /* Announcements */
+        .announcement-item {
+            transition: all 0.2s ease;
+        }
+
+        .announcement-item:hover {
+            background-color: #e9ecef !important;
+        }
+
+        /* Event Date */
+        .event-date {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 8px;
+            padding: 10px;
+            min-width: 60px;
+        }
+
+        .date-day {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .date-month {
+            font-size: 0.8rem;
+        }
+
+        /* Gradient Background */
+        .bg-gradient-aurora {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        /* Animations */
+        @@keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+    </style>
+}
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Smooth scroll para enlaces internos
+            $('a[href^="#"]').on('click', function(e) {
+                e.preventDefault();
+                var target = $(this.getAttribute('href'));
+                if(target.length) {
+                    $('html, body').stop().animate({
+                        scrollTop: target.offset().top - 100
+                    }, 1000);
+                }
+            });
+
+            // Efecto parallax en hero section
+            $(window).scroll(function() {
+                var scroll = $(window).scrollTop();
+                $('.hero-icon').css('transform', 'translateY(' + (scroll * 0.3) + 'px)');
+            });
+        });
+    </script>
+}

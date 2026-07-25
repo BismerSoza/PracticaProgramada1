@@ -1,0 +1,422 @@
+@model PracticaProgramada1.Models.DashboardViewModel
+
+<!-- Dashboard Específico para Estudiante -->
+<div class="row">
+    <!-- Mis Cursos Inscritos -->
+    <div class="col-lg-8 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white">
+                <h4><i class="fas fa-book-open text-primary"></i> Mis Cursos Inscritos</h4>
+                <div class="card-header-action">
+                    <span class="badge badge-primary">@Model.Metricas.CursosInscritos cursos</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="course-card border rounded p-3 h-100">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="mb-1">Matemáticas</h5>
+                                <span class="badge badge-success">Activo</span>
+                            </div>
+                            <p class="text-muted mb-2"><i class="fas fa-user"></i> Prof. María González</p>
+                            <div class="progress mb-2" style="height: 8px;">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 85%"></div>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <small class="text-muted">Progreso: 85%</small>
+                                <small><strong class="text-success">Promedio: 88</strong></small>
+                            </div>
+                            <div class="mt-2">
+                                <button class="btn btn-sm btn-outline-primary"><i class="fas fa-eye"></i> Ver Detalles</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="course-card border rounded p-3 h-100">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="mb-1">Ciencias Naturales</h5>
+                                <span class="badge badge-success">Activo</span>
+                            </div>
+                            <p class="text-muted mb-2"><i class="fas fa-user"></i> Prof. Carlos Ramírez</p>
+                            <div class="progress mb-2" style="height: 8px;">
+                                <div class="progress-bar bg-info" role="progressbar" style="width: 72%"></div>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <small class="text-muted">Progreso: 72%</small>
+                                <small><strong class="text-info">Promedio: 82</strong></small>
+                            </div>
+                            <div class="mt-2">
+                                <button class="btn btn-sm btn-outline-primary"><i class="fas fa-eye"></i> Ver Detalles</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="course-card border rounded p-3 h-100">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="mb-1">Estudios Sociales</h5>
+                                <span class="badge badge-success">Activo</span>
+                            </div>
+                            <p class="text-muted mb-2"><i class="fas fa-user"></i> Prof. Ana López</p>
+                            <div class="progress mb-2" style="height: 8px;">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 90%"></div>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <small class="text-muted">Progreso: 90%</small>
+                                <small><strong class="text-primary">Promedio: 92</strong></small>
+                            </div>
+                            <div class="mt-2">
+                                <button class="btn btn-sm btn-outline-primary"><i class="fas fa-eye"></i> Ver Detalles</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="course-card border rounded p-3 h-100">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="mb-1">Inglés</h5>
+                                <span class="badge badge-success">Activo</span>
+                            </div>
+                            <p class="text-muted mb-2"><i class="fas fa-user"></i> Prof. John Smith</p>
+                            <div class="progress mb-2" style="height: 8px;">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: 68%"></div>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <small class="text-muted">Progreso: 68%</small>
+                                <small><strong class="text-warning">Promedio: 78</strong></small>
+                            </div>
+                            <div class="mt-2">
+                                <button class="btn btn-sm btn-outline-primary"><i class="fas fa-eye"></i> Ver Detalles</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Panel Lateral: Resumen Académico -->
+    <div class="col-lg-4 mb-4">
+        <!-- Promedio General -->
+        <div class="card shadow-sm mb-3">
+            <div class="card-body text-center">
+                <div class="mb-3">
+                    <i class="fas fa-graduation-cap fa-3x text-primary"></i>
+                </div>
+                <h6 class="text-muted mb-2">Mi Promedio General</h6>
+                <h1 class="display-4 text-primary mb-0">@Model.Metricas.PromedioGeneral.ToString("0.00")</h1>
+                <div class="progress mt-3" style="height: 10px;">
+                    <div class="progress-bar bg-gradient-primary" role="progressbar" style="width: @(Model.Metricas.PromedioGeneral)%"></div>
+                </div>
+                <small class="text-success mt-2 d-block">
+                    <i class="fas fa-arrow-up"></i> +2.5 puntos vs período anterior
+                </small>
+            </div>
+        </div>
+
+        <!-- Asistencia -->
+        <div class="card shadow-sm mb-3">
+            <div class="card-body">
+                <h6 class="mb-3"><i class="fas fa-calendar-check text-success"></i> Mi Asistencia</h6>
+                <div class="text-center">
+                    <div class="mb-2">
+                        <canvas id="chartAsistenciaEstudiante" height="120"></canvas>
+                    </div>
+                    <h4 class="text-success">@Model.Metricas.PorcentajeAsistencia.ToString("0.0")%</h4>
+                    <small class="text-muted">de asistencia este mes</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Próximas Evaluaciones -->
+        <div class="card shadow-sm">
+            <div class="card-header bg-white">
+                <h6 class="mb-0"><i class="fas fa-exclamation-circle text-danger"></i> Próximas Evaluaciones</h6>
+            </div>
+            <div class="card-body p-0">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <strong>Examen de Matemáticas</strong>
+                                <br><small class="text-muted">Cap. 5-7</small>
+                            </div>
+                            <span class="badge badge-danger">3 días</span>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <strong>Quiz Ciencias</strong>
+                                <br><small class="text-muted">Ecosistemas</small>
+                            </div>
+                            <span class="badge badge-warning">5 días</span>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <strong>Proyecto Sociales</strong>
+                                <br><small class="text-muted">Historia CR</small>
+                            </div>
+                            <span class="badge badge-info">1 semana</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tareas Pendientes y Horario -->
+<div class="row">
+    <!-- Tareas Pendientes -->
+    <div class="col-lg-6 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white">
+                <h4><i class="fas fa-tasks text-warning"></i> Tareas Pendientes</h4>
+                <div class="card-header-action">
+                    <span class="badge badge-warning">@Model.Metricas.TareasPendientes pendientes</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Tarea</th>
+                                <th>Materia</th>
+                                <th>Fecha Entrega</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Ejercicios Cap. 5</strong></td>
+                                <td><span class="badge badge-primary">Matemáticas</span></td>
+                                <td>25/01/2024</td>
+                                <td><span class="badge badge-danger">Urgente</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Investigación Biodiversidad</strong></td>
+                                <td><span class="badge badge-success">Ciencias</span></td>
+                                <td>28/01/2024</td>
+                                <td><span class="badge badge-warning">Pendiente</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ensayo Independencia</strong></td>
+                                <td><span class="badge badge-info">Sociales</span></td>
+                                <td>02/02/2024</td>
+                                <td><span class="badge badge-secondary">Por iniciar</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mi Horario de Clases -->
+    <div class="col-lg-6 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white">
+                <h4><i class="fas fa-calendar-day text-info"></i> Mi Horario de Hoy</h4>
+            </div>
+            <div class="card-body">
+                <div class="schedule-timeline">
+                    <div class="schedule-item">
+                        <div class="schedule-time">
+                            <strong>7:30 - 8:30</strong>
+                        </div>
+                        <div class="schedule-content bg-primary text-white">
+                            <h6 class="mb-1">Matemáticas</h6>
+                            <small>Aula 301 - Prof. María González</small>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">
+                            <strong>8:30 - 9:30</strong>
+                        </div>
+                        <div class="schedule-content bg-success text-white">
+                            <h6 class="mb-1">Ciencias Naturales</h6>
+                            <small>Lab. Ciencias - Prof. Carlos Ramírez</small>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">
+                            <strong>9:30 - 10:00</strong>
+                        </div>
+                        <div class="schedule-content bg-light">
+                            <h6 class="mb-1">Receso</h6>
+                            <small>Tiempo libre</small>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">
+                            <strong>10:00 - 11:00</strong>
+                        </div>
+                        <div class="schedule-content bg-info text-white">
+                            <h6 class="mb-1">Estudios Sociales</h6>
+                            <small>Aula 205 - Prof. Ana López</small>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">
+                            <strong>11:00 - 12:00</strong>
+                        </div>
+                        <div class="schedule-content bg-warning text-white">
+                            <h6 class="mb-1">Inglés</h6>
+                            <small>Aula 108 - Prof. John Smith</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Gráfico de Rendimiento Personal -->
+<div class="row">
+    <div class="col-12 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white">
+                <h4><i class="fas fa-chart-area text-success"></i> Mi Rendimiento Académico</h4>
+            </div>
+            <div class="card-body">
+                <canvas id="chartRendimientoEstudiante" height="80"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Accesos Rápidos Estudiante -->
+<div class="row">
+    <div class="col-md-3 col-sm-6 mb-3">
+        <a href="/Estudiante/Calificaciones" class="btn btn-outline-primary btn-block btn-lg">
+            <i class="fas fa-chart-line fa-2x mb-2 d-block"></i>
+            Mis Calificaciones
+        </a>
+    </div>
+    <div class="col-md-3 col-sm-6 mb-3">
+        <a href="/Estudiante/Tareas" class="btn btn-outline-success btn-block btn-lg">
+            <i class="fas fa-clipboard-list fa-2x mb-2 d-block"></i>
+            Ver Tareas
+        </a>
+    </div>
+    <div class="col-md-3 col-sm-6 mb-3">
+        <a href="/Estudiante/Horario" class="btn btn-outline-info btn-block btn-lg">
+            <i class="fas fa-calendar-alt fa-2x mb-2 d-block"></i>
+            Mi Horario
+        </a>
+    </div>
+    <div class="col-md-3 col-sm-6 mb-3">
+        <a href="/Estudiante/Recursos" class="btn btn-outline-warning btn-block btn-lg">
+            <i class="fas fa-book-reader fa-2x mb-2 d-block"></i>
+            Material de Estudio
+        </a>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Gráfico de Asistencia del Estudiante
+        var ctxAsistenciaEst = document.getElementById('chartAsistenciaEstudiante').getContext('2d');
+        var chartAsistenciaEst = new Chart(ctxAsistenciaEst, {
+            type: 'doughnut',
+            data: {
+                labels: ['Asistencias', 'Ausencias'],
+                datasets: [{
+                    data: [@Model.Metricas.PorcentajeAsistencia, @(100 - Model.Metricas.PorcentajeAsistencia)],
+                    backgroundColor: ['rgba(40, 167, 69, 0.8)', 'rgba(220, 53, 69, 0.2)'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        // Gráfico de Rendimiento del Estudiante
+        var ctxRendimientoEst = document.getElementById('chartRendimientoEstudiante').getContext('2d');
+        var chartRendimientoEst = new Chart(ctxRendimientoEst, {
+            type: 'line',
+            data: {
+                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'],
+                datasets: [{
+                    label: 'Matemáticas',
+                    data: [82, 85, 88, 87, 90, 88],
+                    borderColor: 'rgb(54, 162, 235)',
+                    backgroundColor: 'rgba(54, 162, 235, 0.1)',
+                    tension: 0.4
+                }, {
+                    label: 'Ciencias',
+                    data: [78, 80, 82, 83, 85, 82],
+                    borderColor: 'rgb(75, 192, 192)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.1)',
+                    tension: 0.4
+                }, {
+                    label: 'Sociales',
+                    data: [88, 90, 92, 91, 94, 92],
+                    borderColor: 'rgb(255, 206, 86)',
+                    backgroundColor: 'rgba(255, 206, 86, 0.1)',
+                    tension: 0.4
+                }, {
+                    label: 'Inglés',
+                    data: [75, 76, 78, 77, 80, 78],
+                    borderColor: 'rgb(255, 99, 132)',
+                    backgroundColor: 'rgba(255, 99, 132, 0.1)',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+    </script>
+
+    <style>
+        .course-card {
+            transition: all 0.3s ease;
+        }
+        .course-card:hover {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+        }
+        .schedule-timeline {
+            position: relative;
+        }
+        .schedule-item {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: stretch;
+        }
+        .schedule-time {
+            width: 120px;
+            display: flex;
+            align-items: center;
+            padding-right: 15px;
+        }
+        .schedule-content {
+            flex: 1;
+            padding: 12px 15px;
+            border-radius: 8px;
+        }
+    </style>
+}

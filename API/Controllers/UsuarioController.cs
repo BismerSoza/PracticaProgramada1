@@ -20,7 +20,7 @@ namespace API.Controllers
         [HttpPost("registro")]
         public IActionResult Registro([FromBody] RegistroUsuarioModel model)
         {
-        
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -32,7 +32,7 @@ namespace API.Controllers
 
             var parameters = new DynamicParameters();
             parameters.Add("@correo", model.Correo);
-            parameters.Add("@contrasenna", contrasennaHasheada); 
+            parameters.Add("@contrasenna", contrasennaHasheada);
             parameters.Add("@nombre", model.Nombre);
             parameters.Add("@primerApellido", model.PrimerApellido);
             parameters.Add("@identificacion", model.Identificacion);

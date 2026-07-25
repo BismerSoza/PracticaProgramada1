@@ -1,500 +1,342 @@
+@model PracticaProgramada1.Models.GeneralDashboardViewModel
+
 @{
-    ViewData["Title"] = "Panel General";
+    ViewData["Title"] = "Panel General - Escuela Aurora";
     Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
 }
 
-@section HeadStyles {
-  <link rel="stylesheet" href="~/css/weather-icon/weather-icons.min.css">
-  <link rel="stylesheet" href="~/css/weather-icon/weather-icons-wind.min.css">
+<!-- Banner Principal Escuela Aurora -->
+<div class="row">
+    <div class="col-12">
+        <div class="card bg-gradient-aurora shadow-lg border-0 mb-4">
+            <div class="card-body p-5 text-center">
+                <div class="mb-3">
+                    <i class="fas fa-school fa-4x text-white"></i>
+                </div>
+                <h1 class="text-white display-4 font-weight-bold">@Model.TituloEscuela</h1>
+                <p class="text-white-50 lead mb-4">@Model.Lema</p>
+                <div class="row text-white mt-4">
+                    <div class="col-md-3">
+                        <h3>@Model.Resumen.TotalEstudiantes</h3>
+                        <small>Estudiantes</small>
+                    </div>
+                    <div class="col-md-3">
+                        <h3>@Model.Resumen.TotalProfesores</h3>
+                        <small>Profesores</small>
+                    </div>
+                    <div class="col-md-3">
+                        <h3>@Model.Resumen.TotalCursos</h3>
+                        <small>Cursos Activos</small>
+                    </div>
+                    <div class="col-md-3">
+                        <h3>@Model.Resumen.PromedioGeneralEscuela.ToString("0.0")</h3>
+                        <small>Promedio General</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Indicadores Clave (KPIs) -->
+<div class="row">
+    <div class="col-xl-3 col-lg-6">
+        <div class="card card-stats shadow-sm mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <h5 class="card-title text-uppercase text-muted mb-0">Tasa de Aprobación</h5>
+                        <span class="h2 font-weight-bold mb-0">@Model.Resumen.TasaAprobacion.ToString("0.0")%</span>
+                    </div>
+                    <div class="col-auto">
+                        <div class="icon icon-shape bg-success text-white rounded-circle shadow">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-3 mb-0 text-muted text-sm">
+                    <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 3.5%</span>
+                    <span class="text-nowrap">vs mes anterior</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-lg-6">
+        <div class="card card-stats shadow-sm mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <h5 class="card-title text-uppercase text-muted mb-0">Tasa de Asistencia</h5>
+                        <span class="h2 font-weight-bold mb-0">@Model.Resumen.TasaAsistencia.ToString("0.0")%</span>
+                    </div>
+                    <div class="col-auto">
+                        <div class="icon icon-shape bg-info text-white rounded-circle shadow">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-3 mb-0 text-muted text-sm">
+                    <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 2.1%</span>
+                    <span class="text-nowrap">vs semana anterior</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-lg-6">
+        <div class="card card-stats shadow-sm mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <h5 class="card-title text-uppercase text-muted mb-0">Nuevos Estudiantes</h5>
+                        <span class="h2 font-weight-bold mb-0">@Model.Resumen.EstudiantesNuevosEsteMes</span>
+                    </div>
+                    <div class="col-auto">
+                        <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-3 mb-0 text-muted text-sm">
+                    <span class="text-nowrap">Este mes</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-lg-6">
+        <div class="card card-stats shadow-sm mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <h5 class="card-title text-uppercase text-muted mb-0">Total Aulas</h5>
+                        <span class="h2 font-weight-bold mb-0">@Model.Resumen.TotalAulas</span>
+                    </div>
+                    <div class="col-auto">
+                        <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                            <i class="fas fa-door-open"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-3 mb-0 text-muted text-sm">
+                    <span class="text-nowrap">Disponibles</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Gráficos y Estadísticas -->
+<div class="row">
+    <!-- Gráfico de Inscripciones Mensuales -->
+    <div class="col-lg-8 col-md-12 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white border-0">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="mb-0"><i class="fas fa-chart-line text-primary"></i> Tendencia de Inscripciones</h3>
+                    </div>
+                    <div class="col text-right">
+                        <select class="form-control form-control-sm" style="width: auto; display: inline-block;">
+                            <option>Últimos 12 meses</option>
+                            <option>Último año</option>
+                            <option>Este semestre</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <canvas id="chartInscripciones" height="100"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top 5 Mejores Estudiantes -->
+    <div class="col-lg-4 col-md-12 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white border-0">
+                <h3 class="mb-0"><i class="fas fa-trophy text-warning"></i> Top Estudiantes</h3>
+            </div>
+            <div class="card-body p-0">
+                <div class="list-group list-group-flush">
+                    @foreach (var estudiante in Model.MejoresEstudiantes.Take(5))
+                    {
+                        <div class="list-group-item">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <span class="badge badge-@(estudiante.Posicion == 1 ? "warning" : estudiante.Posicion == 2 ? "secondary" : estudiante.Posicion == 3 ? "danger" : "primary") badge-pill">
+                                        #@estudiante.Posicion
+                                    </span>
+                                </div>
+                                <div class="col-auto">
+                                    <img src="@estudiante.FotoUrl" alt="@estudiante.NombreCompleto" class="avatar rounded-circle">
+                                </div>
+                                <div class="col ml--2">
+                                    <h4 class="mb-0">
+                                        @estudiante.NombreCompleto
+                                    </h4>
+                                    <small class="text-muted">@estudiante.Grado</small>
+                                </div>
+                                <div class="col-auto">
+                                    <span class="badge badge-success">@estudiante.PromedioGeneral.ToString("0.00")</span>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Próximos Eventos y Anuncios -->
+<div class="row">
+    <!-- Calendario de Eventos -->
+    <div class="col-lg-6 col-md-12 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white">
+                <h4><i class="fas fa-calendar-alt text-info"></i> Próximos Eventos</h4>
+                <div class="card-header-action">
+                    <a href="#" class="btn btn-primary btn-sm">Ver Calendario</a>
+                </div>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled">
+                    @foreach (var evento in Model.ProximosEventos.Take(5))
+                    {
+                        <li class="media mb-3">
+                            <div class="mr-3">
+                                <div class="text-center bg-@(evento.Tipo == "examen" ? "danger" : evento.Tipo == "reunion" ? "warning" : evento.Tipo == "festivo" ? "success" : "info") text-white rounded p-2" style="width: 60px;">
+                                    <div class="h5 mb-0">@evento.FechaInicio.Day</div>
+                                    <small>@evento.FechaInicio.ToString("MMM", new System.Globalization.CultureInfo("es-ES"))</small>
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <h6 class="mt-0 mb-1">@evento.Titulo</h6>
+                                <p class="text-muted mb-0">@evento.Descripcion</p>
+                                <small class="text-muted">
+                                    <i class="fas fa-clock"></i> @evento.FechaInicio.ToString("HH:mm")
+                                </small>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Anuncios Importantes -->
+    <div class="col-lg-6 col-md-12 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white">
+                <h4><i class="fas fa-bullhorn text-danger"></i> Anuncios Importantes</h4>
+            </div>
+            <div class="card-body">
+                @foreach (var anuncio in Model.AnunciosRecientes.Take(4))
+                {
+                    <div class="card mb-3 @(anuncio.Importante ? "border-warning" : "")">
+                        <div class="card-body p-3">
+                            <div class="d-flex justify-content-between">
+                                <h6 class="mb-1">
+                                    @if (anuncio.Importante)
+                                    {
+                                        <i class="fas fa-star text-warning"></i>
+                                    }
+                                    @anuncio.Titulo
+                                </h6>
+                                <small class="text-muted">@anuncio.FechaPublicacion.ToString("dd/MM/yyyy")</small>
+                            </div>
+                            <p class="text-muted mb-2 small">@anuncio.Contenido</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">
+                                    <i class="fas fa-user"></i> @anuncio.Autor
+                                </small>
+                                <span class="badge badge-primary">@anuncio.Categoria</span>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .bg-gradient-aurora {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .card-stats {
+            border: none;
+            border-radius: 10px;
+        }
+
+        .icon-shape {
+            width: 48px;
+            height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+        }
+    </style>
 }
 
-<section class="section">
-  <div class="section-header">
-    <h1>Panel de Control</h1>
-  </div>
-  <div class="row">
-    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-      <div class="card card-statistic-1">
-        <div class="card-icon bg-primary">
-          <i class="far fa-user"></i>
-        </div>
-        <div class="card-wrap">
-          <div class="card-header">
-            <h4>Total Administradores</h4>
-          </div>
-          <div class="card-body">10</div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-      <div class="card card-statistic-1">
-        <div class="card-icon bg-danger">
-          <i class="far fa-newspaper"></i>
-        </div>
-        <div class="card-wrap">
-          <div class="card-header">
-            <h4>Noticias</h4>
-          </div>
-          <div class="card-body">42</div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-      <div class="card card-statistic-1">
-        <div class="card-icon bg-warning">
-          <i class="far fa-file"></i>
-        </div>
-        <div class="card-wrap">
-          <div class="card-header">
-            <h4>Reportes</h4>
-          </div>
-          <div class="card-body">1.201</div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-      <div class="card card-statistic-1">
-        <div class="card-icon bg-success">
-          <i class="fas fa-circle"></i>
-        </div>
-        <div class="card-wrap">
-          <div class="card-header">
-            <h4>Usuarios en Línea</h4>
-          </div>
-          <div class="card-body">47</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-8 col-md-12 col-12 col-sm-12">
-      <div class="card">
-        <div class="card-header">
-          <h4>Estadísticas</h4>
-          <div class="card-header-action">
-            <div class="btn-group">
-              <a href="#" class="btn btn-primary">Semana</a>
-              <a href="#" class="btn">Mes</a>
-            </div>
-          </div>
-        </div>
-        <div class="card-body">
-          <canvas id="myChart" height="182"></canvas>
-          <div class="statistic-details mt-sm-4">
-            <div class="statistic-details-item">
-              <span class="text-muted"><span class="text-primary"><i class="fas fa-caret-up"></i></span> 7%</span>
-              <div class="detail-value">₡243</div>
-              <div class="detail-name">Ventas de Hoy</div>
-            </div>
-            <div class="statistic-details-item">
-              <span class="text-muted"><span class="text-danger"><i class="fas fa-caret-down"></i></span> 23%</span>
-              <div class="detail-value">₡2.902</div>
-              <div class="detail-name">Ventas de la Semana</div>
-            </div>
-            <div class="statistic-details-item">
-              <span class="text-muted"><span class="text-primary"><i class="fas fa-caret-up"></i></span> 9%</span>
-              <div class="detail-value">₡12.821</div>
-              <div class="detail-name">Ventas del Mes</div>
-            </div>
-            <div class="statistic-details-item">
-              <span class="text-muted"><span class="text-primary"><i class="fas fa-caret-up"></i></span> 19%</span>
-              <div class="detail-value">₡92.142</div>
-              <div class="detail-name">Ventas del Año</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-12 col-12 col-sm-12">
-      <div class="card">
-        <div class="card-header">
-          <h4>Actividad Reciente</h4>
-        </div>
-        <div class="card-body">
-          <ul class="list-unstyled list-unstyled-border">
-            <li class="media">
-              <img class="mr-3 rounded-circle" width="50" src="~/img/avatar/avatar-1.png" alt="avatar">
-              <div class="media-body">
-                <div class="float-right text-primary">Ahora</div>
-                <div class="media-title">Farhan A Mujib</div>
-                <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</span>
-              </div>
-            </li>
-            <li class="media">
-              <img class="mr-3 rounded-circle" width="50" src="~/img/avatar/avatar-2.png" alt="avatar">
-              <div class="media-body">
-                <div class="float-right">12m</div>
-                <div class="media-title">Ujang Maman</div>
-                <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</span>
-              </div>
-            </li>
-            <li class="media">
-              <img class="mr-3 rounded-circle" width="50" src="~/img/avatar/avatar-3.png" alt="avatar">
-              <div class="media-body">
-                <div class="float-right">17m</div>
-                <div class="media-title">Rizal Fakhri</div>
-                <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</span>
-              </div>
-            </li>
-            <li class="media">
-              <img class="mr-3 rounded-circle" width="50" src="~/img/avatar/avatar-4.png" alt="avatar">
-              <div class="media-body">
-                <div class="float-right">21m</div>
-                <div class="media-title">Alfa Zulkarnain</div>
-                <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</span>
-              </div>
-            </li>
-          </ul>
-          <div class="text-center pt-1 pb-1">
-            <a href="#" class="btn btn-primary btn-lg btn-round">Ver Todo</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-6 col-md-12 col-12 col-sm-12">
-      <div class="card">
-        <div class="card-body pt-2 pb-2">
-          <div id="myWeather">Por favor espere...</div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-6 col-md-12 col-12 col-sm-12">
-      <div class="card">
-        <div class="card-header">
-          <h4>Autores</h4>
-        </div>
-        <div class="card-body">
-          <div class="row pb-2">
-            <div class="col-6 col-sm-3 col-lg-3 mb-4 mb-md-0">
-              <div class="avatar-item mb-0">
-                <img alt="imagen" src="~/img/avatar/avatar-5.png" class="img-fluid" data-toggle="tooltip" title="Alfa Zulkarnain">
-                <div class="avatar-badge" title="Editor" data-toggle="tooltip"><i class="fas fa-wrench"></i></div>
-              </div>
-            </div>
-            <div class="col-6 col-sm-3 col-lg-3 mb-4 mb-md-0">
-              <div class="avatar-item mb-0">
-                <img alt="imagen" src="~/img/avatar/avatar-4.png" class="img-fluid" data-toggle="tooltip" title="Egi Ferdian">
-                <div class="avatar-badge" title="Administrador" data-toggle="tooltip"><i class="fas fa-cog"></i></div>
-              </div>
-            </div>
-            <div class="col-6 col-sm-3 col-lg-3 mb-4 mb-md-0">
-              <div class="avatar-item mb-0">
-                <img alt="imagen" src="~/img/avatar/avatar-1.png" class="img-fluid" data-toggle="tooltip" title="Jaka Ramadhan">
-                <div class="avatar-badge" title="Autor" data-toggle="tooltip"><i class="fas fa-pencil-alt"></i></div>
-              </div>
-            </div>
-            <div class="col-6 col-sm-3 col-lg-3 mb-4 mb-md-0">
-              <div class="avatar-item mb-0">
-                <img alt="imagen" src="~/img/avatar/avatar-2.png" class="img-fluid" data-toggle="tooltip" title="Ryan">
-                <div class="avatar-badge" title="Administrador" data-toggle="tooltip"><i class="fas fa-cog"></i></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-6 col-md-6 col-12">
-      <div class="card">
-        <div class="card-header">
-          <h4>URL de Referencia</h4>
-        </div>
-        <div class="card-body">
-          <div class="mb-4">
-            <div class="text-small float-right font-weight-bold text-muted">2.100</div>
-            <div class="font-weight-bold mb-1">Google</div>
-            <div class="progress" data-height="3">
-              <div class="progress-bar" role="progressbar" data-width="80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-          <div class="mb-4">
-            <div class="text-small float-right font-weight-bold text-muted">1.880</div>
-            <div class="font-weight-bold mb-1">Facebook</div>
-            <div class="progress" data-height="3">
-              <div class="progress-bar" role="progressbar" data-width="67%" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-          <div class="mb-4">
-            <div class="text-small float-right font-weight-bold text-muted">1.521</div>
-            <div class="font-weight-bold mb-1">Bing</div>
-            <div class="progress" data-height="3">
-              <div class="progress-bar" role="progressbar" data-width="58%" aria-valuenow="58" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-          <div class="mb-4">
-            <div class="text-small float-right font-weight-bold text-muted">884</div>
-            <div class="font-weight-bold mb-1">Yahoo</div>
-            <div class="progress" data-height="3">
-              <div class="progress-bar" role="progressbar" data-width="36%" aria-valuenow="36" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-          <div class="mb-4">
-            <div class="text-small float-right font-weight-bold text-muted">473</div>
-            <div class="font-weight-bold mb-1">Kodinger</div>
-            <div class="progress" data-height="3">
-              <div class="progress-bar" role="progressbar" data-width="28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-          <div class="mb-4">
-            <div class="text-small float-right font-weight-bold text-muted">418</div>
-            <div class="font-weight-bold mb-1">Multinity</div>
-            <div class="progress" data-height="3">
-              <div class="progress-bar" role="progressbar" data-width="20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <h4>Navegadores Populares</h4>
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <div class="col text-center">
-              <div class="browser browser-chrome"></div>
-              <div class="mt-2 font-weight-bold">Chrome</div>
-              <div class="text-muted text-small"><span class="text-primary"><i class="fas fa-caret-up"></i></span> 48%</div>
-            </div>
-            <div class="col text-center">
-              <div class="browser browser-firefox"></div>
-              <div class="mt-2 font-weight-bold">Firefox</div>
-              <div class="text-muted text-small"><span class="text-primary"><i class="fas fa-caret-up"></i></span> 26%</div>
-            </div>
-            <div class="col text-center">
-              <div class="browser browser-safari"></div>
-              <div class="mt-2 font-weight-bold">Safari</div>
-              <div class="text-muted text-small"><span class="text-danger"><i class="fas fa-caret-down"></i></span> 14%</div>
-            </div>
-            <div class="col text-center">
-              <div class="browser browser-opera"></div>
-              <div class="mt-2 font-weight-bold">Opera</div>
-              <div class="text-muted text-small">7%</div>
-            </div>
-            <div class="col text-center">
-              <div class="browser browser-internet-explorer"></div>
-              <div class="mt-2 font-weight-bold">IE</div>
-              <div class="text-muted text-small"><span class="text-primary"><i class="fas fa-caret-up"></i></span> 5%</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card mt-sm-5 mt-md-0">
-        <div class="card-header">
-          <h4>Visitantes</h4>
-        </div>
-        <div class="card-body">
-          <div id="visitorMap"></div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-6 col-md-6 col-12">
-      <div class="card">
-        <div class="card-header">
-          <h4>Estadísticas de la Semana</h4>
-          <div class="card-header-action">
-            <div class="dropdown">
-              <a href="#" class="dropdown-toggle btn btn-primary" data-toggle="dropdown">Filtrar</a>
-              <div class="dropdown-menu dropdown-menu-right">
-                <a href="#" class="dropdown-item has-icon"><i class="far fa-circle"></i> Electrónica</a>
-                <a href="#" class="dropdown-item has-icon"><i class="far fa-circle"></i> Camisetas</a>
-                <a href="#" class="dropdown-item has-icon"><i class="far fa-circle"></i> Sombreros</a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">Ver Todo</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="summary">
-            <div class="summary-info">
-              <h4>₡1.053</h4>
-              <div class="text-muted">3 artículos vendidos a 2 clientes</div>
-              <div class="d-block mt-2"><a href="#">Ver Todo</a></div>
-            </div>
-            <div class="summary-item">
-              <h6>Lista de Artículos <span class="text-muted">(3 Artículos)</span></h6>
-              <ul class="list-unstyled list-unstyled-border">
-                <li class="media">
-                  <a href="#"><img class="mr-3 rounded" width="50" src="~/img/products/product-1-50.png" alt="producto"></a>
-                  <div class="media-body">
-                    <div class="media-right">₡405</div>
-                    <div class="media-title"><a href="#">PlayStation 9</a></div>
-                    <div class="text-muted text-small">por <a href="#">Hasan Basri</a> <div class="bullet"></div> Domingo</div>
-                  </div>
-                </li>
-                <li class="media">
-                  <a href="#"><img class="mr-3 rounded" width="50" src="~/img/products/product-2-50.png" alt="producto"></a>
-                  <div class="media-body">
-                    <div class="media-right">₡499</div>
-                    <div class="media-title"><a href="#">RocketZ</a></div>
-                    <div class="text-muted text-small">por <a href="#">Hasan Basri</a> <div class="bullet"></div> Domingo</div>
-                  </div>
-                </li>
-                <li class="media">
-                  <a href="#"><img class="mr-3 rounded" width="50" src="~/img/products/product-3-50.png" alt="producto"></a>
-                  <div class="media-body">
-                    <div class="media-right">₡149</div>
-                    <div class="media-title"><a href="#">Xiaomay Readme 4.0</a></div>
-                    <div class="text-muted text-small">por <a href="#">Kusnaedi</a> <div class="bullet"></div> Martes</div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <h4 class="d-inline">Tareas</h4>
-          <div class="card-header-action">
-            <a href="#" class="btn btn-primary">Ver Todo</a>
-          </div>
-        </div>
-        <div class="card-body">
-          <ul class="list-unstyled list-unstyled-border">
-            <li class="media">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="cbx-1">
-                <label class="custom-control-label" for="cbx-1"></label>
-              </div>
-              <img class="mr-3 rounded-circle" width="50" src="~/img/avatar/avatar-4.png" alt="avatar">
-              <div class="media-body">
-                <div class="badge badge-pill badge-danger mb-1 float-right">Sin Terminar</div>
-                <h6 class="media-title"><a href="#">Rediseñar encabezado</a></h6>
-                <div class="text-small text-muted">Alfa Zulkarnain <div class="bullet"></div> <span class="text-primary">Ahora</span></div>
-              </div>
-            </li>
-            <li class="media">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="cbx-2" checked="">
-                <label class="custom-control-label" for="cbx-2"></label>
-              </div>
-              <img class="mr-3 rounded-circle" width="50" src="~/img/avatar/avatar-5.png" alt="avatar">
-              <div class="media-body">
-                <div class="badge badge-pill badge-primary mb-1 float-right">Completado</div>
-                <h6 class="media-title"><a href="#">Agregar nuevo componente</a></h6>
-                <div class="text-small text-muted">Serj Tankian <div class="bullet"></div> 4 Min</div>
-              </div>
-            </li>
-            <li class="media">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="cbx-3">
-                <label class="custom-control-label" for="cbx-3"></label>
-              </div>
-              <img class="mr-3 rounded-circle" width="50" src="~/img/avatar/avatar-2.png" alt="avatar">
-              <div class="media-body">
-                <div class="badge badge-pill badge-warning mb-1 float-right">En Progreso</div>
-                <h6 class="media-title"><a href="#">Corregir ventana modal</a></h6>
-                <div class="text-small text-muted">Ujang Maman <div class="bullet"></div> 8 Min</div>
-              </div>
-            </li>
-            <li class="media">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="cbx-4">
-                <label class="custom-control-label" for="cbx-4"></label>
-              </div>
-              <img class="mr-3 rounded-circle" width="50" src="~/img/avatar/avatar-1.png" alt="avatar">
-              <div class="media-body">
-                <div class="badge badge-pill badge-danger mb-1 float-right">Sin Terminar</div>
-                <h6 class="media-title"><a href="#">Eliminar clases innecesarias</a></h6>
-                <div class="text-small text-muted">Farhan A Mujib <div class="bullet"></div> 21 Min</div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-5 col-md-12 col-12 col-sm-12">
-      <form method="post" class="needs-validation" novalidate="">
-        <div class="card">
-          <div class="card-header">
-            <h4>Borrador Rápido</h4>
-          </div>
-          <div class="card-body pb-0">
-            <div class="form-group">
-              <label>Título</label>
-              <input type="text" name="title" class="form-control" required>
-              <div class="invalid-feedback">Por favor ingrese el título</div>
-            </div>
-            <div class="form-group">
-              <label>Contenido</label>
-              <textarea class="summernote-simple"></textarea>
-            </div>
-          </div>
-          <div class="card-footer pt-0">
-            <button class="btn btn-primary">Guardar Borrador</button>
-          </div>
-        </div>
-      </form>
-    </div>
-    <div class="col-lg-7 col-md-12 col-12 col-sm-12">
-      <div class="card">
-        <div class="card-header">
-          <h4>Publicaciones Recientes</h4>
-          <div class="card-header-action">
-            <a href="#" class="btn btn-primary">Ver Todo</a>
-          </div>
-        </div>
-        <div class="card-body p-0">
-          <div class="table-responsive">
-            <table class="table table-striped mb-0">
-              <thead>
-                <tr>
-                  <th>Título</th>
-                  <th>Autor</th>
-                  <th>Acción</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Introducción Laravel 5<div class="table-links">en <a href="#">Desarrollo Web</a><div class="bullet"></div><a href="#">Ver</a></div></td>
-                  <td><a href="#" class="font-weight-600"><img src="~/img/avatar/avatar-1.png" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a></td>
-                  <td>
-                    <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Editar"><i class="fas fa-pencil-alt"></i></a>
-                    <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Eliminar" data-confirm="¿Está seguro?|Esta acción no se puede deshacer." data-confirm-yes="alert('Eliminado')"><i class="fas fa-trash"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Laravel 5 Tutorial - Instalación<div class="table-links">en <a href="#">Desarrollo Web</a><div class="bullet"></div><a href="#">Ver</a></div></td>
-                  <td><a href="#" class="font-weight-600"><img src="~/img/avatar/avatar-1.png" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a></td>
-                  <td>
-                    <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Editar"><i class="fas fa-pencil-alt"></i></a>
-                    <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Eliminar" data-confirm="¿Está seguro?|Esta acción no se puede deshacer." data-confirm-yes="alert('Eliminado')"><i class="fas fa-trash"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Laravel 5 Tutorial - MVC<div class="table-links">en <a href="#">Desarrollo Web</a><div class="bullet"></div><a href="#">Ver</a></div></td>
-                  <td><a href="#" class="font-weight-600"><img src="~/img/avatar/avatar-1.png" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a></td>
-                  <td>
-                    <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Editar"><i class="fas fa-pencil-alt"></i></a>
-                    <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Eliminar" data-confirm="¿Está seguro?|Esta acción no se puede deshacer." data-confirm-yes="alert('Eliminado')"><i class="fas fa-trash"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Laravel 5 Tutorial - Migración<div class="table-links">en <a href="#">Desarrollo Web</a><div class="bullet"></div><a href="#">Ver</a></div></td>
-                  <td><a href="#" class="font-weight-600"><img src="~/img/avatar/avatar-1.png" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a></td>
-                  <td>
-                    <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Editar"><i class="fas fa-pencil-alt"></i></a>
-                    <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Eliminar" data-confirm="¿Está seguro?|Esta acción no se puede deshacer." data-confirm-yes="alert('Eliminado')"><i class="fas fa-trash"></i></a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 @section Scripts {
-  <script src="~/js/jquery.simpleWeather.min.js"></script>
-  <script src="~/js/jqvmap/jquery.vmap.min.js"></script>
-  <script src="~/js/jqvmap/maps/jquery.vmap.world.js"></script>
-  <script src="~/js/page/index-0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script>
+        // Gráfico de Inscripciones Mensuales
+        var ctx = document.getElementById('chartInscripciones').getContext('2d');
+        var chartInscripciones = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                datasets: [{
+                    label: 'Inscripciones',
+                    data: [65, 78, 90, 102, 95, 110, 125, 118, 135, 142, 138, 150],
+                    backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                    borderColor: 'rgba(102, 126, 234, 1)',
+                    borderWidth: 2,
+                    tension: 0.4,
+                    fill: true,
+                    pointBackgroundColor: '#ffffff',
+                    pointBorderColor: 'rgba(102, 126, 234, 1)',
+                    pointHoverBackgroundColor: 'rgba(102, 126, 234, 1)',
+                    pointHoverBorderColor: '#ffffff',
+                    pointRadius: 5,
+                    pointHoverRadius: 7
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            borderDash: [5, 5]
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+    </script>
 }

@@ -1,0 +1,246 @@
+@model PracticaProgramada1.Models.DashboardViewModel
+
+<!-- Dashboard Genérico para Usuario -->
+<div class="row">
+    <div class="col-12">
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+            <strong><i class="fas fa-info-circle"></i> Bienvenido a Escuela Aurora</strong>
+            <p class="mb-0">Tu cuenta está activa. Para acceder a funcionalidades específicas, contacta al administrador para asignarte un rol adecuado.</p>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Información General de la Escuela -->
+<div class="row">
+    <div class="col-lg-8 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-gradient-info text-white">
+                <h4 class="mb-0"><i class="fas fa-school"></i> Bienvenido a Escuela Aurora</h4>
+            </div>
+            <div class="card-body">
+                <div class="text-center mb-4">
+                    <i class="fas fa-graduation-cap fa-5x text-primary mb-3"></i>
+                    <h3>Sistema de Gestión Educativa</h3>
+                    <p class="text-muted lead">Educación de Excelencia desde 1995</p>
+                </div>
+
+                <div class="row text-center mt-4">
+                    <div class="col-md-4">
+                        <div class="info-box p-3">
+                            <i class="fas fa-users fa-2x text-primary mb-2"></i>
+                            <h4>Comunidad</h4>
+                            <p class="text-muted">Formamos parte de una gran familia educativa</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="info-box p-3">
+                            <i class="fas fa-award fa-2x text-success mb-2"></i>
+                            <h4>Excelencia</h4>
+                            <p class="text-muted">Comprometidos con la calidad académica</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="info-box p-3">
+                            <i class="fas fa-lightbulb fa-2x text-warning mb-2"></i>
+                            <h4>Innovación</h4>
+                            <p class="text-muted">Educación moderna y tecnología</p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="my-4">
+
+                <h5><i class="fas fa-bullseye text-primary"></i> Nuestra Misión</h5>
+                <p>Formar estudiantes integrales, competentes y con valores sólidos, capaces de enfrentar los desafíos del mundo actual mediante una educación de calidad que promueva el pensamiento crítico, la creatividad y el compromiso social.</p>
+
+                <h5 class="mt-4"><i class="fas fa-eye text-success"></i> Nuestra Visión</h5>
+                <p>Ser una institución educativa líder reconocida por su excelencia académica, innovación pedagógica y formación integral de ciudadanos responsables y comprometidos con el desarrollo sostenible de la sociedad.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Panel Lateral -->
+    <div class="col-lg-4 mb-4">
+        <!-- Información de Contacto -->
+        <div class="card shadow-sm mb-3">
+            <div class="card-header bg-white">
+                <h5 class="mb-0"><i class="fas fa-address-card text-primary"></i> Información de Contacto</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled contact-list">
+                    <li class="mb-3">
+                        <i class="fas fa-phone text-primary"></i>
+                        <strong>Teléfono:</strong><br>
+                        <a href="tel:+50622345678">+506 2234-5678</a>
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-envelope text-primary"></i>
+                        <strong>Email:</strong><br>
+                        <a href="mailto:info@escuelaaurora.ed.cr">info@escuelaaurora.ed.cr</a>
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-map-marker-alt text-primary"></i>
+                        <strong>Dirección:</strong><br>
+                        San José, Costa Rica<br>
+                        200m norte de la Iglesia Central
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-clock text-primary"></i>
+                        <strong>Horario:</strong><br>
+                        Lun - Vie: 7:00 AM - 5:00 PM
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Redes Sociales -->
+        <div class="card shadow-sm mb-3">
+            <div class="card-header bg-white">
+                <h5 class="mb-0"><i class="fas fa-share-alt text-info"></i> Síguenos</h5>
+            </div>
+            <div class="card-body text-center">
+                <a href="#" class="btn btn-primary btn-lg m-2" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="btn btn-info btn-lg m-2" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="btn btn-danger btn-lg m-2" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="btn btn-success btn-lg m-2" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Accesos Rápidos -->
+        <div class="card shadow-sm">
+            <div class="card-header bg-white">
+                <h5 class="mb-0"><i class="fas fa-link text-warning"></i> Enlaces Útiles</h5>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <a href="/Informacion/Admisiones" class="btn btn-outline-primary btn-block mb-2">
+                        <i class="fas fa-user-plus"></i> Proceso de Admisión
+                    </a>
+                    <a href="/Informacion/Calendario" class="btn btn-outline-success btn-block mb-2">
+                        <i class="fas fa-calendar"></i> Calendario Escolar
+                    </a>
+                    <a href="/Informacion/Programas" class="btn btn-outline-info btn-block mb-2">
+                        <i class="fas fa-book"></i> Programas Académicos
+                    </a>
+                    <a href="/Soporte" class="btn btn-outline-warning btn-block">
+                        <i class="fas fa-question-circle"></i> Centro de Ayuda
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Noticias y Anuncios -->
+<div class="row">
+    <div class="col-12 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white">
+                <h4><i class="fas fa-newspaper text-danger"></i> Últimas Noticias</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <div class="mb-2">
+                                    <span class="badge badge-primary">Académico</span>
+                                    <small class="text-muted float-right">15 Ene 2024</small>
+                                </div>
+                                <h5 class="card-title">Inicio del Período Lectivo 2024</h5>
+                                <p class="card-text text-muted">El próximo lunes 22 de enero iniciamos el nuevo período lectivo. Les damos la bienvenida a todos nuestros estudiantes.</p>
+                                <a href="#" class="btn btn-sm btn-outline-primary">Leer más</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <div class="mb-2">
+                                    <span class="badge badge-success">Evento</span>
+                                    <small class="text-muted float-right">10 Ene 2024</small>
+                                </div>
+                                <h5 class="card-title">Feria de Ciencias 2024</h5>
+                                <p class="card-text text-muted">Invitamos a toda la comunidad educativa a participar en nuestra tradicional Feria de Ciencias el 15 de febrero.</p>
+                                <a href="#" class="btn btn-sm btn-outline-success">Leer más</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <div class="mb-2">
+                                    <span class="badge badge-info">Deportes</span>
+                                    <small class="text-muted float-right">5 Ene 2024</small>
+                                </div>
+                                <h5 class="card-title">Inscripciones Equipos Deportivos</h5>
+                                <p class="card-text text-muted">Están abiertas las inscripciones para los equipos de fútbol, baloncesto y voleibol. No te quedes fuera!</p>
+                                <a href="#" class="btn btn-sm btn-outline-info">Leer más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Call to Action -->
+<div class="row">
+    <div class="col-12">
+        <div class="card bg-gradient-primary text-white shadow-lg border-0">
+            <div class="card-body text-center p-5">
+                <h3 class="mb-3">¿Necesitas Ayuda?</h3>
+                <p class="lead mb-4">Nuestro equipo administrativo está disponible para asistirte con cualquier consulta o solicitud.</p>
+                <a href="/Contacto" class="btn btn-light btn-lg">
+                    <i class="fas fa-envelope"></i> Contáctanos
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .info-box {
+            transition: all 0.3s ease;
+            border-radius: 10px;
+        }
+        .info-box:hover {
+            background-color: #f8f9fa;
+            transform: translateY(-5px);
+        }
+        .contact-list i {
+            width: 30px;
+            text-align: center;
+        }
+        .bg-gradient-info {
+            background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+        }
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+    </style>
+}
+
+@section Scripts {
+    <script>
+        // Efecto de fade-in para las tarjetas
+        $(document).ready(function() {
+            $('.card').each(function(index) {
+                $(this).css('opacity', '0').delay(index * 100).animate({ opacity: 1 }, 500);
+            });
+        });
+    </script>
+}

@@ -48,14 +48,14 @@ namespace API.Controllers
                     if (BCrypt.Net.BCrypt.Verify(model.Contrasenna, usuario.Contrasenna))
                     {
                         usuario.Token = _utiles.GenerarToken(usuario.IdUsuario);
-         
+
                         usuario.Contrasenna = string.Empty;
                         return Ok(usuario);
                     }
                 }
                 catch (BCrypt.Net.SaltParseException)
                 {
-       
+
                     return StatusCode(500, "Error al procesar las credenciales. Contacte al administrador.");
                 }
             }

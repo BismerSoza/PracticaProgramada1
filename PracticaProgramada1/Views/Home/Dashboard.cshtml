@@ -1,476 +1,212 @@
+@model PracticaProgramada1.Models.DashboardViewModel
+
 @{
-    ViewData["Title"] = "Panel Ecommerce";
+    ViewData["Title"] = "Dashboard - " + Model.RolUsuario;
     Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
 }
 
-<section class="section">
-    <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-12">
-            <div class="card card-statistic-2">
-                <div class="card-stats">
-                    <div class="card-stats-title">
-                        Estadísticas de Pedidos -
-                        <div class="dropdown d-inline">
-                            <a class="font-weight-600 dropdown-toggle" data-toggle="dropdown" href="#" id="orders-month">Agosto</a>
-                            <ul class="dropdown-menu dropdown-menu-sm">
-                                <li class="dropdown-title">Seleccionar Mes</li>
-                                <li><a href="#" class="dropdown-item">Enero</a></li>
-                                <li><a href="#" class="dropdown-item">Febrero</a></li>
-                                <li><a href="#" class="dropdown-item">Marzo</a></li>
-                                <li><a href="#" class="dropdown-item">Abril</a></li>
-                                <li><a href="#" class="dropdown-item">Mayo</a></li>
-                                <li><a href="#" class="dropdown-item">Junio</a></li>
-                                <li><a href="#" class="dropdown-item">Julio</a></li>
-                                <li><a href="#" class="dropdown-item active">Agosto</a></li>
-                                <li><a href="#" class="dropdown-item">Septiembre</a></li>
-                                <li><a href="#" class="dropdown-item">Octubre</a></li>
-                                <li><a href="#" class="dropdown-item">Noviembre</a></li>
-                                <li><a href="#" class="dropdown-item">Diciembre</a></li>
-                            </ul>
-                        </div>
+<!-- Header personalizado -->
+<div class="row">
+    <div class="col-12">
+        <div class="card card-hero shadow-sm mb-4">
+            <div class="card-header bg-gradient-primary">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h4 class="text-white mb-1">
+                            <i class="fas fa-tachometer-alt mr-2"></i>
+                            Bienvenido, @Model.NombreUsuario
+                        </h4>
+                        <p class="text-white-50 mb-0">
+                            <i class="fas fa-user-tag mr-1"></i> @Model.RolUsuario | 
+                            <i class="fas fa-calendar mr-1"></i> @DateTime.Now.ToString("dddd, dd MMMM yyyy", new System.Globalization.CultureInfo("es-ES"))
+                        </p>
                     </div>
-                    <div class="card-stats-items">
-                        <div class="card-stats-item">
-                            <div class="card-stats-item-count">24</div>
-                            <div class="card-stats-item-label">Pendiente</div>
-                        </div>
-                        <div class="card-stats-item">
-                            <div class="card-stats-item-count">12</div>
-                            <div class="card-stats-item-label">En Envío</div>
-                        </div>
-                        <div class="card-stats-item">
-                            <div class="card-stats-item-count">23</div>
-                            <div class="card-stats-item-label">Completado</div>
-                        </div>
+                    <div>
+                        <button class="btn btn-light btn-sm" onclick="location.reload()">
+                            <i class="fas fa-sync-alt"></i> Actualizar
+                        </button>
                     </div>
                 </div>
-                <div class="card-icon shadow-primary bg-primary">
-                    <i class="fas fa-archive"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Widgets según Rol -->
+<div class="row">
+    @foreach (var widget in Model.Widgets)
+    {
+        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="card card-statistic-1 shadow-sm">
+                <div class="card-icon bg-@widget.ColorClase">
+                    <i class="@widget.Icono"></i>
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Total de Pedidos</h4>
+                        <h4>@widget.Titulo</h4>
                     </div>
                     <div class="card-body">
-                        59
+                        <h2 class="mb-1">@widget.Valor</h2>
+                        @if (!string.IsNullOrEmpty(widget.Tendencia))
+                        {
+                            <small class="text-@(widget.Tendencia == "up" ? "success" : widget.Tendencia == "down" ? "danger" : "muted")">
+                                <i class="fas fa-arrow-@(widget.Tendencia == "up" ? "up" : widget.Tendencia == "down" ? "down" : "right")"></i>
+                                @widget.PorcentajeCambio.ToString("0.0")% @widget.Descripcion
+                            </small>
+                        }
+                        else
+                        {
+                            <small class="text-muted">@widget.Descripcion</small>
+                        }
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-12">
-            <div class="card card-statistic-2">
-                <div class="card-chart">
-                    <canvas id="balance-chart" height="80"></canvas>
-                </div>
-                <div class="card-icon shadow-primary bg-primary">
-                    <i class="fas fa-dollar-sign"></i>
-                </div>
-                <div class="card-wrap">
-                    <div class="card-header">
-                        <h4>Balance</h4>
-                    </div>
-                    <div class="card-body">
-                        ₡187.130
-                    </div>
-                </div>
+    }
+</div>
+
+<!-- Dashboard específico por Rol -->
+@if (Model.IdRol == 1) // Administrador
+{
+    <partial name="_DashboardAdministrador" model="Model" />
+}
+else if (Model.IdRol == 2) // Profesor
+{
+    <partial name="_DashboardProfesor" model="Model" />
+}
+else if (Model.IdRol == 3) // Estudiante
+{
+    <partial name="_DashboardEstudiante" model="Model" />
+}
+else
+{
+    <partial name="_DashboardUsuario" model="Model" />
+}
+
+<!-- Sección de Notificaciones y Actividad Reciente -->
+<div class="row mt-4">
+    <!-- Actividades Recientes -->
+    <div class="col-lg-8 col-md-12">
+        <div class="card shadow-sm">
+            <div class="card-header">
+                <h4><i class="fas fa-history text-primary"></i> Actividad Reciente</h4>
             </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-12">
-            <div class="card card-statistic-2">
-                <div class="card-chart">
-                    <canvas id="sales-chart" height="80"></canvas>
-                </div>
-                <div class="card-icon shadow-primary bg-primary">
-                    <i class="fas fa-shopping-bag"></i>
-                </div>
-                <div class="card-wrap">
-                    <div class="card-header">
-                        <h4>Ventas</h4>
-                    </div>
-                    <div class="card-body">
-                        4.732
-                    </div>
+            <div class="card-body">
+                <div class="activities">
+                    @if (Model.ActividadesRecientes.Any())
+                    {
+                        @foreach (var actividad in Model.ActividadesRecientes.Take(8))
+                        {
+                            <div class="activity">
+                                <div class="activity-icon bg-@actividad.ColorClase text-white shadow-@actividad.ColorClase">
+                                    <i class="@actividad.Icono"></i>
+                                </div>
+                                <div class="activity-detail">
+                                    <div class="mb-2">
+                                        <span class="text-job text-@actividad.ColorClase">@actividad.Fecha.ToString("HH:mm")</span>
+                                        <span class="bullet"></span>
+                                        <a class="text-job" href="@actividad.Enlace">Ver detalles</a>
+                                    </div>
+                                    <p><strong>@actividad.Titulo</strong></p>
+                                    <p class="text-muted">@actividad.Descripcion</p>
+                                </div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="text-center text-muted py-4">
+                            <i class="fas fa-inbox fa-3x mb-3"></i>
+                            <p>No hay actividades recientes</p>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-8">
-            <div class="card">
-                <div class="card-header">
-                    <h4>Presupuesto vs Ventas</h4>
-                </div>
-                <div class="card-body">
-                    <canvas id="myChart" height="158"></canvas>
+
+    <!-- Notificaciones -->
+    <div class="col-lg-4 col-md-12">
+        <div class="card shadow-sm">
+            <div class="card-header">
+                <h4><i class="fas fa-bell text-warning"></i> Notificaciones</h4>
+                <div class="card-header-action">
+                    <a href="#" class="btn btn-primary btn-sm">Ver Todas</a>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="card gradient-bottom">
-                <div class="card-header">
-                    <h4>Top 5 Productos</h4>
-                    <div class="card-header-action dropdown">
-                        <a href="#" data-toggle="dropdown" class="btn btn-danger dropdown-toggle">Mes</a>
-                        <ul class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
-                            <li class="dropdown-title">Seleccionar Período</li>
-                            <li><a href="#" class="dropdown-item">Hoy</a></li>
-                            <li><a href="#" class="dropdown-item">Semana</a></li>
-                            <li><a href="#" class="dropdown-item active">Mes</a></li>
-                            <li><a href="#" class="dropdown-item">Este Año</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card-body" id="top-5-scroll">
-                    <ul class="list-unstyled list-unstyled-border">
-                        <li class="media">
-                            <img class="mr-3 rounded" width="55" src="~/img/products/product-3-50.png" alt="producto">
-                            <div class="media-body">
-                                <div class="float-right"><div class="font-weight-600 text-muted text-small">86 Ventas</div></div>
-                                <div class="media-title">oPhone S9 Limited</div>
-                                <div class="mt-1">
-                                    <div class="budget-price">
-                                        <div class="budget-price-square bg-primary" data-width="64%"></div>
-                                        <div class="budget-price-label">₡68.714</div>
+            <div class="card-body p-0">
+                <ul class="list-unstyled list-unstyled-border">
+                    @if (Model.Notificaciones.Any())
+                    {
+                        @foreach (var notificacion in Model.Notificaciones.Take(5))
+                        {
+                            <li class="media @(notificacion.Leida ? "" : "bg-light")">
+                                <div class="media-body ml-3">
+                                    <div class="text-@notificacion.Tipo font-weight-bold">
+                                        @notificacion.Titulo
+                                        @if (!notificacion.Leida)
+                                        {
+                                            <span class="badge badge-@notificacion.Tipo">Nuevo</span>
+                                        }
                                     </div>
-                                    <div class="budget-price">
-                                        <div class="budget-price-square bg-danger" data-width="43%"></div>
-                                        <div class="budget-price-label">₡38.700</div>
+                                    <div class="text-small text-muted">
+                                        @notificacion.Mensaje
+                                        <div class="bullet"></div>
+                                        <span class="text-time">@notificacion.Fecha.ToString("dd/MM HH:mm")</span>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
+                            </li>
+                        }
+                    }
+                    else
+                    {
                         <li class="media">
-                            <img class="mr-3 rounded" width="55" src="~/img/products/product-4-50.png" alt="producto">
-                            <div class="media-body">
-                                <div class="float-right"><div class="font-weight-600 text-muted text-small">67 Ventas</div></div>
-                                <div class="media-title">iBook Pro 2018</div>
-                                <div class="mt-1">
-                                    <div class="budget-price">
-                                        <div class="budget-price-square bg-primary" data-width="84%"></div>
-                                        <div class="budget-price-label">₡107.133</div>
-                                    </div>
-                                    <div class="budget-price">
-                                        <div class="budget-price-square bg-danger" data-width="60%"></div>
-                                        <div class="budget-price-label">₡91.455</div>
-                                    </div>
-                                </div>
+                            <div class="media-body text-center py-4 text-muted">
+                                <i class="fas fa-check-circle fa-2x mb-2"></i>
+                                <p>No hay notificaciones pendientes</p>
                             </div>
                         </li>
-                        <li class="media">
-                            <img class="mr-3 rounded" width="55" src="~/img/products/product-1-50.png" alt="producto">
-                            <div class="media-body">
-                                <div class="float-right"><div class="font-weight-600 text-muted text-small">63 Ventas</div></div>
-                                <div class="media-title">Auriculares Blitz</div>
-                                <div class="mt-1">
-                                    <div class="budget-price">
-                                        <div class="budget-price-square bg-primary" data-width="34%"></div>
-                                        <div class="budget-price-label">₡3.717</div>
-                                    </div>
-                                    <div class="budget-price">
-                                        <div class="budget-price-square bg-danger" data-width="28%"></div>
-                                        <div class="budget-price-label">₡2.835</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="media">
-                            <img class="mr-3 rounded" width="55" src="~/img/products/product-3-50.png" alt="producto">
-                            <div class="media-body">
-                                <div class="float-right"><div class="font-weight-600 text-muted text-small">28 Ventas</div></div>
-                                <div class="media-title">oPhone X Lite</div>
-                                <div class="mt-1">
-                                    <div class="budget-price">
-                                        <div class="budget-price-square bg-primary" data-width="45%"></div>
-                                        <div class="budget-price-label">₡13.972</div>
-                                    </div>
-                                    <div class="budget-price">
-                                        <div class="budget-price-square bg-danger" data-width="30%"></div>
-                                        <div class="budget-price-label">₡9.660</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="media">
-                            <img class="mr-3 rounded" width="55" src="~/img/products/product-5-50.png" alt="producto">
-                            <div class="media-body">
-                                <div class="float-right"><div class="font-weight-600 text-muted text-small">19 Ventas</div></div>
-                                <div class="media-title">Cámara Vintage</div>
-                                <div class="mt-1">
-                                    <div class="budget-price">
-                                        <div class="budget-price-square bg-primary" data-width="35%"></div>
-                                        <div class="budget-price-label">₡7.391</div>
-                                    </div>
-                                    <div class="budget-price">
-                                        <div class="budget-price-square bg-danger" data-width="28%"></div>
-                                        <div class="budget-price-label">₡5.472</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="card-footer pt-3 d-flex justify-content-center">
-                    <div class="budget-price justify-content-center">
-                        <div class="budget-price-square bg-primary" data-width="20"></div>
-                        <div class="budget-price-label">Precio de Venta</div>
-                    </div>
-                    <div class="budget-price justify-content-center">
-                        <div class="budget-price-square bg-danger" data-width="20"></div>
-                        <div class="budget-price-label">Precio Presupuesto</div>
-                    </div>
-                </div>
+                    }
+                </ul>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    <h4>Mejores Productos</h4>
-                </div>
-                <div class="card-body">
-                    <div class="owl-carousel owl-theme" id="products-carousel">
-                        <div>
-                            <div class="product-item pb-3">
-                                <div class="product-image">
-                                    <img alt="imagen" src="~/img/products/product-4-50.png" class="img-fluid">
-                                </div>
-                                <div class="product-details">
-                                    <div class="product-name">iBook Pro 2018</div>
-                                    <div class="product-review">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <div class="text-muted text-small">67 Ventas</div>
-                                    <div class="product-cta">
-                                        <a href="#" class="btn btn-primary">Detalle</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="product-item">
-                                <div class="product-image">
-                                    <img alt="imagen" src="~/img/products/product-3-50.png" class="img-fluid">
-                                </div>
-                                <div class="product-details">
-                                    <div class="product-name">oPhone S9 Limited</div>
-                                    <div class="product-review">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half"></i>
-                                    </div>
-                                    <div class="text-muted text-small">86 Ventas</div>
-                                    <div class="product-cta">
-                                        <a href="#" class="btn btn-primary">Detalle</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="product-item">
-                                <div class="product-image">
-                                    <img alt="imagen" src="~/img/products/product-1-50.png" class="img-fluid">
-                                </div>
-                                <div class="product-details">
-                                    <div class="product-name">Auriculares Blitz</div>
-                                    <div class="product-review">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                    <div class="text-muted text-small">63 Ventas</div>
-                                    <div class="product-cta">
-                                        <a href="#" class="btn btn-primary">Detalle</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    <h4>Países Principales</h4>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="text-title mb-2">Julio</div>
-                            <ul class="list-unstyled list-unstyled-border list-unstyled-noborder mb-0">
-                                <li class="media">
-                                    <img class="img-fluid mt-1 img-shadow" src="~/modules/flag-icon-css/flags/4x3/id.svg" alt="imagen" width="40">
-                                    <div class="media-body ml-3">
-                                        <div class="media-title">Indonesia</div>
-                                        <div class="text-small text-muted">3.282 <i class="fas fa-caret-down text-danger"></i></div>
-                                    </div>
-                                </li>
-                                <li class="media">
-                                    <img class="img-fluid mt-1 img-shadow" src="~/modules/flag-icon-css/flags/4x3/my.svg" alt="imagen" width="40">
-                                    <div class="media-body ml-3">
-                                        <div class="media-title">Malasia</div>
-                                        <div class="text-small text-muted">2.976 <i class="fas fa-caret-down text-danger"></i></div>
-                                    </div>
-                                </li>
-                                <li class="media">
-                                    <img class="img-fluid mt-1 img-shadow" src="~/modules/flag-icon-css/flags/4x3/us.svg" alt="imagen" width="40">
-                                    <div class="media-body ml-3">
-                                        <div class="media-title">Estados Unidos</div>
-                                        <div class="text-small text-muted">1.576 <i class="fas fa-caret-up text-success"></i></div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-sm-6 mt-sm-0 mt-4">
-                            <div class="text-title mb-2">Agosto</div>
-                            <ul class="list-unstyled list-unstyled-border list-unstyled-noborder mb-0">
-                                <li class="media">
-                                    <img class="img-fluid mt-1 img-shadow" src="~/modules/flag-icon-css/flags/4x3/id.svg" alt="imagen" width="40">
-                                    <div class="media-body ml-3">
-                                        <div class="media-title">Indonesia</div>
-                                        <div class="text-small text-muted">3.486 <i class="fas fa-caret-up text-success"></i></div>
-                                    </div>
-                                </li>
-                                <li class="media">
-                                    <img class="img-fluid mt-1 img-shadow" src="~/modules/flag-icon-css/flags/4x3/ps.svg" alt="imagen" width="40">
-                                    <div class="media-body ml-3">
-                                        <div class="media-title">Palestina</div>
-                                        <div class="text-small text-muted">3.182 <i class="fas fa-caret-up text-success"></i></div>
-                                    </div>
-                                </li>
-                                <li class="media">
-                                    <img class="img-fluid mt-1 img-shadow" src="~/modules/flag-icon-css/flags/4x3/de.svg" alt="imagen" width="40">
-                                    <div class="media-body ml-3">
-                                        <div class="media-title">Alemania</div>
-                                        <div class="text-small text-muted">2.317 <i class="fas fa-caret-down text-danger"></i></div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
-                    <h4>Facturas</h4>
-                    <div class="card-header-action">
-                        <a href="#" class="btn btn-danger">Ver Más <i class="fas fa-chevron-right"></i></a>
-                    </div>
-                </div>
-                <div class="card-body p-0">
-                    <div class="table-responsive table-invoice">
-                        <table class="table table-striped">
-                            <tr>
-                                <th>N° Factura</th>
-                                <th>Cliente</th>
-                                <th>Estado</th>
-                                <th>Fecha de Vencimiento</th>
-                                <th>Acción</th>
-                            </tr>
-                            <tr>
-                                <td><a href="#">INV-87239</a></td>
-                                <td class="font-weight-600">Kusnadi</td>
-                                <td><div class="badge badge-warning">Sin Pagar</div></td>
-                                <td>19 de julio de 2018</td>
-                                <td><a href="#" class="btn btn-primary">Detalle</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">INV-48574</a></td>
-                                <td class="font-weight-600">Hasan Basri</td>
-                                <td><div class="badge badge-success">Pagado</div></td>
-                                <td>21 de julio de 2018</td>
-                                <td><a href="#" class="btn btn-primary">Detalle</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">INV-76824</a></td>
-                                <td class="font-weight-600">Muhamad Nuruzzaki</td>
-                                <td><div class="badge badge-warning">Sin Pagar</div></td>
-                                <td>22 de julio de 2018</td>
-                                <td><a href="#" class="btn btn-primary">Detalle</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">INV-84990</a></td>
-                                <td class="font-weight-600">Agung Ardiansyah</td>
-                                <td><div class="badge badge-warning">Sin Pagar</div></td>
-                                <td>22 de julio de 2018</td>
-                                <td><a href="#" class="btn btn-primary">Detalle</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">INV-87320</a></td>
-                                <td class="font-weight-600">Ardian Rahardiansyah</td>
-                                <td><div class="badge badge-success">Pagado</div></td>
-                                <td>28 de julio de 2018</td>
-                                <td><a href="#" class="btn btn-primary">Detalle</a></td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card card-hero">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="far fa-question-circle"></i>
-                    </div>
-                    <h4>14</h4>
-                    <div class="card-description">Clientes necesitan ayuda</div>
-                </div>
-                <div class="card-body p-0">
-                    <div class="tickets-list">
-                        <a href="#" class="ticket-item">
-                            <div class="ticket-title">
-                                <h4>Mi pedido aún no ha llegado</h4>
-                            </div>
-                            <div class="ticket-info">
-                                <div>Laila Tazkiah</div>
-                                <div class="bullet"></div>
-                                <div class="text-primary">Hace 1 minuto</div>
-                            </div>
-                        </a>
-                        <a href="#" class="ticket-item">
-                            <div class="ticket-title">
-                                <h4>Por favor cancele mi pedido</h4>
-                            </div>
-                            <div class="ticket-info">
-                                <div>Rizal Fakhri</div>
-                                <div class="bullet"></div>
-                                <div>Hace 2 horas</div>
-                            </div>
-                        </a>
-                        <a href="#" class="ticket-item">
-                            <div class="ticket-title">
-                                <h4>¿Han visto a mi madre?</h4>
-                            </div>
-                            <div class="ticket-info">
-                                <div>Syahdan Ubaidillah</div>
-                                <div class="bullet"></div>
-                                <div>Hace 6 horas</div>
-                            </div>
-                        </a>
-                        <a href="#" class="ticket-item ticket-more">
-                            Ver Todo <i class="fas fa-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+</div>
+
+@section Styles {
+    <style>
+        .card-hero {
+            border: none;
+            border-radius: 10px;
+        }
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-statistic-1 {
+            border: none;
+            border-radius: 10px;
+            transition: transform 0.2s;
+        }
+        .card-statistic-1:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important;
+        }
+        .activities .activity {
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .activities .activity:last-child {
+            border-bottom: none;
+        }
+    </style>
+}
 
 @section Scripts {
-    <script src="~/js/page/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script>
+        // Script para actualizar datos en tiempo real (opcional)
+        setInterval(function() {
+            console.log('Dashboard actualizado');
+        }, 60000); // Cada minuto
+    </script>
 }

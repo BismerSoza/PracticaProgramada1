@@ -1,0 +1,264 @@
+@model PracticaProgramada1.Models.DashboardViewModel
+
+<!-- Dashboard Específico para Profesor -->
+<div class="row">
+    <!-- Mis Cursos -->
+    <div class="col-lg-8 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white">
+                <h4><i class="fas fa-chalkboard text-primary"></i> Mis Cursos Asignados</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Curso</th>
+                                <th>Grado</th>
+                                <th>Estudiantes</th>
+                                <th>Horario</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Matemáticas Avanzadas</strong></td>
+                                <td><span class="badge badge-primary">10mo</span></td>
+                                <td>28</td>
+                                <td>Lun-Mié-Vie 8:00-9:30</td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary"><i class="fas fa-eye"></i></button>
+                                    <button class="btn btn-sm btn-success"><i class="fas fa-user-check"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Álgebra I</strong></td>
+                                <td><span class="badge badge-info">9no</span></td>
+                                <td>32</td>
+                                <td>Mar-Jue 10:00-11:30</td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary"><i class="fas fa-eye"></i></button>
+                                    <button class="btn btn-sm btn-success"><i class="fas fa-user-check"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Geometría</strong></td>
+                                <td><span class="badge badge-success">11mo</span></td>
+                                <td>25</td>
+                                <td>Lun-Jue 13:00-14:30</td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary"><i class="fas fa-eye"></i></button>
+                                    <button class="btn btn-sm btn-success"><i class="fas fa-user-check"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tareas y Evaluaciones Pendientes -->
+    <div class="col-lg-4 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white">
+                <h4><i class="fas fa-tasks text-warning"></i> Pendientes de Revisar</h4>
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                        <div>
+                            <i class="fas fa-file-alt text-primary"></i>
+                            <strong>Tarea Cap. 5</strong>
+                            <br><small class="text-muted">Matemáticas Avanzadas</small>
+                        </div>
+                        <span class="badge badge-danger badge-pill">15</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                        <div>
+                            <i class="fas fa-clipboard-check text-success"></i>
+                            <strong>Examen Parcial</strong>
+                            <br><small class="text-muted">Álgebra I</small>
+                        </div>
+                        <span class="badge badge-warning badge-pill">8</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                        <div>
+                            <i class="fas fa-calculator text-info"></i>
+                            <strong>Proyecto Final</strong>
+                            <br><small class="text-muted">Geometría</small>
+                        </div>
+                        <span class="badge badge-primary badge-pill">3</span>
+                    </li>
+                </ul>
+                <button class="btn btn-primary btn-block mt-3">
+                    <i class="fas fa-check-double"></i> Revisar Ahora
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Calendario de Clases y Rendimiento -->
+<div class="row">
+    <div class="col-lg-6 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white">
+                <h4><i class="fas fa-calendar-check text-success"></i> Mi Horario de Hoy</h4>
+            </div>
+            <div class="card-body">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-badge bg-primary"><i class="fas fa-clock"></i></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="timeline-title">Matemáticas Avanzadas - 10mo</h4>
+                                <p><small class="text-muted"><i class="fas fa-clock"></i> 8:00 AM - 9:30 AM</small></p>
+                            </div>
+                            <div class="timeline-body">
+                                <p>Aula 301 - Tema: Funciones Trigonométricas</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-badge bg-success"><i class="fas fa-clock"></i></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="timeline-title">Álgebra I - 9no</h4>
+                                <p><small class="text-muted"><i class="fas fa-clock"></i> 10:00 AM - 11:30 AM</small></p>
+                            </div>
+                            <div class="timeline-body">
+                                <p>Aula 205 - Tema: Ecuaciones Cuadráticas</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-badge bg-warning"><i class="fas fa-coffee"></i></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="timeline-title">Receso</h4>
+                                <p><small class="text-muted"><i class="fas fa-clock"></i> 11:30 AM - 13:00 PM</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rendimiento de Estudiantes -->
+    <div class="col-lg-6 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white">
+                <h4><i class="fas fa-chart-line text-info"></i> Rendimiento Promedio por Curso</h4>
+            </div>
+            <div class="card-body">
+                <canvas id="chartRendimientoProfesor" height="200"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Accesos Rápidos Profesor -->
+<div class="row">
+    <div class="col-md-3 col-sm-6 mb-3">
+        <a href="/Profesor/Asistencia" class="btn btn-outline-success btn-block btn-lg">
+            <i class="fas fa-user-check fa-2x mb-2 d-block"></i>
+            Tomar Asistencia
+        </a>
+    </div>
+    <div class="col-md-3 col-sm-6 mb-3">
+        <a href="/Profesor/Calificaciones" class="btn btn-outline-primary btn-block btn-lg">
+            <i class="fas fa-graduation-cap fa-2x mb-2 d-block"></i>
+            Registrar Notas
+        </a>
+    </div>
+    <div class="col-md-3 col-sm-6 mb-3">
+        <a href="/Profesor/Tareas" class="btn btn-outline-info btn-block btn-lg">
+            <i class="fas fa-tasks fa-2x mb-2 d-block"></i>
+            Asignar Tareas
+        </a>
+    </div>
+    <div class="col-md-3 col-sm-6 mb-3">
+        <a href="/Profesor/Comunicados" class="btn btn-outline-warning btn-block btn-lg">
+            <i class="fas fa-bullhorn fa-2x mb-2 d-block"></i>
+            Enviar Comunicado
+        </a>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Gráfico de Rendimiento Promedio
+        var ctxProfesor = document.getElementById('chartRendimientoProfesor').getContext('2d');
+        var chartProfesor = new Chart(ctxProfesor, {
+            type: 'line',
+            data: {
+                labels: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4', 'Semana 5', 'Semana 6'],
+                datasets: [{
+                    label: 'Matemáticas Avanzadas',
+                    data: [78, 82, 85, 83, 87, 89],
+                    borderColor: 'rgb(75, 192, 192)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.1)',
+                    tension: 0.4
+                }, {
+                    label: 'Álgebra I',
+                    data: [72, 75, 77, 80, 82, 84],
+                    borderColor: 'rgb(255, 99, 132)',
+                    backgroundColor: 'rgba(255, 99, 132, 0.1)',
+                    tension: 0.4
+                }, {
+                    label: 'Geometría',
+                    data: [85, 86, 84, 88, 90, 92],
+                    borderColor: 'rgb(54, 162, 235)',
+                    backgroundColor: 'rgba(54, 162, 235, 0.1)',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+    </script>
+
+    <style>
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            padding-bottom: 30px;
+        }
+        .timeline-badge {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        .timeline-panel {
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+    </style>
+}
