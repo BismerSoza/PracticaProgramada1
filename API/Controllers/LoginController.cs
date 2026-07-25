@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using API.Models;
+﻿using API.Models;
+using API.Services;
 using Dapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using System.Data;
-using API.Services;
 
 namespace API.Controllers
 {
