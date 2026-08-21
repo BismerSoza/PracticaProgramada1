@@ -1,3 +1,6 @@
+USE EscuelaAurora;
+GO
+
 -- ============================================
 -- SP: REGISTRAR USUARIO Y ESTUDIANTE
 -- ============================================
@@ -1443,3 +1446,142 @@ WHERE id_notificacion=@id_notificacion
 
 END
 GO
+
+
+-- Notificacion
+
+-- SP: Validar que el correo exista (para recuperar acceso)
+CREATE PROCEDURE spValidarCorreoUsuario
+    @correo VARCHAR(150)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+        u.id_usuario AS IdUsuario,
+        u.correo AS Correo,
+        u.id_rol AS IdRol,
+        ISNULL(e.nomb, p.nomb) AS Nombre
+    FROM Usuarios u
+    LEFT JOIN Estudiantes e ON u.id_usuario = e.id_usuario AND e.estado = 1
+    LEFT JOIN Profesores p ON u.id_usuario = p.id_usuario AND p.estado = 1
+    WHERE u.correo = @correo
+      AND u.estado = 1;
+END
+GO
+
+-- SP: Actualizar contraseña (temporal o definitiva)
+CREATE PROCEDURE spActualizarContrasennaUsuario
+    @id_usuario INT,
+    @contraseña VARCHAR(255)
+AS
+BEGIN
+    UPDATE Usuarios
+    SET contraseña = @contraseña
+    WHERE id_usuario = @id_usuario;
+
+    SELECT @@ROWCOUNT AS Filas;
+END
+GO
+
+
+-- ============================================
+-- PASO 1: Agregar columna para marcar contraseña temporal
+-- ============================================
+ALTER TABLE Usuarios
+ADD indicador_temp BIT NOT NULL DEFAULT 0;
+GO
+
+-- ============================================
+-- PASO 2: Actualizar spIniciarSesionUsuario para
+-- que también devuelva si la contraseña es temporal
+-- ============================================
+ALTER PROCEDURE spIniciarSesionUsuario
+    @correo VARCHAR(150)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+    SELECT 
+        u.id_usuario AS IdUsuario,
+        u.correo AS Correo,
+        u.contraseña AS Contrasenna,
+        u.estado AS Estado,
+        u.id_rol AS IdRol,
+        u.indicador_temp AS IndicadorTemp,
+        r.nomb_rol AS NombreRol,
+        ISNULL(e.nomb, p.nomb) AS Nombre,
+        ISNULL(e.primer_apellido, p.primer_apellido) AS PrimerApellido,
+        ISNULL(e.identificacion, p.identificacion) AS Identificacion,
+        CASE 
+            WHEN e.id_estudiante IS NOT NULL THEN 'Estudiante'
+            WHEN p.id_profesor IS NOT NULL THEN 'Profesor'
+            ELSE 'Usuario'
+        END AS TipoUsuario
+    FROM Usuarios u
+    INNER JOIN Roles r ON u.id_rol = r.id_rol
+    LEFT JOIN Estudiantes e ON u.id_usuario = e.id_usuario AND e.estado = 1
+    LEFT JOIN Profesores p ON u.id_usuario = p.id_usuario AND p.estado = 1
+    WHERE u.correo = @correo
+      AND u.estado = 1;
+END
+GO
+
+-- ============================================
+-- PASO 3: Actualizar spActualizarContrasennaUsuario
+-- para que marque la contraseña como temporal cuando
+-- viene de "recuperar acceso"
+-- ============================================
+ALTER PROCEDURE spActualizarContrasennaUsuario
+    @id_usuario INT,
+    @contraseña VARCHAR(255)
+AS
+BEGIN
+    UPDATE Usuarios
+    SET contraseña = @contraseña,
+        indicador_temp = 1
+    WHERE id_usuario = @id_usuario;
+
+    SELECT @@ROWCOUNT AS Filas;
+END
+GO
+
+-- ============================================
+-- PASO 4: Nuevo SP para obtener el hash actual
+-- (necesario para validar la contraseña actual
+-- antes de dejar cambiarla)
+-- ============================================
+CREATE PROCEDURE spObtenerContrasenaActual
+    @id_usuario INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT contraseña AS Contrasenna
+    FROM Usuarios
+    WHERE id_usuario = @id_usuario
+      AND estado = 1;
+END
+GO
+
+-- ============================================
+-- PASO 5: Nuevo SP para establecer la contraseña
+-- definitiva y quitar la marca de temporal
+-- ============================================
+CREATE PROCEDURE spCambiarContrasena
+    @id_usuario INT,
+    @contraseña VARCHAR(255)
+AS
+BEGIN
+    UPDATE Usuarios
+    SET contraseña = @contraseña,
+        indicador_temp = 0
+    WHERE id_usuario = @id_usuario;
+
+    SELECT @@ROWCOUNT AS Filas;
+END
+GO
+
+
+
+
