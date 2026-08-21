@@ -1,0 +1,70 @@
+﻿@model PracticaProgramada1.Models.CambiarContrasenaModel
+@{
+    ViewData["Title"] = "Cambiar Contraseña";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<section class="section">
+    <div class="row">
+        <div class="col-12">
+
+            @if (ViewBag.Obligatorio == true)
+            {
+                <div class="alert alert-warning">
+                    <strong>Contraseña temporal detectada.</strong>
+                    Por seguridad, debe establecer una nueva contraseña antes de continuar.
+                </div>
+            }
+
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger">@ViewBag.Error</div>
+            }
+
+            <div class="card">
+                <div class="card-header">
+                    <h4>Cambiar Contraseña</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="CambiarContrasena" asp-controller="Home" method="post" class="needs-validation" novalidate>
+
+                        <input type="hidden" asp-for="IdUsuario" />
+
+                        <div class="form-group">
+                            <label asp-for="ContrasenaActual"></label>
+                            <input asp-for="ContrasenaActual" class="form-control" required autofocus />
+                            <span asp-validation-for="ContrasenaActual" class="text-danger small"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="ContrasenaNueva"></label>
+                            <input asp-for="ContrasenaNueva" class="form-control" required minlength="6" />
+                            <span asp-validation-for="ContrasenaNueva" class="text-danger small"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="ConfirmarContrasena"></label>
+                            <input asp-for="ConfirmarContrasena" class="form-control" required />
+                            <span asp-validation-for="ConfirmarContrasena" class="text-danger small"></span>
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <button type="submit" class="btn btn-primary">Actualizar contraseña</button>
+
+                            @if (ViewBag.Obligatorio != true)
+                            {
+                                <a asp-action="Dashboard" asp-controller="Home" class="btn btn-light">Cancelar</a>
+                            }
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

@@ -15,6 +15,11 @@
             <div class="card-header"><h4>Iniciar Sesión</h4></div>
 
             <div class="card-body">
+                @if (TempData["Success"] != null)
+                {
+                    <div class="alert alert-success">@TempData["Success"]</div>
+                }
+
                 @if (ViewBag.Error != null)
                 {
                     <div class="alert alert-danger">@ViewBag.Error</div>
@@ -42,7 +47,7 @@
                         <button type="submit" class="btn btn-primary btn-lg btn-block">Ingresar</button>
                     </div>
                 </form>
-                
+
             </div>
         </div>
 

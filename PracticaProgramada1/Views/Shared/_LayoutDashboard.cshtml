@@ -153,6 +153,16 @@
 
                             </a>
 
+                            <a asp-controller="Home"
+                               asp-action="CambiarContrasena"
+                               class="dropdown-item has-icon">
+
+                                <i class="fas fa-key"></i>
+
+                                Cambiar contraseña
+
+                            </a>
+
                             <div class="dropdown-divider"></div>
 
                             <a asp-controller="Home"
@@ -212,9 +222,9 @@
                         </li>
 
                         <li class="@(EsControlador("Home")
-                                                        && accionActual == "Dashboard"
-                                                            ? "active"
-                                                            : "")">
+                                                                                    && accionActual == "Dashboard"
+                                                                                        ? "active"
+                                                                                        : "")">
 
                             <a asp-controller="Home"
                                asp-action="Dashboard"
@@ -236,8 +246,8 @@
                         </li>
 
                         <li class="@(EsControlador("Estudiantes")
-                                                        ? "active"
-                                                        : "")">
+                                                                                    ? "active"
+                                                                                    : "")">
 
                             <a asp-controller="Estudiantes"
                                asp-action="Index"
@@ -252,8 +262,8 @@
                         </li>
 
                         <li class="@(EsControlador("Profesores")
-                                                        ? "active"
-                                                        : "")">
+                                                                                    ? "active"
+                                                                                    : "")">
 
                             <a asp-controller="Profesores"
                                asp-action="Index"
@@ -275,8 +285,8 @@
                         </li>
 
                         <li class="@(EsControlador("Cursos")
-                                                        ? "active"
-                                                        : "")">
+                                                                                    ? "active"
+                                                                                    : "")">
 
                             <a asp-controller="Cursos"
                                asp-action="Index"
@@ -291,8 +301,8 @@
                         </li>
 
                         <li class="@(EsControlador("Matriculas")
-                                                        ? "active"
-                                                        : "")">
+                                                                                    ? "active"
+                                                                                    : "")">
 
                             <a asp-controller="Matriculas"
                                asp-action="Index"
@@ -307,8 +317,8 @@
                         </li>
 
                         <li class="@(EsControlador("Calificaciones")
-                                                        ? "active"
-                                                        : "")">
+                                                                                    ? "active"
+                                                                                    : "")">
 
                             <a asp-controller="Calificaciones"
                                asp-action="Index"
@@ -323,8 +333,8 @@
                         </li>
 
                         <li class="@(EsControlador("Asistencias")
-                                                        ? "active"
-                                                        : "")">
+                                                                                    ? "active"
+                                                                                    : "")">
 
                             <a asp-controller="Asistencias"
                                asp-action="Index"
@@ -346,8 +356,8 @@
                         </li>
 
                         <li class="@(EsControlador("Eventos")
-                                                        ? "active"
-                                                        : "")">
+                                                                                    ? "active"
+                                                                                    : "")">
 
                             <a asp-controller="Eventos"
                                asp-action="Index"
@@ -362,8 +372,8 @@
                         </li>
 
                         <li class="@(EsControlador("Notificaciones")
-                                                        ? "active"
-                                                        : "")">
+                                                                                    ? "active"
+                                                                                    : "")">
 
                             <a asp-controller="Notificaciones"
                                asp-action="Index"

@@ -1,3 +1,5 @@
+@model PracticaProgramada1.Models.RecuperarModel
+
 <div class="container-xxl">
     <div class="authentication-wrapper authentication-basic container-p-y">
         <div class="authentication-inner py-4">
@@ -12,25 +14,30 @@
                             </span>
                             <a asp-action="Index" asp-controller="Home">
                                 <p class="mb-3"><img src="/img/stisla.png" alt="logo" width="50" class="shadow-light rounded-circle"></p>
-                                </a>
+                            </a>
                         </a>
                     </div>
                     <!-- /Logo -->
 
                     <h4 class="mb-3">¿Olvidaste tu contraseña? 🔒</h4>
-                    <p class="mb-3">Ingresa tu correo electrónico y te enviaremos instrucciones para restablecer tu contraseña</p>
+                    <p class="mb-3">Ingresa tu correo electrónico y te enviaremos una contraseña temporal</p>
 
-                    <form id="formAuthentication" class="mb-3" action="Index" method="POST">
+                    @if (ViewBag.Error != null)
+                    {
+                        <div class="alert alert-danger">@ViewBag.Error</div>
+                    }
+
+                    <form id="formAuthentication" class="mb-3" asp-action="Recuperar" asp-controller="Home" method="post">
                         <div class="mb-3">
-                            <label for="email" class="form-label">Correo electrónico</label>
-                            <input type="text"
+                            <label asp-for="Correo" class="form-label">Correo electrónico</label>
+                            <input asp-for="Correo"
+                                   type="text"
                                    class="form-control"
-                                   id="email"
-                                   name="email"
                                    placeholder="Ingresa tu correo electrónico"
                                    autofocus />
+                            <span asp-validation-for="Correo" class="text-danger small"></span>
                         </div>
-                        <button class="btn btn-primary d-grid w-100">Enviar enlace de recuperación</button>
+                        <button type="submit" class="btn btn-primary d-grid w-100">Enviar contraseña temporal</button>
                     </form>
 
                     <div class="text-center">

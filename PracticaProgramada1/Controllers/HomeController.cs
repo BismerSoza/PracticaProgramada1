@@ -56,6 +56,13 @@ namespace PracticaProgramada1.Controllers
                         HttpContext.Session.SetString("NombreRol", datos.NombreRol ?? "Usuario");
                         HttpContext.Session.SetString("TipoUsuario", datos.TipoUsuario ?? "Usuario");
 
+
+                        if (datos.IndicadorTemp)
+                        {
+                            HttpContext.Session.SetString("CambioObligatorio", "1");
+                            return RedirectToAction("CambiarContrasena", "Home");
+                        }
+
                         return RedirectToAction("Dashboard", "Home");
                     }
                 }
@@ -83,8 +90,73 @@ namespace PracticaProgramada1.Controllers
         [SessionAuthorize]
         public IActionResult Dashboard()
         {
+            /*
+             * Si todavía tiene pendiente el cambio de contraseña
+             * obligatorio, lo mandamos de vuelta aunque intente
+             * entrar directo por la URL del dashboard.
+             */
+            if (HttpContext.Session.GetString("CambioObligatorio") == "1")
+                return RedirectToAction("CambiarContrasena", "Home");
+
             return View();
         }
+
+        #region Cambiar Contraseña
+
+        [SessionAuthorize]
+        [HttpGet]
+        public IActionResult CambiarContrasena()
+        {
+            var model = new CambiarContrasenaModel
+            {
+                IdUsuario = HttpContext.Session.GetInt32("IdUsuario") ?? 0
+            };
+
+            ViewBag.Obligatorio = HttpContext.Session.GetString("CambioObligatorio") == "1";
+
+            return View(model);
+        }
+
+        [SessionAuthorize]
+        [HttpPost]
+        public async Task<IActionResult> CambiarContrasena(CambiarContrasenaModel model)
+        {
+            model.IdUsuario = HttpContext.Session.GetInt32("IdUsuario") ?? 0;
+            ViewBag.Obligatorio = HttpContext.Session.GetString("CambioObligatorio") == "1";
+
+            if (!ModelState.IsValid)
+                return View(model);
+
+            try
+            {
+                using var client = _http.CreateClient();
+                var urlApi = _config["Valores:UrlApi"] + "Login/cambiar-contrasena";
+
+                var response = await client.PostAsJsonAsync(urlApi, model);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    /*
+                     * Ya estableció una contraseña definitiva:
+                     * quitamos la bandera y lo dejamos pasar
+                     * al dashboard.
+                     */
+                    HttpContext.Session.Remove("CambioObligatorio");
+                    TempData["Success"] = "Contraseña actualizada correctamente.";
+                    return RedirectToAction("Dashboard", "Home");
+                }
+
+                ViewBag.Error = await response.Content.ReadAsStringAsync();
+                return View(model);
+            }
+            catch (Exception)
+            {
+                ViewBag.Error = "Ocurrió un error al conectar con el servidor.";
+                return View(model);
+            }
+        }
+
+        #endregion
 
         [HttpGet]
         public IActionResult Registro()
@@ -131,6 +203,35 @@ namespace PracticaProgramada1.Controllers
         public IActionResult Recuperar()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Recuperar(RecuperarModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            try
+            {
+                using var client = _http.CreateClient();
+                var urlApi = _config["Valores:UrlApi"] + "Login/recuperar-acceso";
+
+                var response = await client.PostAsJsonAsync(urlApi, model);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    TempData["Success"] = "Se ha enviado una contraseña temporal a su correo.";
+                    return RedirectToAction("Index");
+                }
+
+                ViewBag.Error = await response.Content.ReadAsStringAsync();
+                return View(model);
+            }
+            catch (Exception)
+            {
+                ViewBag.Error = "Ocurrió un error al conectar con el servidor.";
+                return View(model);
+            }
         }
 
         [SessionAuthorize]
